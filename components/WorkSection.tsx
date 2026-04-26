@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { projects, type Project } from "@/lib/projects";
-import ProjectDrawer from "./ProjectDrawer";
-
 
 function CardImage({ id }: { id: string }) {
   if (id === "estatenews") {
@@ -52,15 +50,8 @@ function CardImage({ id }: { id: string }) {
   );
 }
 
-function ProjectCard({
-  project,
-  index,
-  onOpen,
-}: {
-  project: Project;
-  index: number;
-  onOpen: (p: Project) => void;
-}) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const router = useRouter();
   const isInternal = project.id === "internal";
 
   return (
@@ -72,7 +63,8 @@ function ProjectCard({
       className={`project-card${isInternal ? " project-nda" : ""}`}
       onClick={(e) => {
         if ((e.target as Element).closest('a[target="_blank"]')) return;
-        onOpen(project);
+        if ((e.target as Element).closest('a[href="#contact"]')) return;
+        router.push(`/projects/${project.id}`);
       }}
     >
       <div className="project-image" style={isInternal ? { aspectRatio: "16/5" } : undefined}>
@@ -134,8 +126,6 @@ function ProjectCard({
 }
 
 export default function WorkSection() {
-  const [active, setActive] = useState<Project | null>(null);
-
   return (
     <section id="work">
       <motion.div
@@ -151,11 +141,9 @@ export default function WorkSection() {
 
       <div>
         {projects.map((p, i) => (
-          <ProjectCard key={p.id} project={p} index={i} onOpen={setActive} />
+          <ProjectCard key={p.id} project={p} index={i} />
         ))}
       </div>
-
-      <ProjectDrawer project={active} onClose={() => setActive(null)} />
     </section>
   );
 }
