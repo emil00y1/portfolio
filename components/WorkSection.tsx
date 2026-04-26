@@ -9,7 +9,7 @@ function CardImage({ id }: { id: string }) {
     return (
       <div className="project-image-inner ph-estatenews" style={{ flexDirection: "column", gap: 16 }}>
         <svg width="480" height="120" viewBox="0 0 480 120" fill="none" style={{ maxWidth: "80%", opacity: 0.6 }}>
-          <rect x="0" y="8" width="160" height="14" rx="3" fill="#F5622E" />
+          <rect x="0" y="8" width="160" height="14" rx="3" fill="#888888" />
           <rect x="0" y="36" width="340" height="22" rx="3" fill="white" fillOpacity="0.2" />
           <rect x="0" y="68" width="300" height="12" rx="2" fill="white" fillOpacity="0.1" />
           <rect x="0" y="86" width="260" height="12" rx="2" fill="white" fillOpacity="0.1" />
@@ -23,27 +23,27 @@ function CardImage({ id }: { id: string }) {
     return (
       <div className="project-image-inner ph-allegade" style={{ flexDirection: "column", gap: 16 }}>
         <svg width="480" height="100" viewBox="0 0 480 100" fill="none" style={{ maxWidth: "80%", opacity: 0.5 }}>
-          <rect x="160" y="0" width="160" height="60" rx="6" fill="#C4B5A5" />
-          <rect x="140" y="60" width="200" height="8" rx="2" fill="#A8967F" />
-          <rect x="180" y="75" width="120" height="6" rx="2" fill="#A8967F" fillOpacity="0.5" />
-          <rect x="0" y="20" width="120" height="6" rx="2" fill="#A8967F" fillOpacity="0.3" />
-          <rect x="0" y="32" width="90" height="6" rx="2" fill="#A8967F" fillOpacity="0.2" />
-          <rect x="360" y="20" width="120" height="6" rx="2" fill="#A8967F" fillOpacity="0.3" />
-          <rect x="380" y="32" width="80" height="6" rx="2" fill="#A8967F" fillOpacity="0.2" />
+          <rect x="160" y="0" width="160" height="60" rx="6" fill="#BBBBBB" />
+          <rect x="140" y="60" width="200" height="8" rx="2" fill="#999999" />
+          <rect x="180" y="75" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.5" />
+          <rect x="0" y="20" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.3" />
+          <rect x="0" y="32" width="90" height="6" rx="2" fill="#999999" fillOpacity="0.2" />
+          <rect x="360" y="20" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.3" />
+          <rect x="380" y="32" width="80" height="6" rx="2" fill="#999999" fillOpacity="0.2" />
         </svg>
-        <span className="ph-label" style={{ color: "#A8967F", fontSize: 11 }}>allegade10.dk</span>
+        <span className="ph-label" style={{ color: "#999999", fontSize: 11 }}>allegade10.dk</span>
       </div>
     );
   }
   return (
     <div className="project-image-inner ph-internal" style={{ flexDirection: "column", gap: 12 }}>
       <svg width="320" height="60" viewBox="0 0 320 60" fill="none" style={{ maxWidth: "80%", opacity: 0.35 }}>
-        <rect x="0" y="4" width="80" height="8" rx="2" fill="#6E5E4C" />
-        <rect x="0" y="22" width="220" height="14" rx="3" fill="#6E5E4C" />
-        <rect x="0" y="46" width="160" height="8" rx="2" fill="#6E5E4C" />
-        <rect x="240" y="4" width="80" height="52" rx="4" fill="#E0D2C5" />
+        <rect x="0" y="4" width="80" height="8" rx="2" fill="#555555" />
+        <rect x="0" y="22" width="220" height="14" rx="3" fill="#555555" />
+        <rect x="0" y="46" width="160" height="8" rx="2" fill="#555555" />
+        <rect x="240" y="4" width="80" height="52" rx="4" fill="#E0E0E0" />
       </svg>
-      <span className="ph-label" style={{ color: "#C4B5A5", fontSize: 11, letterSpacing: "0.15em" }}>
+      <span className="ph-label" style={{ color: "#AAAAAA", fontSize: 11, letterSpacing: "0.15em" }}>
         NDA · Details on request
       </span>
     </div>
