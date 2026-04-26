@@ -1,6 +1,7 @@
 export interface Project {
   id: string;
   eyebrow: string;
+  year: string;
   title: string;
   cat: string;
   desc: string;
@@ -17,6 +18,7 @@ export const projects: Project[] = [
   {
     id: "estatenews",
     eyebrow: "01 — Real Estate Media",
+    year: "2025",
     title: "EstateNews",
     cat: "Media platform",
     desc: "A modern real estate news and media platform serving curated property market coverage to Danish audiences. Built to handle high editorial volume with a clean reading experience and strong SEO fundamentals.",
@@ -31,6 +33,7 @@ export const projects: Project[] = [
   {
     id: "allegade",
     eyebrow: "02 — Property Platform",
+    year: "2026",
     title: "Allegade 10",
     cat: "Property platform",
     desc: "An interactive platform for Allegade 10 — making it easy for prospective buyers and renters to explore the property, its units, and availability in a clear, modern interface. Launching soon.",
@@ -45,6 +48,7 @@ export const projects: Project[] = [
   {
     id: "internal",
     eyebrow: "03+ — Internal & Client Work",
+    year: "2024 – 2026",
     title: "Internal Projects",
     cat: "Various",
     desc: "A range of tools, AI integrations, and client builds developed under NDA. These span internal business tooling, workflow automation, and customer-facing products across several industries.",

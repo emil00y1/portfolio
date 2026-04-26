@@ -72,7 +72,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </div>
       <div className="project-info">
         <div className="project-meta">
-          <div className="project-num">{project.eyebrow}</div>
+          <div className="project-num">
+            {project.eyebrow}
+            <span style={{ marginLeft: 12, color: "var(--fg-3)", fontWeight: 400 }}>{project.year}</span>
+          </div>
 
           {project.id === "allegade" ? (
             <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap", marginBottom: 8 }}>

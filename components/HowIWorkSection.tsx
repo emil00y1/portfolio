@@ -37,6 +37,9 @@ export default function HowIWorkSection() {
     >
       <div className="hiw-header">
         <span className="section-label">How I work</span>
+        <h2 className="hiw-heading" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
+          Four principles I don&apos;t compromise on.
+        </h2>
       </div>
       <div className="hiw-steps">
         {steps.map((s) => (

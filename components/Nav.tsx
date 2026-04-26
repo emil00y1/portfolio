@@ -30,7 +30,7 @@ export default function Nav() {
         <ul className="nav-links">
           <li><a href="/#work">Work</a></li>
           <li><a href="/#about">About</a></li>
-          <li><a href="/#stack">Stack</a></li>
+          <li><a href="/#libraries">Libraries</a></li>
           <li><a href="/#contact" className="nav-cta">Get in touch</a></li>
         </ul>
         <button
@@ -47,7 +47,7 @@ export default function Nav() {
       <div className={`menu-overlay${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
         <a href="/#work"    onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Work</a>
         <a href="/#about"   onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>About</a>
-        <a href="/#stack"   onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Stack</a>
+        <a href="/#libraries" onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Libraries</a>
         <a href="/#contact" onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Contact</a>
         <div className="menu-bottom">emil@example.com</div>
       </div>
