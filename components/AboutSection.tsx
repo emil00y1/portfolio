@@ -9,19 +9,10 @@ const fadeInUp = {
   viewport: { once: true, margin: "-50px" },
 };
 
-const stack = {
-  Frontend: ["React", "Next.js", "TypeScript", "Tailwind"],
-  Backend:  ["Node.js", "PostgreSQL", "GraphQL", "Supabase"],
-  "AI & Tools": ["OpenAI API", "LangChain", "Vercel", "Git"],
-};
-
 export default function AboutSection() {
   return (
     <section className="about" id="about">
-      <motion.div
-        className="about-left"
-        {...fadeInUp}
-      >
+      <motion.div {...fadeInUp}>
         <div className="about-label section-label">About</div>
         <h2
           className="about-heading"
@@ -40,32 +31,25 @@ export default function AboutSection() {
             in the browser. Lately I&apos;ve been integrating AI into development workflows to move
             faster without cutting corners.
           </p>
-          <p>
-            I&apos;m currently open to new projects — whether that&apos;s a focused product build,
-            a technical collaboration, or a longer engagement.
-          </p>
         </div>
-      </motion.div>
-
-      <motion.div
-        className="about-right"
-        id="stack"
-        {...fadeInUp}
-        transition={{ duration: 0.7, ease: "easeInOut" as const, delay: 0.15 }}
-      >
-        <div className="stack-label section-label">Stack</div>
-        {Object.entries(stack).map(([category, items], i) => (
-          <div key={category}>
-            <div className="stack-category" style={i === 0 ? { marginTop: 0 } : undefined}>
-              {category}
-            </div>
-            <div className="stack-grid">
-              {items.map((item) => (
-                <div key={item} className="stack-item">{item}</div>
-              ))}
-            </div>
+        <div className="about-status">
+          <span className="status-dot" />
+          <span>Available for new projects — Copenhagen-based, remote-friendly</span>
+        </div>
+        <div className="about-facts">
+          <div className="about-fact">
+            <span className="fact-num">3+</span>
+            <span className="fact-label">years full stack</span>
           </div>
-        ))}
+          <div className="about-fact">
+            <span className="fact-num">10+</span>
+            <span className="fact-label">products shipped</span>
+          </div>
+          <div className="about-fact">
+            <span className="fact-num">2</span>
+            <span className="fact-label">live public platforms</span>
+          </div>
+        </div>
       </motion.div>
     </section>
   );

@@ -24,6 +24,9 @@ export default function ContactSection() {
         >
           Send me an email ↗
         </a>
+        <p style={{ fontSize: 13, color: "var(--fg-3)", marginTop: 12, lineHeight: 1.5 }}>
+          Usually respond within 24 hours.
+        </p>
       </div>
 
       <div className="contact-right">

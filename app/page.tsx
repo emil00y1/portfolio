@@ -16,9 +16,9 @@ export default function Home() {
       <main>
         <Hero />
         <WorkSection />
-        <LibrariesSection />
         <HowIWorkSection />
         <AboutSection />
+        <LibrariesSection />
         <ContactSection />
       </main>
       <Footer />
