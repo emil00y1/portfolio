@@ -3,15 +3,15 @@
 import { motion } from "framer-motion";
 
 const ROW1 = [
-  "shadcn/ui", "Framer Motion", "Tailwind CSS", "Radix UI",
-  "TanStack Query", "Zustand", "Zod", "Vercel AI SDK",
-  "Drizzle ORM", "Next.js", "Motion One", "LangChain.js",
+  "HTML", "CSS", "JavaScript", "TypeScript",
+  "React.js", "Vue.js", "Next.js", "Node.js",
+  "Tailwind CSS", "shadcn/ui", "Radix UI", "PostgreSQL",
 ];
 
 const ROW2 = [
-  "Headless UI", "GSAP", "Supabase", "OpenAI Node",
-  "CSS Modules", "React Hook Form", "Prisma", "Recharts",
-  "tRPC", "Stitches", "Playwright", "Vitest",
+  "MySQL", "MongoDB", "Supabase", "Drizzle ORM",
+  "Zod", "React Hook Form", "Playwright", "Vitest",
+  "Git", "Docker", "Vercel", "Claude Code",
 ];
 
 function MarqueeRow({ items, reverse }: { items: string[]; reverse?: boolean }) {
@@ -60,12 +60,15 @@ export default function LibrariesSection() {
 
       <div className="lib-categories">
         {[
-          { label: "UI Components", items: ["shadcn/ui", "Radix UI", "Headless UI"] },
-          { label: "Animation",     items: ["Framer Motion", "GSAP", "Motion One"] },
-          { label: "Data & State",  items: ["Zustand", "TanStack Query", "Zod"] },
-          { label: "Styling",       items: ["Tailwind CSS", "CSS Modules", "Stitches"] },
-          { label: "AI / LLM",      items: ["Vercel AI SDK", "LangChain.js", "OpenAI Node"] },
-          { label: "Infrastructure",items: ["Vercel", "Supabase", "Drizzle ORM"] },
+          { label: "Languages",    items: ["HTML", "CSS", "JavaScript", "TypeScript"] },
+          { label: "Frameworks",   items: ["Next.js", "React.js", "Vue.js", "Node.js"] },
+          { label: "Databases",    items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase"] },
+          { label: "UI / Styling", items: ["shadcn/ui", "Tailwind CSS", "Radix UI", "Vuetify", "Material Design"] },
+          { label: "Libraries",    items: ["Zod", "React Hook Form", "Drizzle ORM"] },
+          { label: "Testing",      items: ["Playwright", "Vitest"] },
+          { label: "AI Tools",     items: ["Claude Code", "Gemini", "Codex"] },
+          { label: "DevOps",       items: ["Git", "Docker", "Vercel"] },
+          { label: "Services",     items: ["Sanity CMS", "Trigger.dev", "Mailgun"] },
         ].map(({ label, items }) => (
           <div key={label} className="lib-cat">
             <div className="lib-cat-label">{label}</div>

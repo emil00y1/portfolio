@@ -50,10 +50,6 @@ export default function Hero() {
         <p className="hero-bio">
           I build products people actually use — from database to browser, with AI where it counts.
         </p>
-        <div className="hero-status">
-          <span className="status-dot" />
-          <span>Open to work</span>
-        </div>
       </div>
       <div className="hero-year">Copenhagen · 2026</div>
       <div className="hero-scroll">Scroll</div>
