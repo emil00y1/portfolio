@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 
 const ROW1 = [
   "HTML", "CSS", "JavaScript", "TypeScript",
-  "React", "Vue.js", "Next.js", "Tailwind CSS",
-  "shadcn/ui", "Supabase", "Drizzle ORM", "PostgreSQL",
+  "React.js", "Vue.js", "Next.js", "Node.js",
+  "Tailwind CSS", "shadcn/ui", "Vuetify", "PostgreSQL",
 ];
 
 const ROW2 = [
-  "MySQL", "MongoDB", "Claude AI", "Gemini",
-  "OpenAI Codex", "TypeScript", "Next.js", "React",
-  "Tailwind CSS", "Supabase", "shadcn/ui", "Drizzle ORM",
+  "MySQL", "MongoDB", "Supabase", "Drizzle ORM",
+  "Git", "Docker", "Vercel", "Sanity CMS",
+  "Trigger.dev", "Mailgun", "Claude Code", "Gemini",
 ];
 
 function MarqueeRow({ items, reverse }: { items: string[]; reverse?: boolean }) {
@@ -60,12 +60,13 @@ export default function LibrariesSection() {
 
       <div className="lib-categories">
         {[
-          { label: "Languages",      items: ["HTML", "CSS", "JavaScript", "TypeScript"] },
-          { label: "Frameworks",     items: ["Next.js", "React", "Vue.js"] },
-          { label: "Databases",      items: ["PostgreSQL", "MySQL", "MongoDB"] },
-          { label: "UI / Styling",   items: ["shadcn/ui", "Tailwind CSS"] },
-          { label: "AI / LLM",       items: ["Claude AI", "Gemini", "OpenAI Codex"] },
-          { label: "Infrastructure", items: ["Supabase", "Drizzle ORM"] },
+          { label: "Languages",    items: ["HTML", "CSS", "JavaScript", "TypeScript"] },
+          { label: "Frameworks",   items: ["Next.js", "React.js", "Vue.js", "Node.js"] },
+          { label: "Databases",    items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase"] },
+          { label: "UI / Styling", items: ["shadcn/ui", "Tailwind CSS", "Vuetify", "Material Design"] },
+          { label: "AI Tools",     items: ["Claude Code", "Gemini", "Codex"] },
+          { label: "DevOps",       items: ["Git", "Docker", "Vercel"] },
+          { label: "Services",     items: ["Drizzle ORM", "Sanity CMS", "Trigger.dev", "Mailgun"] },
         ].map(({ label, items }) => (
           <div key={label} className="lib-cat">
             <div className="lib-cat-label">{label}</div>
