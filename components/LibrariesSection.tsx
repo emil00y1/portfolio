@@ -3,15 +3,15 @@
 import { motion } from "framer-motion";
 
 const ROW1 = [
-  "shadcn/ui", "Framer Motion", "Tailwind CSS", "Radix UI",
-  "TanStack Query", "Zustand", "Zod", "Vercel AI SDK",
-  "Drizzle ORM", "Next.js", "Motion One", "LangChain.js",
+  "HTML", "CSS", "JavaScript", "TypeScript",
+  "React", "Vue.js", "Next.js", "Tailwind CSS",
+  "shadcn/ui", "Supabase", "Drizzle ORM", "PostgreSQL",
 ];
 
 const ROW2 = [
-  "Headless UI", "GSAP", "Supabase", "OpenAI Node",
-  "CSS Modules", "React Hook Form", "Prisma", "Recharts",
-  "tRPC", "Stitches", "Playwright", "Vitest",
+  "MySQL", "MongoDB", "Claude AI", "Gemini",
+  "OpenAI Codex", "TypeScript", "Next.js", "React",
+  "Tailwind CSS", "Supabase", "shadcn/ui", "Drizzle ORM",
 ];
 
 function MarqueeRow({ items, reverse }: { items: string[]; reverse?: boolean }) {
@@ -60,12 +60,12 @@ export default function LibrariesSection() {
 
       <div className="lib-categories">
         {[
-          { label: "UI Components", items: ["shadcn/ui", "Radix UI", "Headless UI"] },
-          { label: "Animation",     items: ["Framer Motion", "GSAP", "Motion One"] },
-          { label: "Data & State",  items: ["Zustand", "TanStack Query", "Zod"] },
-          { label: "Styling",       items: ["Tailwind CSS", "CSS Modules", "Stitches"] },
-          { label: "AI / LLM",      items: ["Vercel AI SDK", "LangChain.js", "OpenAI Node"] },
-          { label: "Infrastructure",items: ["Vercel", "Supabase", "Drizzle ORM"] },
+          { label: "Languages",      items: ["HTML", "CSS", "JavaScript", "TypeScript"] },
+          { label: "Frameworks",     items: ["Next.js", "React", "Vue.js"] },
+          { label: "Databases",      items: ["PostgreSQL", "MySQL", "MongoDB"] },
+          { label: "UI / Styling",   items: ["shadcn/ui", "Tailwind CSS"] },
+          { label: "AI / LLM",       items: ["Claude AI", "Gemini", "OpenAI Codex"] },
+          { label: "Infrastructure", items: ["Supabase", "Drizzle ORM"] },
         ].map(({ label, items }) => (
           <div key={label} className="lib-cat">
             <div className="lib-cat-label">{label}</div>
