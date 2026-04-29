@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 const ROW1 = [
   "HTML", "CSS", "JavaScript", "TypeScript",
   "React.js", "Vue.js", "Next.js", "Node.js",
-  "Tailwind CSS", "shadcn/ui", "Vuetify", "PostgreSQL",
+  "Tailwind CSS", "shadcn/ui", "Radix UI", "PostgreSQL",
 ];
 
 const ROW2 = [
   "MySQL", "MongoDB", "Supabase", "Drizzle ORM",
-  "Git", "Docker", "Vercel", "Sanity CMS",
-  "Trigger.dev", "Mailgun", "Claude Code", "Gemini",
+  "Zod", "React Hook Form", "Playwright", "Vitest",
+  "Git", "Docker", "Vercel", "Claude Code",
 ];
 
 function MarqueeRow({ items, reverse }: { items: string[]; reverse?: boolean }) {
@@ -63,10 +63,12 @@ export default function LibrariesSection() {
           { label: "Languages",    items: ["HTML", "CSS", "JavaScript", "TypeScript"] },
           { label: "Frameworks",   items: ["Next.js", "React.js", "Vue.js", "Node.js"] },
           { label: "Databases",    items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase"] },
-          { label: "UI / Styling", items: ["shadcn/ui", "Tailwind CSS", "Vuetify", "Material Design"] },
+          { label: "UI / Styling", items: ["shadcn/ui", "Tailwind CSS", "Radix UI", "Vuetify", "Material Design"] },
+          { label: "Libraries",    items: ["Zod", "React Hook Form", "Drizzle ORM"] },
+          { label: "Testing",      items: ["Playwright", "Vitest"] },
           { label: "AI Tools",     items: ["Claude Code", "Gemini", "Codex"] },
           { label: "DevOps",       items: ["Git", "Docker", "Vercel"] },
-          { label: "Services",     items: ["Drizzle ORM", "Sanity CMS", "Trigger.dev", "Mailgun"] },
+          { label: "Services",     items: ["Sanity CMS", "Trigger.dev", "Mailgun"] },
         ].map(({ label, items }) => (
           <div key={label} className="lib-cat">
             <div className="lib-cat-label">{label}</div>
