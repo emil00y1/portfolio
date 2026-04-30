@@ -27,6 +27,11 @@ export default function AboutSection() {
             the micro-interactions, the performance, the clarity of an interface.
           </p>
           <p>
+            My background in Multimedia Design means I think about interfaces before I build them —
+            information hierarchy, component behaviour, and the small details that make something
+            feel right to use.
+          </p>
+          <p>
             I work across the full stack, from designing database schemas to crafting animations
             in the browser. Lately I&apos;ve been integrating AI into development workflows to move
             faster without cutting corners.
@@ -38,16 +43,8 @@ export default function AboutSection() {
         </div>
         <div className="about-facts">
           <div className="about-fact">
-            <span className="fact-num">3+</span>
-            <span className="fact-label">years full stack</span>
-          </div>
-          <div className="about-fact">
-            <span className="fact-num">10+</span>
+            <span className="fact-num">5+</span>
             <span className="fact-label">products shipped</span>
-          </div>
-          <div className="about-fact">
-            <span className="fact-num">2</span>
-            <span className="fact-label">live public platforms</span>
           </div>
         </div>
       </motion.div>

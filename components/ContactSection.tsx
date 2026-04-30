@@ -18,7 +18,7 @@ export default function ContactSection() {
           Let&apos;s build<br />something<span>.</span>
         </h2>
         <a
-          href="mailto:emil@example.com"
+          href="mailto:emilck@live.dk"
           className="btn btn-dark"
           style={{ fontSize: 15, padding: "14px 28px" }}
         >
@@ -30,12 +30,12 @@ export default function ContactSection() {
       </div>
 
       <div className="contact-right">
-        <a href="mailto:emil@example.com" className="contact-link">
+        <a href="mailto:emilck@live.dk" className="contact-link">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
             <path d="M1 5l7 5 7-5" stroke="currentColor" strokeWidth="1.5" />
           </svg>
-          emil@example.com
+          emilck@live.dk
         </a>
         <a
           href="https://linkedin.com/in/emilkristensen"

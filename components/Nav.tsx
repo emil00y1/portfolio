@@ -49,7 +49,7 @@ export default function Nav() {
         <a href="/#about"   onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>About</a>
         <a href="/#libraries" onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Libraries</a>
         <a href="/#contact" onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Contact</a>
-        <div className="menu-bottom">emil@example.com</div>
+        <div className="menu-bottom">emilck@live.dk</div>
       </div>
     </>
   );
