@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { projects } from "@/lib/projects";
 import Nav from "@/components/Nav";
 import Cursor from "@/components/Cursor";
@@ -19,7 +20,7 @@ export async function generateMetadata({
   const project = projects.find((p) => p.id === id);
   if (!project) return {};
   return {
-    title: `${project.title} — Emil Kristensen`,
+    title: `${project.title} | Emil Kristensen`,
     description: project.desc,
   };
 }
@@ -27,56 +28,30 @@ export async function generateMetadata({
 function ProjectHeroImage({ id }: { id: string }) {
   if (id === "estatenews") {
     return (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #3d3d3d 100%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 20,
-        }}
-      >
-        <svg width="560" height="140" viewBox="0 0 480 120" fill="none" style={{ maxWidth: "60%", opacity: 0.6 }}>
-          <rect x="0" y="8" width="160" height="14" rx="3" fill="#888888" />
-          <rect x="0" y="36" width="340" height="22" rx="3" fill="white" fillOpacity="0.2" />
-          <rect x="0" y="68" width="300" height="12" rx="2" fill="white" fillOpacity="0.1" />
-          <rect x="0" y="86" width="260" height="12" rx="2" fill="white" fillOpacity="0.1" />
-          <rect x="360" y="36" width="120" height="80" rx="4" fill="white" fillOpacity="0.08" />
-        </svg>
-        <span style={{ fontSize: 12, color: "rgba(255,255,255,0.2)", letterSpacing: "0.1em" }}>
-          estatenews.dk
-        </span>
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        <Image
+          src="/estatenews-live.png"
+          alt="EstateNews website preview"
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="100vw"
+          priority
+        />
       </div>
     );
   }
 
   if (id === "allegade") {
     return (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          background: "linear-gradient(135deg, #e8e8e8 0%, #d4d4d4 100%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 20,
-        }}
-      >
-        <svg width="480" height="120" viewBox="0 0 480 100" fill="none" style={{ maxWidth: "60%", opacity: 0.6 }}>
-          <rect x="160" y="0" width="160" height="60" rx="6" fill="#BBBBBB" />
-          <rect x="140" y="60" width="200" height="8" rx="2" fill="#999999" />
-          <rect x="180" y="75" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.5" />
-          <rect x="0" y="20" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.3" />
-          <rect x="0" y="32" width="90" height="6" rx="2" fill="#999999" fillOpacity="0.2" />
-          <rect x="360" y="20" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.3" />
-          <rect x="380" y="32" width="80" height="6" rx="2" fill="#999999" fillOpacity="0.2" />
-        </svg>
-        <span style={{ fontSize: 12, color: "#999999", letterSpacing: "0.1em" }}>allegade10.dk</span>
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        <Image
+          src="/allegade10-live.png"
+          alt="Allegade 10 website preview"
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="100vw"
+          priority
+        />
       </div>
     );
   }
@@ -145,10 +120,9 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          <div className="project-detail-tags">
-            {project.tags.map((t) => (
-              <span key={t} className="tag">{t}</span>
-            ))}
+          <div className="project-detail-tools" style={{ paddingTop: 32, borderTop: "1px solid var(--border)", marginBottom: 40 }}>
+            <div className="project-detail-meta-key">Technologies</div>
+            <div className="project-detail-meta-val" style={{ fontSize: 15 }}>{project.tags.join(" · ")}</div>
           </div>
 
           <div className="project-detail-actions">

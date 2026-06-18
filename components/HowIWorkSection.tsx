@@ -6,17 +6,17 @@ const steps = [
   {
     num: "01",
     title: "Understand first",
-    body: "Before writing a line of code I want to understand the problem — who it's for, what they need, and where things tend to go wrong. Good software starts with the right questions.",
+    body: "Before writing a line of code I want to understand the problem: who it's for, what they need, and where things tend to go wrong. Good software starts with the right questions.",
   },
   {
     num: "02",
     title: "Build lean, ship fast",
-    body: "I work iteratively — small, working increments over big-bang releases. I use AI tooling to accelerate the repetitive parts and spend the saved time on what actually matters: the details.",
+    body: "I work iteratively, focusing on small, working increments over big-bang releases. I use AI tooling to accelerate the repetitive parts and spend the saved time on what actually matters: the details.",
   },
   {
     num: "03",
     title: "Own the full stack",
-    body: "I handle both ends — database schema, API design, and the interface. Fewer handoff gaps, faster decisions, and a product that holds together end to end.",
+    body: "I handle both ends: database schema, API design, and the interface. Fewer handoff gaps, faster decisions, and a product that holds together end to end.",
   },
   {
     num: "04",

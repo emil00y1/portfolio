@@ -2,34 +2,6 @@
 
 import { motion } from "framer-motion";
 
-const ROW1 = [
-  "HTML", "CSS", "JavaScript", "TypeScript",
-  "React.js", "Vue.js", "Next.js", "Node.js",
-  "Tailwind CSS", "shadcn/ui", "Radix UI", "PostgreSQL",
-];
-
-const ROW2 = [
-  "MySQL", "MongoDB", "Supabase", "Drizzle ORM",
-  "Zod", "React Hook Form", "Playwright", "Vitest",
-  "Git", "Docker", "Vercel", "Claude Code",
-];
-
-function MarqueeRow({ items, reverse }: { items: string[]; reverse?: boolean }) {
-  const doubled = [...items, ...items];
-  return (
-    <div className="marquee-wrap">
-      <div className={reverse ? "marquee-track-reverse" : "marquee-track"}>
-        {doubled.map((name, i) => (
-          <div key={i} className="lib-chip">
-            <div className="lib-chip-dot" />
-            {name}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function LibrariesSection() {
   return (
     <motion.section
@@ -50,13 +22,10 @@ export default function LibrariesSection() {
           </h2>
         </div>
         <p>
-          I lean on battle-tested libraries to move fast and ship quality —
+          I lean on battle-tested libraries to move fast and ship quality,
           picking the right tool for each layer rather than reinventing the wheel.
         </p>
       </div>
-
-      <MarqueeRow items={ROW1} />
-      <MarqueeRow items={ROW2} reverse />
 
       <div className="lib-categories">
         {[

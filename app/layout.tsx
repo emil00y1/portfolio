@@ -18,9 +18,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Emil Kristensen — Full Stack Developer",
+  title: "Emil Kristensen | AI & Full Stack Developer",
   description:
-    "Full stack developer based in Copenhagen. Building products people actually use — from database to browser, with AI where it counts.",
+    "AI & Full Stack Developer based in Copenhagen. Specialized in AI integrations, LLMs, and building high-performance web products.",
 };
 
 export default function RootLayout({
@@ -29,7 +29,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${dmSans.variable}`} suppressHydrationWarning data-scroll-behavior="smooth">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

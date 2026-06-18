@@ -1,50 +1,63 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import Image from "next/image";
 import { projects, type Project } from "@/lib/projects";
 
 function CardImage({ id }: { id: string }) {
   if (id === "estatenews") {
     return (
-      <div className="project-image-inner ph-estatenews" style={{ flexDirection: "column", gap: 16 }}>
-        <svg width="480" height="120" viewBox="0 0 480 120" fill="none" style={{ maxWidth: "80%", opacity: 0.6 }}>
-          <rect x="0" y="8" width="160" height="14" rx="3" fill="#888888" />
-          <rect x="0" y="36" width="340" height="22" rx="3" fill="white" fillOpacity="0.2" />
-          <rect x="0" y="68" width="300" height="12" rx="2" fill="white" fillOpacity="0.1" />
-          <rect x="0" y="86" width="260" height="12" rx="2" fill="white" fillOpacity="0.1" />
-          <rect x="360" y="36" width="120" height="80" rx="4" fill="white" fillOpacity="0.08" />
-        </svg>
-        <span className="ph-label" style={{ color: "rgba(255,255,255,0.2)", fontSize: 11 }}>estatenews.dk</span>
+      <div className="project-image-inner">
+        <Image
+          src="/estatenews-live.png"
+          alt="EstateNews website preview"
+          fill
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          style={{ objectFit: "cover" }}
+          priority
+        />
       </div>
     );
   }
   if (id === "allegade") {
     return (
-      <div className="project-image-inner ph-allegade" style={{ flexDirection: "column", gap: 16 }}>
-        <svg width="480" height="100" viewBox="0 0 480 100" fill="none" style={{ maxWidth: "80%", opacity: 0.5 }}>
-          <rect x="160" y="0" width="160" height="60" rx="6" fill="#BBBBBB" />
-          <rect x="140" y="60" width="200" height="8" rx="2" fill="#999999" />
-          <rect x="180" y="75" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.5" />
-          <rect x="0" y="20" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.3" />
-          <rect x="0" y="32" width="90" height="6" rx="2" fill="#999999" fillOpacity="0.2" />
-          <rect x="360" y="20" width="120" height="6" rx="2" fill="#999999" fillOpacity="0.3" />
-          <rect x="380" y="32" width="80" height="6" rx="2" fill="#999999" fillOpacity="0.2" />
-        </svg>
-        <span className="ph-label" style={{ color: "#999999", fontSize: 11 }}>allegade10.dk</span>
+      <div className="project-image-inner">
+        <Image
+          src="/allegade10-live.png"
+          alt="Allegade 10 website preview"
+          fill
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          style={{ objectFit: "cover" }}
+        />
       </div>
     );
   }
   return (
-    <div className="project-image-inner ph-internal" style={{ flexDirection: "column", gap: 12 }}>
-      <svg width="320" height="60" viewBox="0 0 320 60" fill="none" style={{ maxWidth: "80%", opacity: 0.35 }}>
-        <rect x="0" y="4" width="80" height="8" rx="2" fill="#555555" />
-        <rect x="0" y="22" width="220" height="14" rx="3" fill="#555555" />
-        <rect x="0" y="46" width="160" height="8" rx="2" fill="#555555" />
-        <rect x="240" y="4" width="80" height="52" rx="4" fill="#E0E0E0" />
+    <div
+      className="project-image-inner ph-internal"
+      style={{
+        flexDirection: "column",
+        gap: 16,
+      }}
+    >
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="var(--brand)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        style={{ opacity: 0.8 }}
+      >
+        <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
-      <span className="ph-label" style={{ color: "#AAAAAA", fontSize: 11, letterSpacing: "0.15em" }}>
-        NDA · Details on request
+      <span className="ph-label" style={{ color: "var(--fg-3)", fontSize: 10, letterSpacing: "0.15em" }}>
+        Confidential Case Studies
       </span>
     </div>
   );
@@ -64,10 +77,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       onClick={(e) => {
         if ((e.target as Element).closest('a[target="_blank"]')) return;
         if ((e.target as Element).closest('a[href="#contact"]')) return;
-        router.push(`/projects/${project.id}`);
+        if (isInternal) {
+          router.push("#contact");
+        } else {
+          router.push(`/projects/${project.id}`);
+        }
       }}
     >
-      <div className="project-image" style={isInternal ? { aspectRatio: "16/5" } : undefined}>
+      <div className="project-image">
         <CardImage id={project.id} />
       </div>
       <div className="project-info">
@@ -77,51 +94,23 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <span style={{ marginLeft: 12, color: "var(--fg-3)", fontWeight: 400 }}>{project.year}</span>
           </div>
 
-          {project.id === "allegade" ? (
-            <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap", marginBottom: 8 }}>
-              <div
-                className="project-title"
-                style={{ marginBottom: 0, fontFamily: "var(--font-jakarta), sans-serif" }}
-              >
-                {project.title}
-              </div>
-              <span className="soon-badge">Launching soon</span>
-            </div>
-          ) : (
-            <div
-              className="project-title"
-              style={{
-                fontFamily: "var(--font-jakarta), sans-serif",
-                fontSize: isInternal ? "clamp(18px,2.5vw,28px)" : undefined,
-              }}
-            >
-              {project.title}
-            </div>
-          )}
+          <div
+            className="project-title"
+            style={{
+              fontFamily: "var(--font-jakarta), sans-serif",
+              fontSize: isInternal ? "clamp(18px,2.5vw,28px)" : undefined,
+            }}
+          >
+            {project.title}
+          </div>
 
           <p className="project-desc">{project.desc}</p>
-          <div className="project-tags">
-            {project.tags.map((t) => <span key={t} className="tag">{t}</span>)}
+          <div className="project-tools" style={{ fontSize: 13, color: "var(--fg-3)", marginTop: 8 }}>
+            {project.tags.join(" · ")}
           </div>
-          <div className="project-card-hint">View details →</div>
-        </div>
-
-        <div className="project-link">
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="arrow-link"
-              title={`Visit ${project.title}`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              ↗
-            </a>
-          )}
-          {isInternal && (
-            <a href="#contact" className="arrow-link" onClick={(e) => e.stopPropagation()}>→</a>
-          )}
+          <div className="project-card-hint">
+            {isInternal ? "Get in touch →" : "View details →"}
+          </div>
         </div>
       </div>
     </motion.article>
@@ -129,8 +118,28 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export default function WorkSection() {
+  const router = useRouter();
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 220, mass: 0.6 };
+  const xSpring = useSpring(mouseX, springConfig);
+  const ySpring = useSpring(mouseY, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      // Offset slightly to keep cursor visible and clickable
+      mouseX.set(e.clientX + 24);
+      mouseY.set(e.clientY + 24);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
   return (
-    <section id="work">
+    <section id="work" style={{ position: "relative" }}>
       <motion.div
         className="work-header"
         initial={{ opacity: 0, y: 24 }}
@@ -139,13 +148,137 @@ export default function WorkSection() {
         viewport={{ once: true, margin: "-50px" }}
       >
         <h2 style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Selected Work</h2>
-        <span className="section-label">2024 — 2026</span>
+        <span className="section-label">2024 - 2026</span>
       </motion.div>
 
-      <div>
-        {projects.map((p, i) => (
-          <ProjectCard key={p.id} project={p} index={i} />
-        ))}
+      {/* Full-width row-list view (all viewports) */}
+      <div className="project-list">
+        {projects.map((project) => {
+          const isInternal = project.id === "internal";
+          return (
+            <div
+              key={project.id}
+              className={`project-row ${isInternal ? "project-row-nda" : ""}`}
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              onClick={() => {
+                if (isInternal) {
+                  const el = document.getElementById("contact");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  router.push(`/projects/${project.id}`);
+                }
+              }}
+            >
+              <span className="project-row-index">{project.eyebrow.split(" - ")[0]}</span>
+              <div className="project-row-info">
+                <h3 className="project-row-title">{project.title}</h3>
+                <span className="project-row-cat">{project.cat}</span>
+              </div>
+              <div className="project-row-tech hidden md:block">
+                {project.tags.join(" · ")}
+              </div>
+              <div className="project-row-meta">
+                <span className="project-row-year">{project.year}</span>
+                <span className="project-row-arrow">↗</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Mouse-following preview tooltip (desktop only) */}
+      <div className="hidden lg:block">
+        <motion.div
+          className="floating-preview"
+          style={{
+            position: "fixed",
+            left: 0,
+            top: 0,
+            x: xSpring,
+            y: ySpring,
+            pointerEvents: "none",
+            zIndex: 1000,
+            width: hoveredId === "internal" ? 280 : 420,
+            height: hoveredId === "internal" ? 185 : 260,
+            overflow: "hidden",
+            borderRadius: "6px",
+            border: "1px solid var(--border)",
+            boxShadow: "0 20px 48px rgba(0, 0, 0, 0.12)",
+            background: hoveredId === "internal" ? "linear-gradient(135deg, #161616 0%, #222222 100%)" : "var(--bg)",
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{
+            opacity: hoveredId ? 1 : 0,
+            scale: hoveredId ? 1 : 0.8,
+          }}
+          transition={{ duration: 0.15, ease: "easeOut" }}
+        >
+          {hoveredId === "estatenews" && (
+            <div style={{ position: "relative", width: "100%", height: "100%" }}>
+              <Image
+                src="/estatenews-live.png"
+                alt="EstateNews preview"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
+          )}
+          {hoveredId === "allegade" && (
+            <div style={{ position: "relative", width: "100%", height: "100%" }}>
+              <Image
+                src="/allegade10-live.png"
+                alt="Allegade 10 preview"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
+          )}
+          {hoveredId === "internal" && (
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 12,
+                padding: 24,
+                textAlign: "center",
+              }}
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--brand)"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <span
+                style={{
+                  fontSize: 10,
+                  color: "rgba(255, 255, 255, 0.4)",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                }}
+              >
+                NDA Protected
+              </span>
+            </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );

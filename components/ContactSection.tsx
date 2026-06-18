@@ -15,18 +15,29 @@ export default function ContactSection() {
       <div className="contact-left">
         <div className="section-label" style={{ marginBottom: 20 }}>Contact</div>
         <h2 style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
-          Let&apos;s build<br />something<span>.</span>
+          Let&apos;s build<br />something
         </h2>
         <a
           href="mailto:emilck@live.dk"
-          className="btn btn-dark"
-          style={{ fontSize: 15, padding: "14px 28px" }}
+          className="btn btn-brand"
+          style={{ fontSize: 15, padding: "14px 28px", display: "inline-flex", alignItems: "center" }}
         >
-          Send me an email ↗
+          Send me an email
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ marginLeft: 6 }}
+          >
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
         </a>
-        <p style={{ fontSize: 13, color: "var(--fg-3)", marginTop: 12, lineHeight: 1.5 }}>
-          Usually respond within 24 hours.
-        </p>
       </div>
 
       <div className="contact-right">
