@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -21,6 +23,27 @@ export const metadata: Metadata = {
   title: "Emil Kristensen | AI & Full Stack Developer",
   description:
     "AI & Full Stack Developer based in Copenhagen. Specialized in AI integrations, LLMs, and building high-performance web products.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
+  },
+  openGraph: {
+    title: "Emil Kristensen | AI & Full Stack Developer",
+    description:
+      "AI & Full Stack Developer based in Copenhagen. Specialized in AI integrations, LLMs, and building high-performance web products.",
+    url: "https://emilkristensen.dk",
+    siteName: "Emil Kristensen",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Emil Kristensen | AI & Full Stack Developer",
+    description:
+      "AI & Full Stack Developer based in Copenhagen. Specialized in AI integrations, LLMs, and building high-performance web products.",
+  },
 };
 
 export default function RootLayout({
@@ -45,7 +68,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ScrollProgress />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

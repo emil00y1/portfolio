@@ -2,14 +2,28 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useTheme } from "@/lib/useTheme";
 import { projects } from "@/lib/projects";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import ThemeToggle from "@/components/ThemeToggle";
+import ELogo from "@/components/ELogo";
+
+const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
-  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -17,101 +31,101 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-
-  const close = () => setMenuOpen(false);
-
   return (
-    <>
+    <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
       <nav className={`${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`}>
-        <Link href="/" className="nav-logo" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
+        <Link href="/" className="nav-logo" style={jakarta}>
+          <ELogo size={26} className="nav-logo-mark" />
           Emil Kristensen
         </Link>
         <ul className="nav-links">
-          <li><Link href="/#work">Work</Link></li>
+          <li className="nav-work-item">
+            <Link href="/#work" className="nav-work-trigger">
+              Work
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" className="nav-work-chevron">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
+            <div className="nav-dropdown">
+              <div className="nav-dropdown-inner">
+                {projects.map((p) => (
+                  <Link
+                    key={p.id}
+                    href={p.id === "internal" ? "/#contact" : `/projects/${p.id}`}
+                    className="nav-dropdown-item"
+                  >
+                    <span className="nav-dropdown-num">{p.eyebrow.split(" - ")[0]}</span>
+                    <span>{p.title}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </li>
           <li><Link href="/#about">About</Link></li>
           <li><Link href="/#libraries">Libraries</Link></li>
           <li><Link href="/#contact" className="nav-cta">Get in touch</Link></li>
         </ul>
-        <button
-          className={`burger${menuOpen ? " open" : ""}`}
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-        >
-          <span />
-          <span />
-        </button>
+        <SheetTrigger asChild>
+          <button
+            className={`burger${menuOpen ? " open" : ""}`}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+          >
+            <span />
+            <span />
+          </button>
+        </SheetTrigger>
       </nav>
 
-      <div className={`menu-overlay${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+      <SheetContent
+        side="left"
+        showCloseButton={false}
+        className="menu-overlay open !w-full !max-w-none border-none p-[clamp(40px,10vw,80px)] [&>button]:hidden"
+      >
+        <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+
         <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-          <button className="nav-item" onClick={() => setProjectsOpen(!projectsOpen)} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
-            Projects
-          </button>
-          <div 
-            className="menu-accordion-content"
-            style={{
-              maxHeight: projectsOpen ? "300px" : "0px",
-              opacity: projectsOpen ? 1 : 0,
-              marginTop: projectsOpen ? 16 : 0,
-              marginBottom: projectsOpen ? 16 : 0,
-              transition: "max-height 0.4s var(--ease), opacity 0.4s var(--ease), margin 0.4s var(--ease)"
-            }}
-          >
-            {projects.map(p => (
-               <Link key={p.id} href={p.id === "internal" ? "/#contact" : `/projects/${p.id}`} onClick={close}>
-                 {p.title}
-               </Link>
-            ))}
-          </div>
+          <Collapsible open={projectsOpen} onOpenChange={setProjectsOpen}>
+            <CollapsibleTrigger className="nav-item" style={jakarta}>
+              Projects
+            </CollapsibleTrigger>
+            <CollapsibleContent
+              className="menu-accordion-content overflow-hidden data-[state=closed]:animate-[collapsible-up_0.3s_var(--ease)] data-[state=open]:animate-[collapsible-down_0.3s_var(--ease)]"
+              style={{ marginTop: 16, marginBottom: 16 }}
+            >
+              {projects.map((p) => (
+                <SheetClose asChild key={p.id}>
+                  <Link href={p.id === "internal" ? "/#contact" : `/projects/${p.id}`}>
+                    {p.title}
+                  </Link>
+                </SheetClose>
+              ))}
+            </CollapsibleContent>
+          </Collapsible>
         </div>
-        <Link href="/#about"   className="nav-item" onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>About</Link>
-        <Link href="/#libraries" className="nav-item" onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Libraries</Link>
-        <Link href="/#contact" className="nav-item" onClick={close} style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Contact</Link>
-        
-        <div className="menu-bottom" style={{ right: "clamp(40px, 10vw, 80px)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+
+        <SheetClose asChild>
+          <Link href="/#about" className="nav-item" style={jakarta}>About</Link>
+        </SheetClose>
+        <SheetClose asChild>
+          <Link href="/#libraries" className="nav-item" style={jakarta}>Libraries</Link>
+        </SheetClose>
+        <SheetClose asChild>
+          <Link href="/#contact" className="nav-item" style={jakarta}>Contact</Link>
+        </SheetClose>
+
+        <div
+          className="menu-bottom"
+          style={{
+            right: "clamp(40px, 10vw, 80px)",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <span>emilck@live.dk</span>
-          <button
-            onClick={toggle}
-            style={{
-              background: "none",
-              border: "none",
-              color: "rgba(248, 248, 248, 0.4)",
-              fontSize: 13,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              padding: 0,
-              fontFamily: "var(--font-sans), sans-serif",
-            }}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-          >
-            {theme === "dark" ? (
-              <>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-                </svg>
-                Light
-              </>
-            ) : (
-              <>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-                </svg>
-                Dark
-              </>
-            )}
-          </button>
+          <ThemeToggle labels="short" className="text-white/70 hover:text-[var(--brand)]" />
         </div>
-      </div>
-    </>
+      </SheetContent>
+    </Sheet>
   );
 }

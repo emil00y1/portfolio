@@ -22,8 +22,8 @@ export default function LibrariesSection() {
           </h2>
         </div>
         <p>
-          I lean on battle-tested libraries to move fast and ship quality,
-          picking the right tool for each layer rather than reinventing the wheel.
+          Good software is built on good foundations. I pick tools I trust for each
+          layer — so I can move fast without cutting corners.
         </p>
       </div>
 

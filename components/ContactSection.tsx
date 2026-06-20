@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function ContactSection() {
   return (
@@ -17,35 +19,21 @@ export default function ContactSection() {
         <h2 style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
           Let&apos;s build<br />something
         </h2>
-        <a
-          href="mailto:emilck@live.dk"
-          className="btn btn-brand"
-          style={{ fontSize: 15, padding: "14px 28px", display: "inline-flex", alignItems: "center" }}
+        <Button
+          asChild
+          className="btn btn-brand h-auto gap-1.5 rounded-lg text-[15px]"
+          style={{ padding: "14px 28px" }}
         >
-          Send me an email
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ marginLeft: 6 }}
-          >
-            <line x1="7" y1="17" x2="17" y2="7" />
-            <polyline points="7 7 17 7 17 17" />
-          </svg>
-        </a>
+          <a href="mailto:emilck@live.dk">
+            Send me an email
+            <ArrowUpRight className="size-[15px]" strokeWidth={2.5} />
+          </a>
+        </Button>
       </div>
 
       <div className="contact-right">
         <a href="mailto:emilck@live.dk" className="contact-link">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M1 5l7 5 7-5" stroke="currentColor" strokeWidth="1.5" />
-          </svg>
+          <Mail className="size-4" strokeWidth={1.5} />
           emilck@live.dk
         </a>
         <a

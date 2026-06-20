@@ -1,3 +1,17 @@
+export interface CaseStudyItem {
+  title: string;
+  body: string;
+}
+
+export interface CaseStudy {
+  /** The problem space and constraints going in. */
+  challenges: CaseStudyItem[];
+  /** What was actually designed and built to solve it. */
+  whatIBuilt: CaseStudyItem[];
+  /** Outcomes and the value created for the client/users. */
+  value: CaseStudyItem[];
+}
+
 export interface Project {
   id: string;
   eyebrow: string;
@@ -12,6 +26,8 @@ export interface Project {
   linkLabel: string;
   linkHref?: string;
   imgClass: string;
+  /** Long-form case study content for the detail page. Placeholder copy — refine later. */
+  caseStudy: CaseStudy;
 }
 
 export const projects: Project[] = [
@@ -29,6 +45,38 @@ export const projects: Project[] = [
     link: "https://estatenews.dk",
     linkLabel: "Visit estatenews.dk ↗",
     imgClass: "ph-estatenews",
+    caseStudy: {
+      challenges: [
+        {
+          title: "Publishing at a pace humans can't match",
+          body: "Real estate news moves daily, but a one-person editorial team can't keep up with the volume the market expects. The core challenge was producing accurate, well-structured property content continuously without a newsroom behind it.",
+        },
+        {
+          title: "Trustworthy automation",
+          body: "Autonomous AI generation is only useful if the output is reliable. The system had to pull live property data, structure it correctly, and publish without introducing errors that would erode reader trust.",
+        },
+      ],
+      whatIBuilt: [
+        {
+          title: "An autonomous content pipeline",
+          body: "AI agents that ingest data from external property APIs, draft and structure articles, and publish them on a schedule — all running as background jobs through Trigger.dev with no manual step in the loop.",
+        },
+        {
+          title: "An editor-friendly CMS and paywall",
+          body: "A workflow non-technical editors can use to review and publish without developer involvement, plus a subscription paywall and Mailgun-driven email automation for reader retention.",
+        },
+      ],
+      value: [
+        {
+          title: "Up to 5 articles published daily — fully automatically",
+          body: "The platform publishes up to five articles every day without a single manual step. 100% autonomous end-to-end, from data ingestion to live publication.",
+        },
+        {
+          title: "A full platform shipped solo",
+          body: "From database schema to browser, the entire product was designed and built by one developer — proving how far a single person can go with the right AI tooling and architecture.",
+        },
+      ],
+    },
   },
   {
     id: "allegade",
@@ -44,6 +92,38 @@ export const projects: Project[] = [
     link: "https://allegade10.dk",
     linkLabel: "Visit allegade10.dk ↗",
     imgClass: "ph-allegade",
+    caseStudy: {
+      challenges: [
+        {
+          title: "A decade-old WordPress site that had grown unmanageable",
+          body: "The existing site was built on a non-intuitive template loaded with plugins. Dead pages that should have been removed years ago were still live, and the content was difficult to edit without breaking something.",
+        },
+        {
+          title: "~65% of visitors arrive on mobile — and the old site ignored them",
+          body: "Responsiveness was an afterthought on the original site. With roughly 2,000 monthly visitors on mobile devices, a broken mobile experience was directly costing the venue conversions.",
+        },
+      ],
+      whatIBuilt: [
+        {
+          title: "A full ground-up rebuild, solo",
+          body: "Replaced the WordPress template with a custom Next.js and Sanity CMS site — clean architecture, no plugin debt, structured content the team can actually edit themselves.",
+        },
+        {
+          title: "Mobile-first layout built around the real numbers",
+          body: "Every layout decision was made with the 65% mobile majority in mind. Improved load times, responsive design throughout, and a guest-facing experience optimised to drive conversions.",
+        },
+      ],
+      value: [
+        {
+          title: "A digital front door that reflects the venue",
+          body: "Faster load times, a clean structure, and a guest experience whose polish matches the quality of the restaurant and hotel itself.",
+        },
+        {
+          title: "A team that can own their own content",
+          body: "With Sanity CMS in place, the venue no longer needs a developer to update menus, events, or availability. The site evolves as the business does.",
+        },
+      ],
+    },
   },
   {
     id: "internal",
@@ -60,5 +140,37 @@ export const projects: Project[] = [
     linkLabel: "Get in touch to learn more →",
     linkHref: "#contact",
     imgClass: "ph-internal",
+    caseStudy: {
+      challenges: [
+        {
+          title: "Real problems, under NDA",
+          body: "These engagements span several industries and are covered by confidentiality agreements. The shared thread: businesses with manual, repetitive workflows that were slowing teams down and were ripe for automation.",
+        },
+        {
+          title: "Fit into systems that already exist",
+          body: "Most of this work meant integrating with established tools and processes rather than greenfield builds — the solution had to slot into how each business already operated.",
+        },
+      ],
+      whatIBuilt: [
+        {
+          title: "LLM-powered automation",
+          body: "Document-processing pipelines, automated reporting dashboards, and custom CRM integrations — ranging from rapid prototypes to full production systems, usually as sole developer or lead.",
+        },
+        {
+          title: "Maintainable by design",
+          body: "Everything was built with handoff in mind: clear structure and documentation so each client's team can own and extend the work after delivery.",
+        },
+      ],
+      value: [
+        {
+          title: "Time given back to teams",
+          body: "By automating the repetitive parts, these tools free people to spend their time on work that actually needs human judgement.",
+        },
+        {
+          title: "Proven across industries",
+          body: "A track record of shipping AI and automation that holds up in production across very different business contexts.",
+        },
+      ],
+    },
   },
 ];
