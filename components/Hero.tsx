@@ -42,9 +42,10 @@ export default function Hero() {
           <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
             <circle cx="1.5" cy="1.5" r="1.5" fill="currentColor" />
           </pattern>
-          <radialGradient id="dot-fade" cx="85%" cy="20%" r="60%" gradientUnits="objectBoundingBox">
+          <radialGradient id="dot-fade" cx="80%" cy="15%" r="90%" gradientUnits="objectBoundingBox">
             <stop offset="0%" stopColor="white" stopOpacity="1" />
-            <stop offset="60%" stopColor="white" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="white" stopOpacity="0.6" />
+            <stop offset="80%" stopColor="white" stopOpacity="0.2" />
             <stop offset="100%" stopColor="white" stopOpacity="0" />
           </radialGradient>
           <mask id="dot-mask">

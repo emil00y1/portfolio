@@ -27,14 +27,13 @@ export default function BrowserFrame({
         </span>
         <span className="browser-frame-url">{url}</span>
       </div>
-      <div className="browser-frame-viewport">
+      <div className="browser-frame-viewport" style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
         <Image
           src={src}
           alt={alt}
-          width={1600}
-          height={1000}
-          sizes="(max-width: 900px) 100vw, 860px"
-          className="h-auto w-full"
+          fill
+          sizes="(max-width: 900px) 100vw, 1200px"
+          style={{ objectFit: "cover", objectPosition: "top center" }}
           priority={priority}
         />
       </div>

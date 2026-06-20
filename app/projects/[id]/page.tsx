@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
 import Nav from "@/components/Nav";
-import TransitionLink from "@/components/TransitionLink";
 import BrowserFrame from "@/components/BrowserFrame";
 import CaseStudySection from "@/components/CaseStudySection";
 import { Button } from "@/components/ui/button";
@@ -106,9 +105,9 @@ export default async function ProjectPage({
       <Nav />
       <main className="pt-16">
         <div className="project-detail-back">
-          <TransitionLink href="/#work" direction="back">
+          <Link href="/#work">
             ← Back to work
-          </TransitionLink>
+          </Link>
         </div>
 
         <div className="project-detail-hero">
@@ -116,51 +115,52 @@ export default async function ProjectPage({
         </div>
 
         <div className="project-detail-content">
-          <p className="project-detail-eyebrow">{project.eyebrow}</p>
-          <h1 className="project-detail-title">{project.title}</h1>
-          <p className="project-detail-desc">{project.desc}</p>
-
-          <div className="project-detail-meta">
-            <div>
-              <h2 className="project-detail-meta-key">My role</h2>
-              <p className="project-detail-meta-val">{project.role}</p>
+          <div className="project-detail-header">
+            <div className="project-detail-header-text">
+              <p className="project-detail-eyebrow">{project.eyebrow}</p>
+              <h1 className="project-detail-title">{project.title}</h1>
+              <p className="project-detail-desc">{project.desc}</p>
             </div>
-            <div>
-              <h2 className="project-detail-meta-key">Highlights</h2>
-              <p className="project-detail-meta-val">{project.highlights}</p>
-            </div>
-          </div>
-
-          <div className="project-detail-tags">
-            <h2 className="project-detail-meta-key">Technologies</h2>
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {project.tags.map((tag) => (
-                <Badge key={tag} variant="outline">
-                  {tag}
-                </Badge>
-              ))}
+            <div className="project-detail-sidebar">
+              <div className="project-detail-meta-block">
+                <h2 className="project-detail-meta-key">My role</h2>
+                <p className="project-detail-meta-val">{project.role}</p>
+              </div>
+              <div className="project-detail-meta-block">
+                <h2 className="project-detail-meta-key">Highlights</h2>
+                <p className="project-detail-meta-val">{project.highlights}</p>
+              </div>
+              <div className="project-detail-meta-block">
+                <h2 className="project-detail-meta-key">Technologies</h2>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <Badge key={tag} variant="outline">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+              <div className="project-detail-actions">
+                {project.link ? (
+                  <Button asChild className="btn btn-dark h-auto rounded-lg">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      {project.linkLabel}
+                    </a>
+                  </Button>
+                ) : project.linkHref ? (
+                  <Button asChild variant="outline" className="btn btn-outline h-auto rounded-lg">
+                    <Link href={project.linkHref}>{project.linkLabel}</Link>
+                  </Button>
+                ) : (
+                  <span className="text-[13px] text-[var(--fg-3)]">{project.linkLabel}</span>
+                )}
+              </div>
             </div>
           </div>
 
           <CaseStudySection label="The challenge" items={project.caseStudy.challenges} />
           <CaseStudySection label="What I built" items={project.caseStudy.whatIBuilt} />
           <CaseStudySection label="The value created" items={project.caseStudy.value} />
-
-          <div className="project-detail-actions">
-            {project.link ? (
-              <Button asChild className="btn btn-dark h-auto rounded-lg">
-                <a href={project.link} target="_blank" rel="noopener noreferrer">
-                  {project.linkLabel}
-                </a>
-              </Button>
-            ) : project.linkHref ? (
-              <Button asChild variant="outline" className="btn btn-outline h-auto rounded-lg">
-                <Link href={project.linkHref}>{project.linkLabel}</Link>
-              </Button>
-            ) : (
-              <span className="text-[13px] text-[var(--fg-3)]">{project.linkLabel}</span>
-            )}
-          </div>
         </div>
       </main>
     </>

@@ -51,7 +51,7 @@ export default function Nav() {
                 {projects.map((p) => (
                   <Link
                     key={p.id}
-                    href={p.id === "internal" ? "/#contact" : `/projects/${p.id}`}
+                    href={`/projects/${p.id}`}
                     className="nav-dropdown-item"
                   >
                     <span className="nav-dropdown-num">{p.eyebrow.split(" - ")[0]}</span>
@@ -94,7 +94,7 @@ export default function Nav() {
             >
               {projects.map((p) => (
                 <SheetClose asChild key={p.id}>
-                  <Link href={p.id === "internal" ? "/#contact" : `/projects/${p.id}`}>
+                  <Link href={`/projects/${p.id}`}>
                     {p.title}
                   </Link>
                 </SheetClose>

@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
 import { Lock } from "lucide-react";
+import Link from "next/link";
 import { projects } from "@/lib/projects";
-import TransitionLink from "@/components/TransitionLink";
 
 export default function WorkSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -68,28 +68,15 @@ export default function WorkSection() {
             onMouseLeave: () => setHoveredId(null),
           };
 
-          return isInternal ? (
-            <button
-              key={project.id}
-              type="button"
-              className={rowClass}
-              {...hoverHandlers}
-              onClick={() => {
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              {rowContent}
-            </button>
-          ) : (
-            <TransitionLink
+          return (
+            <Link
               key={project.id}
               href={`/projects/${project.id}`}
-              direction="forward"
               className={rowClass}
               {...hoverHandlers}
             >
               {rowContent}
-            </TransitionLink>
+            </Link>
           );
         })}
       </div>
