@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
@@ -43,6 +44,11 @@ export default function AboutSection() {
             <div className="about-status">
               <span className="status-dot" />
               <span>Available for new projects</span>
+            </div>
+            <div style={{ marginTop: 28 }}>
+              <Link href="/about" className="btn-ghost-link">
+                Read more →
+              </Link>
             </div>
           </div>
 

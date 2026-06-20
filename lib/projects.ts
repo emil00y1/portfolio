@@ -138,7 +138,7 @@ export const projects: Project[] = [
     tags: ["AI / LLM", "OpenAI API", "Automation", "Node.js", "React", "Internal tooling"],
     link: null,
     linkLabel: "Get in touch to learn more →",
-    linkHref: "/#contact",
+    linkHref: "/contact",
     imgClass: "ph-internal",
     caseStudy: {
       challenges: [

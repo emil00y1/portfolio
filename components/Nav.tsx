@@ -61,9 +61,9 @@ export default function Nav() {
               </div>
             </div>
           </li>
-          <li><Link href="/#about">About</Link></li>
+          <li><Link href="/about">About</Link></li>
           <li><Link href="/#libraries">Libraries</Link></li>
-          <li><Link href="/#contact" className="nav-cta">Get in touch</Link></li>
+          <li><Link href="/contact" className="nav-cta">Get in touch</Link></li>
         </ul>
         <SheetTrigger asChild>
           <button
@@ -104,13 +104,13 @@ export default function Nav() {
         </div>
 
         <SheetClose asChild>
-          <Link href="/#about" className="nav-item" style={jakarta}>About</Link>
+          <Link href="/about" className="nav-item" style={jakarta}>About</Link>
         </SheetClose>
         <SheetClose asChild>
           <Link href="/#libraries" className="nav-item" style={jakarta}>Libraries</Link>
         </SheetClose>
         <SheetClose asChild>
-          <Link href="/#contact" className="nav-item" style={jakarta}>Contact</Link>
+          <Link href="/contact" className="nav-item" style={jakarta}>Contact</Link>
         </SheetClose>
 
         <div
@@ -122,7 +122,7 @@ export default function Nav() {
             alignItems: "center",
           }}
         >
-          <span>emilck@live.dk</span>
+          <span>ek@digitaldisruptionmedia.com</span>
           <ThemeToggle labels="short" className="text-white/70 hover:text-[var(--brand)]" />
         </div>
       </SheetContent>

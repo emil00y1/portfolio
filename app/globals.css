@@ -583,13 +583,117 @@ nav.menu-open .nav-logo {
 .btn-outline { background: transparent; color: var(--fg-2); border: 1px solid var(--border); }
 .btn-outline:hover { border-color: var(--fg); color: var(--fg); transform: translateY(-1px); }
 footer {
+  background: var(--bg-off);
   border-top: 1px solid var(--border);
-  padding: 20px clamp(20px, 5vw, 60px);
+  padding: 24px clamp(20px, 5vw, 60px);
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--fg-3);
 }
 footer a { color: var(--fg-3); text-decoration: none; }
 footer a:hover { color: var(--brand); }
+
+/* ── Ghost link button ───────────────────────── */
+.btn-ghost-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500; color: var(--fg-2);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 9px 18px; border-radius: 40px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.btn-ghost-link:hover { border-color: var(--fg); color: var(--fg); background: var(--bg-off); }
+
+/* ── Contact Page ────────────────────────────── */
+.contact-page {
+  min-height: 100svh;
+  display: flex; align-items: center;
+  padding: calc(64px + clamp(40px, 8vh, 80px)) clamp(20px, 5vw, 60px) clamp(60px, 10vh, 100px);
+}
+.contact-page-inner {
+  width: 100%; max-width: 680px;
+}
+.contact-page-heading {
+  font-size: clamp(48px, 8vw, 96px); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.0; margin-bottom: 28px;
+}
+.contact-page-sub {
+  font-size: clamp(15px, 1.8vw, 17px); line-height: 1.75;
+  color: var(--fg-2); font-weight: 300; max-width: 520px; margin-bottom: 40px;
+}
+.contact-page-cta { margin-bottom: 48px; }
+.contact-page-links {
+  display: flex; flex-direction: column; gap: 18px;
+  padding-top: 40px; border-top: 1px solid var(--border);
+}
+.contact-page-link {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 15px; color: var(--fg-2); text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-page-link:hover { color: var(--brand); }
+
+/* ── About Page ──────────────────────────────── */
+.about-page {
+  padding: calc(64px + clamp(40px, 8vh, 80px)) clamp(20px, 5vw, 60px) clamp(60px, 10vh, 100px);
+}
+.about-page-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.about-page-hero {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(40px, 6vw, 64px); align-items: center;
+  margin-bottom: clamp(64px, 10vh, 100px);
+}
+@media (min-width: 768px) {
+  .about-page-hero { grid-template-columns: 1fr 280px; }
+}
+.about-page-hero-text { }
+.about-page-heading {
+  font-size: clamp(36px, 6vw, 72px); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 0;
+}
+.about-page-photo-wrapper {
+  position: relative; width: 100%; max-width: 240px;
+  aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); justify-self: center; order: -1;
+}
+@media (min-width: 768px) {
+  .about-page-photo-wrapper { max-width: 280px; order: 0; }
+}
+.about-page-body {
+  display: flex; flex-direction: column;
+  gap: clamp(48px, 8vh, 80px);
+  border-top: 1px solid var(--border); padding-top: clamp(48px, 8vh, 80px);
+}
+.about-page-section {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(24px, 4vw, 48px);
+}
+@media (min-width: 768px) {
+  .about-page-section { grid-template-columns: 220px 1fr; align-items: start; }
+}
+.about-page-section-heading {
+  font-size: clamp(20px, 2.5vw, 26px); font-weight: 700;
+  letter-spacing: -0.02em; padding-top: 4px;
+}
+.about-page-prose {
+  font-size: clamp(15px, 1.8vw, 17px); line-height: 1.8;
+  color: var(--fg-2); font-weight: 300;
+}
+.about-page-prose p + p { margin-top: 16px; }
+.about-page-prose strong { color: var(--fg); font-weight: 600; }
+.about-page-edu-card {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; padding: 20px 24px;
+  background: var(--bg-off); border: 1px solid var(--border); border-radius: 8px;
+  margin-top: 24px;
+  grid-column: 1 / -1;
+}
+@media (max-width: 500px) { .about-page-edu-card { flex-direction: column; gap: 8px; } }
+.about-page-edu-card-left { display: flex; flex-direction: column; gap: 4px; }
+.about-page-edu-school { font-size: 14px; font-weight: 600; color: var(--fg); }
+.about-page-edu-degree { font-size: 13px; color: var(--fg-2); }
+.about-page-edu-year { font-size: 13px; color: var(--fg-3); white-space: nowrap; }
 
 
 

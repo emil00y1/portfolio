@@ -110,9 +110,11 @@ export default async function ProjectPage({
           </Link>
         </div>
 
-        <div className="project-detail-hero">
-          <ProjectHeroImage id={project.id} title={project.title} />
-        </div>
+        {project.id !== "internal" && (
+          <div className="project-detail-hero">
+            <ProjectHeroImage id={project.id} title={project.title} />
+          </div>
+        )}
 
         <div className="project-detail-content">
           <div className="project-detail-header">
