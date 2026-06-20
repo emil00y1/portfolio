@@ -605,9 +605,7 @@ footer a:hover { color: var(--brand); }
 
 /* ── Contact Page ────────────────────────────── */
 .contact-page {
-  min-height: 100svh;
-  display: flex; align-items: center;
-  padding: calc(64px + clamp(40px, 8vh, 80px)) clamp(20px, 5vw, 60px) clamp(60px, 10vh, 100px);
+  padding: calc(64px + clamp(60px, 12vh, 120px)) clamp(20px, 5vw, 60px) clamp(80px, 12vh, 120px);
 }
 .contact-page-inner {
   width: 100%; max-width: 680px;
@@ -620,13 +618,13 @@ footer a:hover { color: var(--brand); }
   font-size: clamp(15px, 1.8vw, 17px); line-height: 1.75;
   color: var(--fg-2); font-weight: 300; max-width: 520px; margin-bottom: 40px;
 }
-.contact-page-cta { margin-bottom: 48px; }
+.contact-page-cta { margin-bottom: 56px; }
 .contact-page-links {
-  display: flex; flex-direction: column; gap: 18px;
+  display: flex; flex-direction: column; gap: 20px;
   padding-top: 40px; border-top: 1px solid var(--border);
 }
 .contact-page-link {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 12px;
   font-size: 15px; color: var(--fg-2); text-decoration: none;
   transition: color 0.2s;
 }
@@ -634,48 +632,49 @@ footer a:hover { color: var(--brand); }
 
 /* ── About Page ──────────────────────────────── */
 .about-page {
-  padding: calc(64px + clamp(40px, 8vh, 80px)) clamp(20px, 5vw, 60px) clamp(60px, 10vh, 100px);
+  padding: calc(64px + clamp(48px, 8vh, 80px)) clamp(20px, 5vw, 60px) clamp(80px, 12vh, 120px);
 }
 .about-page-inner {
-  max-width: 1100px; margin: 0 auto;
+  max-width: 860px; margin: 0 auto;
 }
 .about-page-hero {
   display: grid; grid-template-columns: 1fr;
-  gap: clamp(40px, 6vw, 64px); align-items: center;
-  margin-bottom: clamp(64px, 10vh, 100px);
+  gap: clamp(36px, 5vw, 56px); align-items: center;
+  margin-bottom: clamp(56px, 9vh, 88px);
+  padding-bottom: clamp(56px, 9vh, 88px);
+  border-bottom: 1px solid var(--border);
 }
-@media (min-width: 768px) {
-  .about-page-hero { grid-template-columns: 1fr 280px; }
+@media (min-width: 680px) {
+  .about-page-hero { grid-template-columns: 1fr 220px; }
 }
-.about-page-hero-text { }
 .about-page-heading {
-  font-size: clamp(36px, 6vw, 72px); font-weight: 800;
-  letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 0;
+  font-size: clamp(32px, 5vw, 60px); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.05;
 }
 .about-page-photo-wrapper {
-  position: relative; width: 100%; max-width: 240px;
+  position: relative; width: 100%; max-width: 200px;
   aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden;
-  border: 1px solid var(--border); justify-self: center; order: -1;
+  border: 1px solid var(--border); justify-self: start; order: -1;
 }
-@media (min-width: 768px) {
-  .about-page-photo-wrapper { max-width: 280px; order: 0; }
+@media (min-width: 680px) {
+  .about-page-photo-wrapper { max-width: 220px; order: 0; justify-self: end; }
 }
 .about-page-body {
   display: flex; flex-direction: column;
-  gap: clamp(48px, 8vh, 80px);
-  border-top: 1px solid var(--border); padding-top: clamp(48px, 8vh, 80px);
+  gap: clamp(48px, 7vh, 72px);
 }
 .about-page-section {
   display: grid; grid-template-columns: 1fr;
-  gap: clamp(24px, 4vw, 48px);
+  gap: 20px 40px;
 }
-@media (min-width: 768px) {
-  .about-page-section { grid-template-columns: 220px 1fr; align-items: start; }
+@media (min-width: 680px) {
+  .about-page-section { grid-template-columns: 180px 1fr; align-items: start; }
 }
 .about-page-section-heading {
-  font-size: clamp(20px, 2.5vw, 26px); font-weight: 700;
-  letter-spacing: -0.02em; padding-top: 4px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--fg-3); padding-top: 6px;
 }
+.about-page-content { display: flex; flex-direction: column; gap: 24px; }
 .about-page-prose {
   font-size: clamp(15px, 1.8vw, 17px); line-height: 1.8;
   color: var(--fg-2); font-weight: 300;
@@ -684,16 +683,14 @@ footer a:hover { color: var(--brand); }
 .about-page-prose strong { color: var(--fg); font-weight: 600; }
 .about-page-edu-card {
   display: flex; justify-content: space-between; align-items: flex-start;
-  gap: 16px; padding: 20px 24px;
+  gap: 16px; padding: 18px 20px;
   background: var(--bg-off); border: 1px solid var(--border); border-radius: 8px;
-  margin-top: 24px;
-  grid-column: 1 / -1;
 }
-@media (max-width: 500px) { .about-page-edu-card { flex-direction: column; gap: 8px; } }
+@media (max-width: 500px) { .about-page-edu-card { flex-direction: column; gap: 6px; } }
 .about-page-edu-card-left { display: flex; flex-direction: column; gap: 4px; }
 .about-page-edu-school { font-size: 14px; font-weight: 600; color: var(--fg); }
 .about-page-edu-degree { font-size: 13px; color: var(--fg-2); }
-.about-page-edu-year { font-size: 13px; color: var(--fg-3); white-space: nowrap; }
+.about-page-edu-year { font-size: 13px; color: var(--fg-3); white-space: nowrap; flex-shrink: 0; }
 
 
 
