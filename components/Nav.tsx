@@ -16,7 +16,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import ThemeToggle from "@/components/ThemeToggle";
-import ELogo from "@/components/ELogo";
 
 const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 
@@ -35,7 +34,6 @@ export default function Nav() {
     <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
       <nav className={`${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`}>
         <Link href="/" className="nav-logo" style={jakarta}>
-          <ELogo size={26} className="nav-logo-mark" />
           Emil Kristensen
         </Link>
         <ul className="nav-links">
@@ -62,8 +60,7 @@ export default function Nav() {
             </div>
           </li>
           <li><Link href="/about">About</Link></li>
-          <li><Link href="/#libraries">Libraries</Link></li>
-          <li><Link href="/contact" className="nav-cta">Get in touch</Link></li>
+          <li><Link href="/contact" className="nav-cta">Contact</Link></li>
         </ul>
         <SheetTrigger asChild>
           <button
@@ -105,9 +102,6 @@ export default function Nav() {
 
         <SheetClose asChild>
           <Link href="/about" className="nav-item" style={jakarta}>About</Link>
-        </SheetClose>
-        <SheetClose asChild>
-          <Link href="/#libraries" className="nav-item" style={jakarta}>Libraries</Link>
         </SheetClose>
         <SheetClose asChild>
           <Link href="/contact" className="nav-item" style={jakarta}>Contact</Link>
