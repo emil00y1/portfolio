@@ -26,19 +26,13 @@ export default function AboutSection() {
             </h2>
             <div className="about-body">
               <p>
-                I&apos;m an AI & full stack developer based in Copenhagen, focused on building products that
-                bridge robust backend systems with intelligent LLM integrations. I care deeply about the details,
-                including micro-interactions, performance, and the clarity of an interface.
+                I&apos;m a full-stack developer specialising in AI integration and automation, based in Copenhagen.
+                I build LLM-powered products, multi-step agents, and n8n-based automation pipelines — and bring a
+                strong eye for UX from a background in Multimedia Design and Web Development.
               </p>
               <p>
-                My background in Multimedia Design means I think about interfaces before I build them,
-                considering information hierarchy, component behaviour, and the subtle details that make software
-                feel right to use.
-              </p>
-              <p>
-                Lately, I&apos;ve been specializing in agentic workflows, prompt engineering, and utilizing AI
-                tools to accelerate my own output, optimize codebases, and build products that solve complex user
-                problems autonomously.
+                I take ownership from architecture to delivery and communicate clearly across technical and
+                non-technical teams. I thrive in environments where quality and continuous improvement matter.
               </p>
             </div>
             <div className="about-status">

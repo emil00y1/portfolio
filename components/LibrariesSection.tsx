@@ -35,14 +35,14 @@ export default function LibrariesSection() {
           { label: "UI / Styling", items: ["shadcn/ui", "Tailwind CSS", "Radix UI", "Vuetify", "Material Design 3"] },
           { label: "Libraries",    items: ["Zod", "React Hook Form", "Drizzle ORM", "BetterAuth"] },
           { label: "Testing",      items: ["Playwright", "Vitest"] },
-          { label: "AI Tools",     items: ["Claude Code", "Gemini", "Codex"] },
+          { label: "AI & Automation", items: ["n8n", "LLM APIs", "Claude Code", "Gemini", "Codex"] },
           { label: "DevOps",       items: ["Git", "Docker", "Vercel"] },
           { label: "Services",     items: ["Sanity CMS", "Trigger.dev", "Mailgun"] },
         ].map(({ label, items }) => (
           <div key={label} className="lib-cat">
             <div className="lib-cat-label">{label}</div>
-            <div className="lib-cat-items">{items.join("\n").split("\n").map((item, i) => (
-              <span key={i}>{item}<br /></span>
+            <div className="lib-cat-items">{items.map((item) => (
+              <span key={item}>{item}<br /></span>
             ))}</div>
           </div>
         ))}

@@ -123,32 +123,9 @@ export default function WorkSection() {
             </div>
           )}
           {hoveredId === "internal" && (
-            <div
-              className="browser-frame"
-              style={{
-                background: "linear-gradient(135deg, #161616 0%, #222222 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 12,
-                padding: 40,
-                textAlign: "center",
-                minHeight: 160,
-              }}
-            >
-              <Lock width={28} height={28} strokeWidth={1.5} style={{ stroke: "var(--brand)" }} />
-              <span
-                style={{
-                  fontSize: 10,
-                  color: "rgba(255, 255, 255, 0.4)",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  fontWeight: 600,
-                }}
-              >
-                NDA Protected
-              </span>
+            <div className="browser-frame nda-preview">
+              <Lock width={28} height={28} strokeWidth={1.5} className="nda-preview-icon" />
+              <span className="nda-preview-label">NDA Protected</span>
             </div>
           )}
         </motion.div>

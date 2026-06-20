@@ -4,8 +4,29 @@ import Nav from "@/components/Nav";
 
 export const metadata: Metadata = {
   title: "About | Emil Kristensen",
-  description: "AI & Full Stack Developer based in Copenhagen. Background in Multimedia Design, specialized in LLM integrations and agentic workflows.",
+  description: "AI & Full Stack Developer based in Copenhagen. Specialising in LLM integrations, agentic workflows, and modern web development.",
 };
+
+const education = [
+  {
+    school: "Erhvervsakademi København (KEA)",
+    degree: "Bachelor in Web Development",
+    years: "2024 – 2026",
+    detail: "Grade average: 9.7 · Bachelor project: estatenews.dk",
+  },
+  {
+    school: "Københavns Erhvervsakademi (KEA)",
+    degree: "AP Graduate · Multimedia Design",
+    years: "2022 – 2024",
+    detail: "Grade average: 11.5 · JavaScript, UX & UI Design, Frontend Development",
+  },
+  {
+    school: "Baltorp Business Gymnasium",
+    degree: "HHX",
+    years: "2016 – 2019",
+    detail: "Grade average: 11.4 · English A, Danish A, International Economics A",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -46,19 +67,19 @@ export default function AboutPage() {
               <div className="about-page-content">
                 <div className="about-page-prose">
                   <p>
-                    I&apos;m an AI &amp; full stack developer based in Copenhagen, focused on building products that bridge
-                    robust backend systems with intelligent LLM integrations. I care deeply about the details —
-                    micro-interactions, performance, and the clarity of an interface.
+                    I&apos;m a full-stack developer specialising in AI integration and automation, based in Copenhagen.
+                    I build LLM-powered products, multi-step agents, and n8n-based automation pipelines — and I bring
+                    a strong eye for user experience from a background in Multimedia Design.
                   </p>
                   <p>
-                    I work best at the intersection of design and engineering, where a clear mental model of the
-                    user experience shapes every technical decision. I don&apos;t hand off design to start coding — I do both,
-                    and that makes the end result tighter.
+                    I take ownership from architecture to delivery and communicate clearly between technical and
+                    non-technical stakeholders. I enjoy picking up new technologies and thrive in environments
+                    where quality and continuous improvement matter.
                   </p>
                   <p>
-                    Lately I&apos;ve been specializing in agentic workflows, prompt engineering, and using AI tooling to
-                    accelerate my own output — building products that solve complex problems autonomously and handle
-                    workloads a single person shouldn&apos;t be able to handle alone.
+                    Most of my work sits at the intersection of design and engineering — where a clear mental model
+                    of the user experience shapes every technical decision. I don&apos;t hand off design to start
+                    coding. I do both, and the end result is tighter for it.
                   </p>
                 </div>
               </div>
@@ -71,22 +92,27 @@ export default function AboutPage() {
               <div className="about-page-content">
                 <div className="about-page-prose">
                   <p>
-                    I studied <strong>Multimedia Design</strong> at KEA — Copenhagen School of Design and Technology,
-                    graduating with a focus on interactive design and front-end development. The programme gave me a
-                    foundation in UX, visual communication, and web technologies that I still draw on daily.
+                    I hold a <strong>Bachelor in Web Development</strong> from KEA and an AP degree in{" "}
+                    <strong>Multimedia Design</strong> from the same institution. The combination gave me both the
+                    technical depth to build production systems and the design foundation to think about interfaces
+                    before writing a line of code.
                   </p>
                   <p>
-                    Beyond formal education, most of what I know came from building things: shipping real products,
-                    breaking them, fixing them, and learning from the gap between what I thought I knew and what the
-                    code actually needed.
+                    Beyond formal education, most of what I know came from building real things, breaking them, and
+                    learning from the gap between what I thought I knew and what the code actually needed.
                   </p>
                 </div>
-                <div className="about-page-edu-card">
-                  <div className="about-page-edu-card-left">
-                    <span className="about-page-edu-school">KEA – Copenhagen School of Design and Technology</span>
-                    <span className="about-page-edu-degree">AP Graduate · Multimedia Design</span>
-                  </div>
-                  <span className="about-page-edu-year">2022 – 2024</span>
+                <div className="about-page-edu-list">
+                  {education.map((e) => (
+                    <div key={e.school} className="about-page-edu-card">
+                      <div className="about-page-edu-card-left">
+                        <span className="about-page-edu-school">{e.school}</span>
+                        <span className="about-page-edu-degree">{e.degree}</span>
+                        <span className="about-page-edu-detail">{e.detail}</span>
+                      </div>
+                      <span className="about-page-edu-year">{e.years}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -98,8 +124,9 @@ export default function AboutPage() {
               <div className="about-page-content">
                 <div className="about-page-prose">
                   <p>
-                    I work iteratively and ship fast. I use AI tooling to eliminate the repetitive parts of development
-                    and spend the saved time on what actually matters: the details that make a product feel right.
+                    I work iteratively and ship fast. I use AI tooling to eliminate the repetitive parts of
+                    development and spend the saved time on what actually matters: the details that make a product
+                    feel right.
                   </p>
                   <p>
                     I handle both ends of the stack — database schema, API design, and the interface — which means
