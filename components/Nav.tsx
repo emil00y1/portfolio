@@ -122,7 +122,7 @@ export default function Nav() {
             alignItems: "center",
           }}
         >
-          <span>ek@digitaldisruptionmedia.com</span>
+          <span>emilck@live.dk</span>
           <ThemeToggle labels="short" className="text-white/70 hover:text-[var(--brand)]" />
         </div>
       </SheetContent>

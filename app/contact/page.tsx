@@ -29,7 +29,7 @@ export default function ContactPage() {
               className="btn btn-brand h-auto gap-2 rounded-lg text-[15px]"
               style={{ padding: "14px 28px" }}
             >
-              <a href="mailto:ek@digitaldisruptionmedia.com">
+              <a href="mailto:emilck@live.dk">
                 Send me an email
                 <ArrowUpRight className="size-[15px]" strokeWidth={2.5} />
               </a>
@@ -37,9 +37,9 @@ export default function ContactPage() {
           </div>
 
           <div className="contact-page-links">
-            <a href="mailto:ek@digitaldisruptionmedia.com" className="contact-page-link">
+            <a href="mailto:emilck@live.dk" className="contact-page-link">
               <Mail className="size-4 shrink-0" strokeWidth={1.5} />
-              <span>ek@digitaldisruptionmedia.com</span>
+              <span>emilck@live.dk</span>
             </a>
             <a
               href="https://linkedin.com/in/emilkristensen"

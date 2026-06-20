@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import { Analytics } from "@vercel/analytics/next";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -72,6 +73,7 @@ export default function RootLayout({
         <ScrollProgress />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

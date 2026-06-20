@@ -24,7 +24,7 @@ export default function ContactSection() {
           className="btn btn-brand h-auto gap-1.5 rounded-lg text-[15px]"
           style={{ padding: "14px 28px" }}
         >
-          <a href="mailto:ek@digitaldisruptionmedia.com">
+          <a href="mailto:emilck@live.dk">
             Send me an email
             <ArrowUpRight className="size-[15px]" strokeWidth={2.5} />
           </a>
@@ -32,9 +32,9 @@ export default function ContactSection() {
       </div>
 
       <div className="contact-right">
-        <a href="mailto:ek@digitaldisruptionmedia.com" className="contact-link">
+        <a href="mailto:emilck@live.dk" className="contact-link">
           <Mail className="size-4" strokeWidth={1.5} />
-          ek@digitaldisruptionmedia.com
+          emilck@live.dk
         </a>
         <a
           href="https://linkedin.com/in/emilkristensen"
