@@ -1,11 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#111111"/>
-  <!-- Vertical stem -->
-  <rect x="5" y="5" width="5.5" height="22" rx="2" fill="#f8f8f8"/>
-  <!-- Top bar -->
-  <rect x="5" y="5" width="20" height="5.5" rx="2" fill="#f8f8f8"/>
-  <!-- Middle bar (brand teal, shorter) -->
-  <rect x="5" y="13.25" width="14" height="5.5" rx="2" fill="#0F766E"/>
-  <!-- Bottom bar -->
-  <rect x="5" y="21.5" width="20" height="5.5" rx="2" fill="#f8f8f8"/>
+  <rect width="32" height="32" rx="5" fill="#111111"/>
+  <rect x="8" y="7" width="16" height="4" rx="1" fill="#f8f8f8"/>
+  <rect x="8" y="14" width="11" height="4" rx="1" fill="#f8f8f8"/>
+  <rect x="8" y="21" width="16" height="4" rx="1" fill="#f8f8f8"/>
 </svg>
