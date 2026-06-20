@@ -63,13 +63,13 @@ nav {
   transition: background 0.3s var(--ease), border-color 0.3s;
   border-bottom: 1px solid transparent;
 }
+/* Always fully opaque once scrolled — no see-through */
 nav.scrolled {
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   backdrop-filter: none;
+  opacity: 1;
 }
-/* Always fully opaque once scrolled — no see-through */
-nav.scrolled { opacity: 1; }
 nav.menu-open {
   background: transparent !important;
   border-color: transparent !important;
