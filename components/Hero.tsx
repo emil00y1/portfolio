@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ChevronDown } from "lucide-react";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 const FULL = "Emil\nKristensen";
@@ -31,6 +32,28 @@ export default function Hero() {
 
   return (
     <section className="hero">
+      {/* Decorative background: dot grid fading from top-right */}
+      <svg
+        className="hero-bg-graphic"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="1.5" fill="currentColor" />
+          </pattern>
+          <radialGradient id="dot-fade" cx="85%" cy="20%" r="60%" gradientUnits="objectBoundingBox">
+            <stop offset="0%" stopColor="white" stopOpacity="1" />
+            <stop offset="60%" stopColor="white" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="white" stopOpacity="0" />
+          </radialGradient>
+          <mask id="dot-mask">
+            <rect width="100%" height="100%" fill="url(#dot-fade)" />
+          </mask>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dots)" mask="url(#dot-mask)" />
+      </svg>
+
       <div className="hero-eyebrow">AI & Full Stack Developer</div>
       <h1
         className="hero-name"
@@ -45,22 +68,9 @@ export default function Hero() {
           I build products people actually use by combining robust full-stack architectures with deep LLM integrations, prompt engineering, and agentic workflows.
         </p>
       </div>
-      <div className="hero-year">Copenhagen · 2026</div>
       <div className="hero-arrow-indicator">
         <div className="hero-arrow-bounce">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 5v14" />
-            <path d="m19 12-7 7-7-7" />
-          </svg>
+          <ChevronDown width={20} height={20} strokeWidth={1.5} />
         </div>
       </div>
     </section>
