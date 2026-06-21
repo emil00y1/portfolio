@@ -31,16 +31,16 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero">
+    <section className="relative min-h-svh flex flex-col justify-end overflow-hidden px-[clamp(20px,5vw,60px)] pt-[calc(64px+clamp(60px,10vh,120px))] pb-[clamp(40px,8vh,80px)] max-md:pb-[max(100px,14vh)]">
       {/* Decorative background: dot grid fading from top-right */}
       <svg
-        className="hero-bg-graphic"
+        className="hero-bg-graphic absolute inset-0 w-full h-full text-[var(--fg)] opacity-[0.07] pointer-events-none z-0"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
           <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-            <circle cx="1.5" cy="1.5" r="1.5" fill="currentColor" />
+            <circle cx="1.5" cy="1.5" r="2" fill="currentColor" />
           </pattern>
           <radialGradient id="dot-fade" cx="80%" cy="15%" r="90%" gradientUnits="objectBoundingBox">
             <stop offset="0%" stopColor="white" stopOpacity="1" />
@@ -55,22 +55,24 @@ export default function Hero() {
         <rect width="100%" height="100%" fill="url(#dots)" mask="url(#dot-mask)" />
       </svg>
 
-      <div className="hero-eyebrow">AI & Full Stack Developer</div>
+      <div className="relative z-[1] text-[12px] tracking-[0.12em] text-[var(--brand)] font-medium uppercase mb-5 opacity-0 translate-y-3 animate-[fadeUp_0.7s_0.3s_var(--ease)_forwards] motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:translate-y-0">
+        AI &amp; Full Stack Developer
+      </div>
       <h1
-        className="hero-name"
+        className="relative z-[1] text-[clamp(52px,10vw,120px)] font-extrabold leading-none tracking-[-0.04em] text-[var(--fg)] opacity-0 translate-y-5 animate-[fadeUp_0.8s_0.4s_var(--ease)_forwards] motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:translate-y-0"
         ref={nameRef}
         style={{ fontFamily: "var(--font-jakarta), sans-serif" }}
         aria-label="Emil Kristensen"
       >
         Emil<br />Kristensen
       </h1>
-      <div className="hero-bottom">
-        <p className="hero-bio">
+      <div className="relative z-[1] flex justify-between items-end mt-[clamp(32px,5vh,60px)] flex-wrap gap-6 opacity-0 translate-y-3 animate-[fadeUp_0.7s_0.7s_var(--ease)_forwards] motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:translate-y-0">
+        <p className="max-w-[380px] text-[clamp(15px,2vw,17px)] leading-[1.65] text-[var(--fg-2)] font-light">
           I build products people actually use by combining robust full-stack architectures with deep LLM integrations, prompt engineering, and agentic workflows.
         </p>
       </div>
-      <div className="hero-arrow-indicator">
-        <div className="hero-arrow-bounce">
+      <div className="hero-arrow-indicator absolute bottom-7 left-1/2 -translate-x-1/2 text-[var(--fg-3)] flex items-center justify-center opacity-0 animate-[fadeIn_0.7s_1.2s_var(--ease)_forwards] pointer-events-none z-[10] motion-reduce:animate-none motion-reduce:opacity-100 max-[700px]:hidden">
+        <div className="animate-[bounce-down_2s_infinite_ease-in-out] flex motion-reduce:animate-none">
           <ChevronDown width={20} height={20} strokeWidth={1.5} />
         </div>
       </div>
