@@ -22,6 +22,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://emilkristensen.dk"),
   title: "Emil Kristensen | AI & Full Stack Developer",
   description:
     "AI & Full Stack Developer based in Copenhagen. Specialized in AI integrations, LLMs, and building high-performance web products.",
@@ -70,6 +71,12 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2 focus:bg-[var(--brand)] focus:text-[var(--brand-fg)] focus:rounded focus:text-sm focus:font-medium focus:no-underline"
+        >
+          Skip to main content
+        </a>
         <ScrollProgress />
         {children}
         <Footer />

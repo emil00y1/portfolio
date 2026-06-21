@@ -40,6 +40,7 @@ export default function ContactSection() {
           href="https://linkedin.com/in/emilkristensen"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn (opens in new tab)"
           className="contact-link"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -53,6 +54,7 @@ export default function ContactSection() {
           href="https://github.com/emil00y1"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub (opens in new tab)"
           className="contact-link"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

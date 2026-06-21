@@ -38,6 +38,7 @@ export default function Footer() {
             href="https://linkedin.com/in/emilkristensen"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn (opens in new tab)"
             className="flex items-center gap-2.5 text-sm text-[var(--fg-2)] no-underline hover:text-[var(--brand)] transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0">
@@ -51,6 +52,7 @@ export default function Footer() {
             href="https://github.com/emil00y1"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub (opens in new tab)"
             className="flex items-center gap-2.5 text-sm text-[var(--fg-2)] no-underline hover:text-[var(--brand)] transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0">

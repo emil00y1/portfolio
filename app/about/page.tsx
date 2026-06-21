@@ -40,7 +40,7 @@ export default function AboutPage() {
   return (
     <>
       <Nav />
-      <main className="px-[clamp(20px,5vw,60px)] pt-[calc(64px+clamp(48px,8vh,80px))] pb-[clamp(80px,12vh,120px)]">
+      <main id="main-content" className="px-[clamp(20px,5vw,60px)] pt-[calc(64px+clamp(48px,8vh,80px))] pb-[clamp(80px,12vh,120px)]">
         <div className="max-w-[860px] mx-auto">
 
           <div className="grid grid-cols-1 min-[680px]:grid-cols-[1fr_220px] gap-[clamp(24px,5vw,56px)] items-center mb-8 pb-8 min-[680px]:mb-[clamp(48px,7vh,80px)] min-[680px]:pb-[clamp(48px,7vh,80px)] min-[680px]:border-b min-[680px]:border-[var(--border)]">
@@ -59,7 +59,7 @@ export default function AboutPage() {
             </div>
             <div className="relative w-full max-w-[200px] min-[680px]:max-w-[220px] aspect-square rounded-lg overflow-hidden border border-[var(--border)] justify-self-start min-[680px]:justify-self-end order-first min-[680px]:order-none">
               <Image
-                src="/portrait_1x1.jpg"
+                src="/portrait_1x1.webp"
                 alt="Emil Kristensen"
                 fill
                 sizes="(max-width: 680px) 200px, 220px"

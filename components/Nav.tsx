@@ -54,8 +54,9 @@ export default function Nav() {
           <li className="group relative">
             <Link
               href="/#work"
+              aria-haspopup="true"
               className={cn(
-                "flex items-center gap-[5px] text-sm no-underline transition-colors relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:h-px after:bg-[var(--brand)] after:transition-[width] after:duration-[250ms]",
+                "flex items-center gap-[5px] text-sm no-underline transition-colors relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:h-px after:bg-[var(--brand)] after:transition-[width] after:duration-[250ms] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm",
                 isActive("/") || isActive("/projects")
                   ? "text-[var(--fg)] after:w-full"
                   : "text-[var(--fg-2)] after:w-0 hover:text-[var(--fg)] hover:after:w-full"
@@ -68,12 +69,12 @@ export default function Nav() {
                 viewBox="0 0 10 6"
                 fill="none"
                 aria-hidden="true"
-                className="transition-transform duration-200 opacity-60 group-hover:rotate-180 group-hover:opacity-100"
+                className="transition-transform duration-200 opacity-60 group-hover:rotate-180 group-hover:opacity-100 group-focus-within:rotate-180 group-focus-within:opacity-100"
               >
                 <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
-            <div className="absolute top-full left-1/2 pt-[14px] opacity-0 pointer-events-none transition-[opacity,transform] duration-[180ms] -translate-x-1/2 -translate-y-1 z-[300] group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0">
+            <div className="absolute top-full left-1/2 pt-[14px] opacity-0 pointer-events-none transition-[opacity,transform] duration-[180ms] -translate-x-1/2 -translate-y-1 z-[300] group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-lg p-1.5 min-w-[200px] shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
                 {projects.map((p) => (
                   <Link
@@ -113,8 +114,10 @@ export default function Nav() {
 
         <SheetTrigger asChild>
           <button
-            className={`burger flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[200] items-center justify-center${menuOpen ? " open" : ""}`}
+            className={`burger flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[200] items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm${menuOpen ? " open" : ""}`}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav-menu"
           >
             <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
             <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
@@ -125,19 +128,10 @@ export default function Nav() {
       <SheetContent
         side="left"
         showCloseButton={false}
+        id="mobile-nav-menu"
         className="menu-overlay open !inset-0 !w-full !max-w-none border-none flex flex-col justify-center items-start p-[clamp(40px,10vw,80px)] bg-[var(--bg)] dark:bg-[#111111] z-[190] opacity-100 pointer-events-auto gap-0 transition-opacity duration-[400ms]"
       >
         <SheetTitle className="sr-only">Navigation menu</SheetTitle>
-
-        <SheetClose asChild>
-          <button
-            className="burger open absolute top-5 right-[clamp(20px,5vw,60px)] flex flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 items-center justify-center"
-            aria-label="Close menu"
-          >
-            <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
-            <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
-          </button>
-        </SheetClose>
 
         <SheetClose asChild>
           <Link
@@ -161,7 +155,7 @@ export default function Nav() {
               )}
               style={jakarta}
             >
-              Projects
+              Work
             </CollapsibleTrigger>
             <CollapsibleContent
               className="menu-accordion-content overflow-hidden pl-[clamp(16px,4vw,32px)] flex flex-col gap-3 data-[state=closed]:animate-[collapsible-up_0.3s_var(--ease)] data-[state=open]:animate-[collapsible-down_0.3s_var(--ease)]"
@@ -171,7 +165,7 @@ export default function Nav() {
                 <SheetClose asChild key={p.id}>
                   <Link
                     href={`/projects/${p.id}`}
-                    className="text-[clamp(24px,6vw,40px)] font-semibold text-[var(--fg)] no-underline block hover:text-[var(--brand)] transition-colors"
+                    className="text-[clamp(24px,6vw,40px)] font-semibold text-[var(--fg-2)] no-underline block hover:text-[var(--brand)] transition-colors"
                     style={jakarta}
                   >
                     {p.title}
