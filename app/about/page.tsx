@@ -59,7 +59,7 @@ export default function AboutPage() {
             </div>
             <div className="relative w-full max-w-[200px] min-[680px]:max-w-[220px] aspect-square rounded-lg overflow-hidden border border-[var(--border)] justify-self-start min-[680px]:justify-self-end order-first min-[680px]:order-none">
               <Image
-                src="/portrait_1x1.jpg"
+                src="/portrait_1x1.webp"
                 alt="Emil Kristensen"
                 fill
                 sizes="(max-width: 680px) 200px, 220px"

@@ -130,16 +130,6 @@ export default function Nav() {
         <SheetTitle className="sr-only">Navigation menu</SheetTitle>
 
         <SheetClose asChild>
-          <button
-            className="burger open absolute top-5 right-[clamp(20px,5vw,60px)] flex flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 items-center justify-center"
-            aria-label="Close menu"
-          >
-            <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
-            <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
-          </button>
-        </SheetClose>
-
-        <SheetClose asChild>
           <Link
             href="/"
             className={cn(
@@ -161,7 +151,7 @@ export default function Nav() {
               )}
               style={jakarta}
             >
-              Projects
+              Work
             </CollapsibleTrigger>
             <CollapsibleContent
               className="menu-accordion-content overflow-hidden pl-[clamp(16px,4vw,32px)] flex flex-col gap-3 data-[state=closed]:animate-[collapsible-up_0.3s_var(--ease)] data-[state=open]:animate-[collapsible-down_0.3s_var(--ease)]"
@@ -171,7 +161,7 @@ export default function Nav() {
                 <SheetClose asChild key={p.id}>
                   <Link
                     href={`/projects/${p.id}`}
-                    className="text-[clamp(24px,6vw,40px)] font-semibold text-[var(--fg)] no-underline block hover:text-[var(--brand)] transition-colors"
+                    className="text-[clamp(24px,6vw,40px)] font-semibold text-[var(--fg-2)] no-underline block hover:text-[var(--brand)] transition-colors"
                     style={jakarta}
                   >
                     {p.title}

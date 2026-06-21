@@ -126,12 +126,11 @@ export default function WorkSection() {
               </div>
               <div className="bg-[var(--bg)] leading-[0] relative" style={{ position: "relative", height: 220, overflow: "hidden" }}>
                 <Image
-                  src={hoveredId === "estatenews" ? "/estatenews-live.png" : "/allegade10-live.png"}
+                  src={hoveredId === "estatenews" ? "/estatenews-live.webp" : "/allegade10-live.webp"}
                   alt={hoveredId === "estatenews" ? "EstateNews preview" : "Allegade 10 preview"}
                   fill
                   sizes="420px"
                   style={{ objectFit: "cover", objectPosition: "top" }}
-                  priority
                 />
               </div>
             </div>

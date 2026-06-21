@@ -22,6 +22,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://emilkristensen.dk"),
   title: "Emil Kristensen | AI & Full Stack Developer",
   description:
     "AI & Full Stack Developer based in Copenhagen. Specialized in AI integrations, LLMs, and building high-performance web products.",

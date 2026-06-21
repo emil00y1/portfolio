@@ -10,9 +10,9 @@ import { Badge } from "@/components/ui/badge";
 
 const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 
-const SCREENSHOTS: Record<string, { src: string; url: string }> = {
-  estatenews: { src: "/estatenews-live.png", url: "estatenews.dk" },
-  allegade: { src: "/allegade10-live.png", url: "allegade10.dk" },
+const SCREENSHOTS: Record<string, { src: string; ogSrc: string; url: string }> = {
+  estatenews: { src: "/estatenews-live.webp", ogSrc: "/estatenews-live.png", url: "estatenews.dk" },
+  allegade: { src: "/allegade10-live.webp", ogSrc: "/allegade10-live.png", url: "allegade10.dk" },
 };
 
 export function generateStaticParams() {
@@ -34,13 +34,13 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} | Emil Kristensen`,
       description: project.desc,
-      ...(screenshot ? { images: [{ url: screenshot.src, width: 1600, height: 1000 }] } : {}),
+      ...(screenshot ? { images: [{ url: screenshot.ogSrc, width: 1600, height: 1000 }] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.title} | Emil Kristensen`,
       description: project.desc,
-      ...(screenshot ? { images: [screenshot.src] } : {}),
+      ...(screenshot ? { images: [screenshot.ogSrc] } : {}),
     },
   };
 }
