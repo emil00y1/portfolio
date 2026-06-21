@@ -26,7 +26,7 @@ export interface Project {
   linkLabel: string;
   linkHref?: string;
   imgClass: string;
-  /** Long-form case study content for the detail page. Placeholder copy — refine later. */
+  /** Long-form case study content for the detail page. */
   caseStudy: CaseStudy;
 }
 
@@ -37,57 +37,57 @@ export const projects: Project[] = [
     year: "2025",
     title: "EstateNews",
     cat: "Automated News Platform",
-    desc: "An AI-powered automated real estate news platform built entirely solo, from database to browser. AI agents generate, structure, and publish property market content autonomously. Includes a paywall, email automation, admin dashboard, and background job processing.",
-    role: "Lead developer: full stack. Designed and built the entire platform from scratch, including data ingestion from external APIs, the editorial CMS workflow, and the public-facing site.",
+    desc: "An AI-powered real estate news platform built entirely solo. A pipeline of agents scrapes curated Danish sources, filters for relevance, rewrites content through an LLM, generates images, and publishes — all without a human in the loop. Built as both a commercial product and my bachelor project.",
+    role: "Sole developer. Designed and built the entire platform — data ingestion, AI pipeline, editorial workflow, and the public-facing site.",
     highlights:
-      "Server-side rendering for fast load times and full search indexability. Custom API integrations pulling live property data. Designed for non-technical editors to publish without developer involvement.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "OpenAI API", "Trigger.dev", "Mailgun", "SEO"],
+      "Multi-model pipeline using GPT-4o, Gemini, and Claude depending on the task. Background jobs via Trigger.dev. Free sign-up required to read full articles. Around 200 users and several hundred articles published to date.",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "OpenAI", "Gemini", "Claude", "Trigger.dev", "Mailgun"],
     link: "https://estatenews.dk",
     linkLabel: "Visit estatenews.dk ↗",
     imgClass: "ph-estatenews",
     caseStudy: {
       challenges: [
         {
-          title: "Publishing at a pace humans can't match",
-          body: "Real estate news moves daily, but a one-person editorial team can't keep up with the volume the market expects. The core challenge was producing accurate, well-structured property content continuously without a newsroom behind it.",
+          title: "Publishing at a pace no single person can match",
+          body: "Real estate news moves daily. A one-person team can't keep up with the volume the market expects — but the output still needs to be accurate, relevant, and well-written enough to build reader trust.",
         },
         {
-          title: "Trustworthy automation",
-          body: "Autonomous AI generation is only useful if the output is reliable. The system had to pull live property data, structure it correctly, and publish without introducing errors that would erode reader trust.",
+          title: "Filtering signal from noise",
+          body: "Scraping a curated list of Danish real estate sources produces a lot of raw material. The system had to identify new content, determine whether it was relevant to the platform's audience, and discard anything that didn't meet the bar — before spending tokens on writing.",
         },
       ],
       whatIBuilt: [
         {
-          title: "An autonomous content pipeline",
-          body: "AI agents that ingest data from external property APIs, draft and structure articles, and publish them on a schedule — all running as background jobs through Trigger.dev with no manual step in the loop.",
+          title: "A multi-stage autonomous pipeline",
+          body: "Trigger.dev background jobs scrape a curated list of Danish sources on a schedule. Each piece of content is analysed for freshness and relevance, then structured and passed to an LLM — drawing on GPT-4o, Gemini, and Claude depending on the task — to write the article. A separate model generates a matching image. The finished article is published automatically.",
         },
         {
-          title: "An editor-friendly CMS and paywall",
-          body: "A workflow non-technical editors can use to review and publish without developer involvement, plus a subscription paywall and Mailgun-driven email automation for reader retention.",
+          title: "A reader-facing product with sign-up and email",
+          body: "Free registration gates full article access. Mailgun handles transactional and retention emails. The whole product — from pipeline to public site — was designed and built solo.",
         },
       ],
       value: [
         {
-          title: "Up to 5 articles published daily — fully automatically",
-          body: "The platform publishes up to five articles every day without a single manual step. 100% autonomous end-to-end, from data ingestion to live publication.",
+          title: "Hundreds of articles published, fully automatically",
+          body: "The platform has published several hundred articles without a single manual editorial step. Every article from ingestion to publication is handled by the pipeline.",
         },
         {
-          title: "A full platform shipped solo",
-          body: "From database schema to browser, the entire product was designed and built by one developer — proving how far a single person can go with the right AI tooling and architecture.",
+          title: "A product idea that became a bachelor project",
+          body: "EstateNews started as a real product concept and was later adopted as my bachelor project at KEA — the idea came first, the academic framing second.",
         },
       ],
     },
   },
   {
     id: "allegade",
-    eyebrow: "02 - Property Platform",
-    year: "2026",
-    title: "Allegade 10",
-    cat: "Restaurant and Hotel",
-    desc: "A full redesign of the website for Allégade 10, a historic restaurant and hotel in Frederiksberg, Copenhagen. Built with Next.js and Sanity CMS, with a focus on visual identity, editorial flexibility, and a clean guest-facing experience.",
-    role: "Full stack developer. Responsible for architecture, backend API, interactive map/floor plan integration, and the full frontend experience.",
+    eyebrow: "02 - Hospitality",
+    year: "2025",
+    title: "Allégade 10",
+    cat: "Restaurant & Hotel Website",
+    desc: "A ground-up rebuild of the website for Allégade 10, a restaurant and hotel in Frederiksberg, Copenhagen. Replaced a slow, broken WordPress site with a custom Next.js and Sanity CMS build. 3,400+ visitors and 10,000+ page views in its first three weeks live.",
+    role: "Sole developer on a paid client engagement. Responsible for architecture, CMS setup, all frontend work, and ongoing iteration based on client feedback.",
     highlights:
-      "Real-time availability queries. Interactive floor plan viewer. Mobile-first design with smooth transitions throughout.",
+      "64% of visitors on mobile — the old site was effectively unusable on phones. Sanity CMS built with only the fields the team actually needs, no plugin debt. Links to third-party booking; full booking integration planned.",
     tags: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind CSS", "Framer Motion"],
     link: "https://allegade10.dk",
     linkLabel: "Visit allegade10.dk ↗",
@@ -95,47 +95,47 @@ export const projects: Project[] = [
     caseStudy: {
       challenges: [
         {
-          title: "A decade-old WordPress site that had grown unmanageable",
-          body: "The existing site was built on a non-intuitive template loaded with plugins. Dead pages that should have been removed years ago were still live, and the content was difficult to edit without breaking something.",
+          title: "A WordPress site that had become a liability",
+          body: "The existing site was built on an outdated template packed with plugins — many unmaintained, some introducing security vulnerabilities. Dead pages, broken layouts, and a CMS the team found confusing to use. It was slow to load and gave no impression of the quality of the venue.",
         },
         {
-          title: "~65% of visitors arrive on mobile — and the old site ignored them",
-          body: "Responsiveness was an afterthought on the original site. With roughly 2,000 monthly visitors on mobile devices, a broken mobile experience was directly costing the venue conversions.",
+          title: "64% of visitors arriving on a site that didn't work on mobile",
+          body: "Buttons overflowed each other, the header consumed nearly half the screen, and navigating between pages meant waiting several seconds for each load. For a hospitality business where first impressions matter, this was directly costing them guests.",
         },
       ],
       whatIBuilt: [
         {
-          title: "A full ground-up rebuild, solo",
-          body: "Replaced the WordPress template with a custom Next.js and Sanity CMS site — clean architecture, no plugin debt, structured content the team can actually edit themselves.",
+          title: "A clean rebuild on Next.js and Sanity",
+          body: "Replaced the WordPress template entirely. Sanity CMS was configured with only the content types and fields the team actually uses — menus, events, availability info — so editing is straightforward and there's nothing superfluous to get lost in. No plugin debt, no stale dependencies.",
         },
         {
-          title: "Mobile-first layout built around the real numbers",
-          body: "Every layout decision was made with the 65% mobile majority in mind. Improved load times, responsive design throughout, and a guest-facing experience optimised to drive conversions.",
+          title: "A mobile-first experience built around real visitor data",
+          body: "With 64% of traffic on mobile (50% on iOS), every layout decision was made with smaller screens first. Fast navigation, responsive design throughout, and a guest-facing experience that matches the quality of the restaurant and hotel.",
         },
       ],
       value: [
         {
-          title: "A digital front door that reflects the venue",
-          body: "Faster load times, a clean structure, and a guest experience whose polish matches the quality of the restaurant and hotel itself.",
+          title: "3,400+ visitors and 10,000+ page views in the first three weeks",
+          body: "Early traffic data shows strong engagement. The site has gone through multiple iterations since launch based on client and user feedback — ongoing rather than handed off.",
         },
         {
           title: "A team that can own their own content",
-          body: "With Sanity CMS in place, the venue no longer needs a developer to update menus, events, or availability. The site evolves as the business does.",
+          body: "The venue updates menus, events, and other content themselves. No developer involvement needed for day-to-day changes — that was a deliberate design goal from the start.",
         },
       ],
     },
   },
   {
     id: "internal",
-    eyebrow: "03+ - Internal & Client Work",
-    year: "2024 - 2026",
+    eyebrow: "03+ - Client Work",
+    year: "2025 – 2026",
     title: "Internal Projects",
-    cat: "Optimizing and automating internal tools",
-    desc: "A range of tools, AI integrations, and client builds developed under NDA. These span internal business tooling, workflow automation, and customer-facing products across several industries.",
-    role: "Sole developer or lead on most engagements. Ranged from rapid prototypes to full production systems.",
+    cat: "Automation & AI Integration",
+    desc: "A set of automation and AI integration projects for a single client in the commercial real estate space, built under NDA. The work centres on eliminating manual, repetitive workflows using a combination of LLMs, third-party APIs, and internal systems.",
+    role: "Sole developer. Working directly with the client to identify bottlenecks, design solutions, and build and iterate in production.",
     highlights:
-      "LLM-powered document processing pipelines. Automated reporting dashboards. Custom CRM integrations. All built with maintainability and handoff in mind.",
-    tags: ["AI / LLM", "OpenAI API", "Automation", "Node.js", "React", "Internal tooling"],
+      "Automated web crawler creation flow: what was a manual, field-by-field process is now handled by AI from a single input. Invoice automation: new and recurring invoices generated and dispatched without human involvement. Ongoing engagement, 2025–2026.",
+    tags: ["AI / LLM", "OpenAI API", "Automation", "Node.js", "React", "REST APIs"],
     link: null,
     linkLabel: "Get in touch to learn more →",
     linkHref: "/contact",
@@ -143,32 +143,32 @@ export const projects: Project[] = [
     caseStudy: {
       challenges: [
         {
-          title: "Real problems, under NDA",
-          body: "These engagements span several industries and are covered by confidentiality agreements. The shared thread: businesses with manual, repetitive workflows that were slowing teams down and were ripe for automation.",
+          title: "Manual processes slowing down a lean team",
+          body: "The client operates with a small team in a data-heavy industry. Several of their core workflows — creating web crawler configurations, generating invoices — required significant manual effort per task, with no room to scale without adding headcount.",
         },
         {
-          title: "Fit into systems that already exist",
-          body: "Most of this work meant integrating with established tools and processes rather than greenfield builds — the solution had to slot into how each business already operated.",
+          title: "Integrating with systems that already exist",
+          body: "These weren't greenfield projects. Each solution had to slot into existing tools and internal systems, work reliably in production, and be maintainable by the team after handoff.",
         },
       ],
       whatIBuilt: [
         {
-          title: "LLM-powered automation",
-          body: "Document-processing pipelines, automated reporting dashboards, and custom CRM integrations — ranging from rapid prototypes to full production systems, usually as sole developer or lead.",
+          title: "Automated crawler configuration",
+          body: "Building web crawlers for commercial real estate listings previously meant manually filling out a set of structured fields for each new source. I built a system where an LLM analyses the target site and populates those fields automatically — reducing a multi-step manual task to a single input.",
         },
         {
-          title: "Maintainable by design",
-          body: "Everything was built with handoff in mind: clear structure and documentation so each client's team can own and extend the work after delivery.",
+          title: "Invoice generation and dispatch",
+          body: "New and recurring invoices are now created and sent automatically, using a combination of LLM generation, third-party billing APIs, and internal data. The client's team no longer touches the invoicing flow for standard cases.",
         },
       ],
       value: [
         {
-          title: "Time given back to teams",
-          body: "By automating the repetitive parts, these tools free people to spend their time on work that actually needs human judgement.",
+          title: "Manual tasks converted to fully automated workflows",
+          body: "Work that previously required per-task human input now runs without involvement. The team's time goes to higher-value work.",
         },
         {
-          title: "Proven across industries",
-          body: "A track record of shipping AI and automation that holds up in production across very different business contexts.",
+          title: "Built to last, not just to ship",
+          body: "Both systems are in active production use. The engagement is ongoing — solutions are iterated based on real usage rather than treated as one-time deliveries.",
         },
       ],
     },
