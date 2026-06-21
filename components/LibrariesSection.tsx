@@ -43,7 +43,7 @@ export default function LibrariesSection() {
         </p>
       </div>
 
-      <div className="marquee-wrap">
+      <div className="marquee-wrap" aria-hidden="true">
         <div className="marquee-track flex gap-[10px] w-max">
           {chips.map((chip, i) => (
             <div

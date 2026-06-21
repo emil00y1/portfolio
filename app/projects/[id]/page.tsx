@@ -107,7 +107,7 @@ export default async function ProjectPage({
   return (
     <>
       <Nav />
-      <main className="pt-16">
+      <main id="main-content" className="pt-16">
         <div className="px-[clamp(20px,5vw,60px)] py-4 border-b border-[var(--border)]">
           <Link href="/#work" className="text-[13px] text-[var(--fg-3)] no-underline inline-flex items-center gap-1.5 hover:text-[var(--fg)] transition-colors">
             ← Back to work

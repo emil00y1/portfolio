@@ -23,7 +23,7 @@ export default function ThemeToggle({
       onClick={toggle}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       className={cn(
-        "inline-flex cursor-pointer items-center gap-1.5 border-none bg-transparent p-0 text-xs transition-colors",
+        "inline-flex cursor-pointer items-center gap-1.5 border-none bg-transparent p-0 text-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm",
         className
       )}
     >
