@@ -4,8 +4,6 @@ import WorkSection from "@/components/WorkSection";
 import LibrariesSection from "@/components/LibrariesSection";
 import HowIWorkSection from "@/components/HowIWorkSection";
 import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
-
 export default function Home() {
   return (
     <>
@@ -16,7 +14,6 @@ export default function Home() {
         <HowIWorkSection />
         <AboutSection />
         <LibrariesSection />
-        <ContactSection />
       </main>
     </>
   );
