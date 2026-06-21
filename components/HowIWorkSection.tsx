@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
+
 const steps = [
   {
     num: "01",
@@ -28,25 +30,28 @@ const steps = [
 export default function HowIWorkSection() {
   return (
     <motion.section
-      className="how-i-work"
+      className="px-[clamp(20px,5vw,60px)] py-[clamp(60px,10vh,100px)]"
       id="process"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: "easeInOut" as const }}
       viewport={{ once: true, margin: "-50px" }}
     >
-      <div className="hiw-header">
-        <span className="section-label">How I work</span>
-        <h2 className="hiw-heading" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
+      <div className="mb-16">
+        <span className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg-3)] font-medium">How I work</span>
+        <h2
+          className="text-[clamp(28px,4vw,42px)] font-bold tracking-[-0.03em] mt-3 leading-[1.1]"
+          style={jakarta}
+        >
           Four principles I don&apos;t compromise on.
         </h2>
       </div>
-      <div className="hiw-steps">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-[clamp(32px,4vw,48px)_clamp(24px,5vw,60px)]">
         {steps.map((s) => (
-          <div key={s.num} className="hiw-step">
-            <div className="hiw-num">{s.num}</div>
-            <h3 style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>{s.title}</h3>
-            <p>{s.body}</p>
+          <div key={s.num} className="flex flex-col gap-3">
+            <div className="text-[12px] font-bold text-[var(--brand)] tracking-[0.1em]">{s.num}</div>
+            <h3 className="text-[clamp(16px,1.8vw,19px)] font-bold tracking-[-0.02em]" style={jakarta}>{s.title}</h3>
+            <p className="text-[15px] text-[var(--fg-2)] leading-[1.7] font-light">{s.body}</p>
           </div>
         ))}
       </div>

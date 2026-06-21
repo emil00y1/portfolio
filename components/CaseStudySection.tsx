@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import type { CaseStudyItem } from "@/lib/projects";
 
+const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
+
 const container = {
   hidden: {},
   show: {
@@ -28,20 +30,28 @@ export default function CaseStudySection({
 }) {
   return (
     <motion.section
-      className="case-study-section"
+      className="mt-[clamp(48px,7vw,80px)]"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={container}
     >
-      <motion.h2 className="case-study-label" variants={item}>
+      <motion.h2
+        className="text-[12px] tracking-[0.12em] uppercase text-[var(--brand)] font-bold mb-[clamp(20px,3vw,32px)]"
+        variants={item}
+      >
         {label}
       </motion.h2>
-      <div className="case-study-grid">
+      <div className="grid grid-cols-1 min-[640px]:grid-cols-2 min-[1100px]:grid-cols-3 gap-[clamp(24px,4vw,48px)]">
         {items.map((entry) => (
-          <motion.article key={entry.title} className="case-study-item" variants={item}>
-            <h3 className="case-study-item-title">{entry.title}</h3>
-            <p className="case-study-item-body">{entry.body}</p>
+          <motion.article key={entry.title} variants={item}>
+            <h3
+              className="text-[clamp(17px,2vw,20px)] font-semibold leading-[1.35] text-[var(--fg)] mb-3 tracking-[-0.01em]"
+              style={jakarta}
+            >
+              {entry.title}
+            </h3>
+            <p className="text-[clamp(14px,1.6vw,15px)] leading-[1.75] text-[var(--fg-2)]">{entry.body}</p>
           </motion.article>
         ))}
       </div>

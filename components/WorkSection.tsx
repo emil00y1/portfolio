@@ -6,6 +6,9 @@ import Image from "next/image";
 import { Lock } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import { cn } from "@/lib/utils";
+
+const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 
 export default function WorkSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -29,52 +32,60 @@ export default function WorkSection() {
   }, [mouseX, mouseY]);
 
   return (
-    <section id="work" style={{ position: "relative" }}>
+    <section id="work" className="relative">
       <motion.div
-        className="work-header"
+        className="px-[clamp(20px,5vw,60px)] pt-[clamp(48px,7vh,80px)] flex justify-between items-baseline mb-10"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeInOut" as const }}
         viewport={{ once: true, margin: "-50px" }}
       >
-        <h2 style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Selected Work</h2>
+        <h2 className="text-[clamp(28px,4vw,42px)] font-bold tracking-[-0.03em]" style={jakarta}>Selected Work</h2>
       </motion.div>
 
       {/* Full-width row-list view (all viewports) */}
-      <div className="project-list">
+      <div className="px-[clamp(20px,5vw,60px)] pb-[clamp(48px,8vh,80px)]">
         {projects.map((project) => {
           const isInternal = project.id === "internal";
-
-          const rowContent = (
-            <>
-              <span className="project-row-index">{project.eyebrow.split(" - ")[0]}</span>
-              <div className="project-row-info">
-                <h3 className="project-row-title">{project.title}</h3>
-                <span className="project-row-cat">{project.cat}</span>
-              </div>
-              <div className="project-row-tech hidden md:block">
-                {project.tags.join(" · ")}
-              </div>
-              <div className="project-row-meta">
-                <span className="project-row-arrow">↗</span>
-              </div>
-            </>
-          );
-
-          const rowClass = `project-row ${isInternal ? "project-row-nda" : ""}`;
-          const hoverHandlers = {
-            onMouseEnter: () => setHoveredId(project.id),
-            onMouseLeave: () => setHoveredId(null),
-          };
 
           return (
             <Link
               key={project.id}
               href={`/projects/${project.id}`}
-              className={rowClass}
-              {...hoverHandlers}
+              className={cn(
+                "group grid grid-cols-[40px_1fr_60px] md:grid-cols-[80px_1.8fr_3fr_120px] gap-4 md:gap-0 items-center py-8",
+                "border-t border-t-transparent border-b border-b-[var(--border)] -mt-px",
+                "cursor-pointer w-full text-left no-underline text-inherit bg-transparent font-inherit",
+                "hover:border-[var(--brand)] hover:z-[2] relative transition-[border-color] duration-300",
+                "focus-visible:outline-2 focus-visible:outline-[var(--brand)] focus-visible:outline-offset-4 focus-visible:rounded-sm",
+                isInternal && "project-row-nda"
+              )}
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
             >
-              {rowContent}
+              <span className="text-[13px] text-[var(--fg-3)] font-mono">{project.eyebrow.split(" - ")[0]}</span>
+              <div className="flex flex-col gap-1">
+                <h3
+                  className="text-[clamp(20px,2.2vw,26px)] font-bold tracking-[-0.02em] text-[var(--fg)] group-hover:text-[var(--brand)] group-hover:translate-x-1.5 transition-[color,transform] duration-300 motion-reduce:group-hover:translate-x-0"
+                  style={jakarta}
+                >
+                  {project.title}
+                </h3>
+                <span className="text-[13px] text-[var(--fg-2)] group-hover:translate-x-1.5 transition-transform duration-300 motion-reduce:group-hover:translate-x-0">
+                  {project.cat}
+                </span>
+              </div>
+              <div className="hidden md:block text-[13px] text-[var(--fg-3)] pr-6">
+                {project.tags.join(" · ")}
+              </div>
+              <div className="flex items-center justify-end gap-3 text-sm text-[var(--fg-3)] text-right">
+                <span className={cn(
+                  "text-[18px] transition-[transform,color] duration-300",
+                  isInternal
+                    ? "group-hover:translate-x-[3px]"
+                    : "group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:text-[var(--brand)]"
+                )}>↗</span>
+              </div>
             </Link>
           );
         })}
@@ -83,7 +94,7 @@ export default function WorkSection() {
       {/* Mouse-following preview tooltip (desktop only) */}
       <div className="hidden lg:block">
         <motion.div
-          className="floating-preview"
+          className="floating-preview pointer-events-none"
           style={{
             position: "fixed",
             left: 0,
@@ -102,14 +113,18 @@ export default function WorkSection() {
           transition={{ duration: 0.15, ease: "easeOut" }}
         >
           {(hoveredId === "estatenews" || hoveredId === "allegade") && (
-            <div className="browser-frame preview-frame">
-              <div className="browser-frame-bar">
-                <span className="browser-frame-dots" aria-hidden="true"><i /><i /><i /></span>
-                <span className="browser-frame-url">
+            <div className="browser-frame preview-frame rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-off)]">
+              <div className="flex items-center gap-[14px] px-4 py-[11px] bg-[var(--bg-off)] border-b border-[var(--border)]">
+                <span className="flex gap-[7px] shrink-0" aria-hidden="true">
+                  <i className="w-[11px] h-[11px] rounded-full bg-[var(--border)] not-italic" />
+                  <i className="w-[11px] h-[11px] rounded-full bg-[var(--border)] not-italic" />
+                  <i className="w-[11px] h-[11px] rounded-full bg-[var(--border)] not-italic" />
+                </span>
+                <span className="flex-1 text-[12px] text-[var(--fg-3)] bg-[var(--bg)] rounded-md px-3 py-[5px] text-center tracking-[0.01em] overflow-hidden text-ellipsis whitespace-nowrap">
                   {hoveredId === "estatenews" ? "estatenews.dk" : "allegade10.dk"}
                 </span>
               </div>
-              <div className="browser-frame-viewport" style={{ position: "relative", height: 220 }}>
+              <div className="bg-[var(--bg)] leading-[0] relative" style={{ position: "relative", height: 220, overflow: "hidden" }}>
                 <Image
                   src={hoveredId === "estatenews" ? "/estatenews-live.png" : "/allegade10-live.png"}
                   alt={hoveredId === "estatenews" ? "EstateNews preview" : "Allegade 10 preview"}
@@ -122,9 +137,9 @@ export default function WorkSection() {
             </div>
           )}
           {hoveredId === "internal" && (
-            <div className="browser-frame nda-preview">
-              <Lock width={28} height={28} strokeWidth={1.5} className="nda-preview-icon" />
-              <span className="nda-preview-label">NDA Protected</span>
+            <div className="browser-frame nda-preview preview-frame rounded-xl overflow-hidden border border-[var(--border)] flex flex-col items-center justify-center gap-3 p-10 text-center min-h-[160px] bg-[var(--bg-off)]">
+              <Lock width={28} height={28} strokeWidth={1.5} className="text-[var(--brand)]" />
+              <span className="text-[10px] text-[var(--fg-3)] tracking-[0.15em] uppercase font-semibold">NDA Protected</span>
             </div>
           )}
         </motion.div>

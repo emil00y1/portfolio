@@ -8,6 +8,8 @@ import CaseStudySection from "@/components/CaseStudySection";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
+const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
+
 const SCREENSHOTS: Record<string, { src: string; url: string }> = {
   estatenews: { src: "/estatenews-live.png", url: "estatenews.dk" },
   allegade: { src: "/allegade10-live.png", url: "allegade10.dk" },
@@ -54,17 +56,19 @@ function ProjectHeroImage({ id, title }: { id: string; title: string }) {
 
   // NDA / internal work — no public screenshot, show a framed placeholder.
   return (
-    <div className="browser-frame">
-      <div className="browser-frame-bar">
-        <span className="browser-frame-dots" aria-hidden="true">
-          <i />
-          <i />
-          <i />
+    <div className="browser-frame rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-off)] shadow-[0_24px_60px_-24px_rgba(0,0,0,0.28)] animate-[frame-in_0.7s_var(--ease)_both] motion-reduce:animate-none">
+      <div className="flex items-center gap-[14px] px-4 py-[11px] bg-[var(--bg-off)] border-b border-[var(--border)]">
+        <span className="flex gap-[7px] shrink-0" aria-hidden="true">
+          <i className="w-[11px] h-[11px] rounded-full bg-[var(--border)] not-italic" />
+          <i className="w-[11px] h-[11px] rounded-full bg-[var(--border)] not-italic" />
+          <i className="w-[11px] h-[11px] rounded-full bg-[var(--border)] not-italic" />
         </span>
-        <span className="browser-frame-url">Confidential · under NDA</span>
+        <span className="flex-1 text-[12px] text-[var(--fg-3)] bg-[var(--bg)] rounded-md px-3 py-[5px] text-center tracking-[0.01em] overflow-hidden text-ellipsis whitespace-nowrap">
+          Confidential · under NDA
+        </span>
       </div>
       <div
-        className="browser-frame-viewport is-placeholder flex flex-col items-center justify-center gap-4"
+        className="bg-[var(--bg)] leading-[0] relative aspect-[16/10] flex flex-col items-center justify-center gap-4"
         style={{
           backgroundImage:
             "repeating-linear-gradient(45deg, transparent, transparent 12px, color-mix(in srgb, var(--fg) 3%, transparent) 12px, color-mix(in srgb, var(--fg) 3%, transparent) 13px)",
@@ -104,36 +108,45 @@ export default async function ProjectPage({
     <>
       <Nav />
       <main className="pt-16">
-        <div className="project-detail-back">
-          <Link href="/#work">
+        <div className="px-[clamp(20px,5vw,60px)] py-4 border-b border-[var(--border)]">
+          <Link href="/#work" className="text-[13px] text-[var(--fg-3)] no-underline inline-flex items-center gap-1.5 hover:text-[var(--fg)] transition-colors">
             ← Back to work
           </Link>
         </div>
 
         {project.id !== "internal" && (
-          <div className="project-detail-hero">
+          <div className="px-[clamp(20px,5vw,60px)] pt-[clamp(32px,6vw,64px)] max-w-[1200px] mx-auto">
             <ProjectHeroImage id={project.id} title={project.title} />
           </div>
         )}
 
-        <div className="project-detail-content">
-          <div className="project-detail-header">
-            <div className="project-detail-header-text">
-              <p className="project-detail-eyebrow">{project.eyebrow}</p>
-              <h1 className="project-detail-title">{project.title}</h1>
-              <p className="project-detail-desc">{project.desc}</p>
+        <div className="px-[clamp(20px,5vw,60px)] py-[clamp(48px,7vh,80px)] max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 min-[860px]:grid-cols-[1fr_320px] min-[1100px]:grid-cols-[1fr_360px] gap-[clamp(40px,6vw,80px)] mb-[clamp(48px,7vw,80px)] items-start">
+            <div>
+              <p className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg-2)] font-semibold mb-4">
+                {project.eyebrow}
+              </p>
+              <h1
+                className="text-[clamp(36px,6vw,72px)] font-extrabold tracking-[-0.04em] leading-none mb-6"
+                style={jakarta}
+              >
+                {project.title}
+              </h1>
+              <p className="text-[clamp(16px,2vw,18px)] leading-[1.75] text-[var(--fg-2)] font-light max-w-[580px]">
+                {project.desc}
+              </p>
             </div>
-            <div className="project-detail-sidebar">
-              <div className="project-detail-meta-block">
-                <h2 className="project-detail-meta-key">My role</h2>
-                <p className="project-detail-meta-val">{project.role}</p>
+            <div className="flex flex-col gap-[clamp(28px,4vw,40px)] pt-1">
+              <div>
+                <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">My role</h2>
+                <p className="text-[15px] text-[var(--fg-2)] leading-[1.75]">{project.role}</p>
               </div>
-              <div className="project-detail-meta-block">
-                <h2 className="project-detail-meta-key">Highlights</h2>
-                <p className="project-detail-meta-val">{project.highlights}</p>
+              <div>
+                <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">Highlights</h2>
+                <p className="text-[15px] text-[var(--fg-2)] leading-[1.75]">{project.highlights}</p>
               </div>
-              <div className="project-detail-meta-block">
-                <h2 className="project-detail-meta-key">Technologies</h2>
+              <div>
+                <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">Technologies</h2>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <Badge key={tag} variant="outline">
@@ -142,7 +155,7 @@ export default async function ProjectPage({
                   ))}
                 </div>
               </div>
-              <div className="project-detail-actions">
+              <div className="pt-1 flex items-center gap-4">
                 {project.link ? (
                   <Button asChild className="btn btn-dark h-auto rounded-lg">
                     <a href={project.link} target="_blank" rel="noopener noreferrer">

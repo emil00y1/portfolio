@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "AI & Full Stack Developer based in Copenhagen. Specialising in LLM integrations, agentic workflows, and modern web development.",
 };
 
+const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
+
 const education = [
   {
     school: "Erhvervsakademi København (KEA)",
@@ -38,21 +40,24 @@ export default function AboutPage() {
   return (
     <>
       <Nav />
-      <main className="about-page">
-        <div className="about-page-inner">
+      <main className="px-[clamp(20px,5vw,60px)] pt-[calc(64px+clamp(48px,8vh,80px))] pb-[clamp(80px,12vh,120px)]">
+        <div className="max-w-[860px] mx-auto">
 
-          <div className="about-page-hero">
-            <div className="about-page-hero-text">
-              <p className="section-label" style={{ marginBottom: 20 }}>About</p>
-              <h1 className="about-page-heading" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
+          <div className="grid grid-cols-1 min-[680px]:grid-cols-[1fr_220px] gap-[clamp(36px,5vw,56px)] items-center mb-[clamp(56px,9vh,88px)] pb-[clamp(56px,9vh,88px)] border-b border-[var(--border)]">
+            <div>
+              <p className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg-3)] font-medium mb-5">About</p>
+              <h1
+                className="text-[clamp(32px,5vw,60px)] font-extrabold tracking-[-0.04em] leading-[1.05]"
+                style={jakarta}
+              >
                 Building intelligent things people actually want to use.
               </h1>
-              <div className="about-status" style={{ marginTop: 28 }}>
-                <span className="status-dot" />
+              <div className="flex items-center gap-2.5 mt-7 text-sm text-[var(--fg-2)]">
+                <span className="w-2 h-2 rounded-full bg-[var(--green)] shrink-0 animate-[pulse_2s_ease-in-out_infinite] motion-reduce:animate-none" />
                 <span>Available for new projects</span>
               </div>
             </div>
-            <div className="about-page-photo-wrapper">
+            <div className="relative w-full max-w-[200px] min-[680px]:max-w-[220px] aspect-square rounded-lg overflow-hidden border border-[var(--border)] justify-self-start min-[680px]:justify-self-end order-first min-[680px]:order-none">
               <Image
                 src="/portrait_1x1.jpg"
                 alt="Emil Kristensen"
@@ -64,14 +69,17 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="about-page-body">
+          <div className="flex flex-col gap-[clamp(48px,7vh,72px)]">
 
-            <div className="about-page-section">
-              <h2 className="about-page-section-heading" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
+            <div className="grid grid-cols-1 min-[680px]:grid-cols-[180px_1fr] gap-[20px_40px]">
+              <h2
+                className="text-[13px] font-bold tracking-[0.1em] uppercase text-[var(--fg-3)] pt-1.5"
+                style={jakarta}
+              >
                 Who I am
               </h2>
-              <div className="about-page-content">
-                <div className="about-page-prose">
+              <div className="flex flex-col gap-6">
+                <div className="text-[clamp(15px,1.8vw,17px)] leading-[1.8] text-[var(--fg-2)] font-light space-y-4">
                   <p>
                     I&apos;m a full-stack developer specialising in AI integration and automation, based in Copenhagen.
                     I build LLM-powered products, multi-step agents, and n8n-based automation pipelines — and I bring
@@ -91,12 +99,15 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="about-page-section">
-              <h2 className="about-page-section-heading" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
+            <div className="grid grid-cols-1 min-[680px]:grid-cols-[180px_1fr] gap-[20px_40px]">
+              <h2
+                className="text-[13px] font-bold tracking-[0.1em] uppercase text-[var(--fg-3)] pt-1.5"
+                style={jakarta}
+              >
                 Education
               </h2>
-              <div className="about-page-content">
-                <div className="about-page-prose">
+              <div className="flex flex-col gap-6">
+                <div className="text-[clamp(15px,1.8vw,17px)] leading-[1.8] text-[var(--fg-2)] font-light space-y-4">
                   <p>
                     I hold a Bachelor in Web Development from KEA and an AP degree in Multimedia Design from the
                     same institution. The combination gave me both the technical depth to build production systems
@@ -111,27 +122,30 @@ export default function AboutPage() {
                     Development, and here I am.
                   </p>
                 </div>
-                <div className="about-page-edu-list">
+                <div className="flex flex-col gap-2.5">
                   {education.map((e) => (
-                    <div key={e.school + e.years} className="about-page-edu-card">
-                      <div className="about-page-edu-card-left">
-                        <span className="about-page-edu-school">{e.school}</span>
-                        <span className="about-page-edu-degree">{e.degree}</span>
-                        <span className="about-page-edu-detail">{e.detail}</span>
+                    <div key={e.school + e.years} className="flex justify-between items-start gap-4 max-[500px]:flex-col max-[500px]:gap-1.5 px-5 py-[18px] bg-[var(--bg-off)] border border-[var(--border)] rounded-lg">
+                      <div className="flex flex-col gap-1">
+                        <span className="text-sm font-semibold text-[var(--fg)]">{e.school}</span>
+                        <span className="text-[13px] text-[var(--fg-2)]">{e.degree}</span>
+                        <span className="text-[12px] text-[var(--fg-3)]">{e.detail}</span>
                       </div>
-                      <span className="about-page-edu-year">{e.years}</span>
+                      <span className="text-[13px] text-[var(--fg-3)] whitespace-nowrap shrink-0">{e.years}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="about-page-section">
-              <h2 className="about-page-section-heading" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
+            <div className="grid grid-cols-1 min-[680px]:grid-cols-[180px_1fr] gap-[20px_40px]">
+              <h2
+                className="text-[13px] font-bold tracking-[0.1em] uppercase text-[var(--fg-3)] pt-1.5"
+                style={jakarta}
+              >
                 How I work
               </h2>
-              <div className="about-page-content">
-                <div className="about-page-prose">
+              <div className="flex flex-col gap-6">
+                <div className="text-[clamp(15px,1.8vw,17px)] leading-[1.8] text-[var(--fg-2)] font-light space-y-4">
                   <p>
                     I work iteratively and ship fast. I use AI tooling to eliminate the repetitive parts of
                     development and spend the saved time on what actually matters: the details that make a product
