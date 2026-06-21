@@ -40,7 +40,7 @@ export default function Hero() {
       >
         <defs>
           <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-            <circle cx="1.5" cy="1.5" r="1.5" fill="currentColor" />
+            <circle cx="1.5" cy="1.5" r="2" fill="currentColor" />
           </pattern>
           <radialGradient id="dot-fade" cx="80%" cy="15%" r="90%" gradientUnits="objectBoundingBox">
             <stop offset="0%" stopColor="white" stopOpacity="1" />

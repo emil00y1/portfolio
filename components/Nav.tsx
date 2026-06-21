@@ -76,9 +76,23 @@ export default function Nav() {
       <SheetContent
         side="left"
         showCloseButton={false}
-        className="menu-overlay open !w-full !max-w-none border-none p-[clamp(40px,10vw,80px)] [&>button]:hidden"
+        className="menu-overlay open !w-full !max-w-none border-none p-[clamp(40px,10vw,80px)]"
       >
         <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+
+        <SheetClose asChild>
+          <button
+            className="burger open absolute top-5 right-[clamp(20px,5vw,60px)]"
+            aria-label="Close menu"
+          >
+            <span />
+            <span />
+          </button>
+        </SheetClose>
+
+        <SheetClose asChild>
+          <Link href="/" className="nav-item" style={jakarta}>Home</Link>
+        </SheetClose>
 
         <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
           <Collapsible open={projectsOpen} onOpenChange={setProjectsOpen}>
@@ -117,7 +131,7 @@ export default function Nav() {
           }}
         >
           <span>emilck@live.dk</span>
-          <ThemeToggle labels="short" className="text-white/70 hover:text-[var(--brand)]" />
+          <ThemeToggle labels="short" className="text-[var(--fg-3)] hover:text-[var(--brand)]" />
         </div>
       </SheetContent>
     </Sheet>

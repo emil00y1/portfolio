@@ -22,9 +22,9 @@ const education = [
   },
   {
     school: "Copenhagen Business School (CBS)",
-    degree: "BSc Business Administration and Information Management",
-    years: "2019 – 2021",
-    detail: "Two semesters completed before pivoting to hands-on technical education",
+    degree: "BSc Markets and Cultural Analysis",
+    years: "2020 – 2021",
+    detail: "One year completed before pivoting toward a more practical, creative path",
   },
   {
     school: "Baltorp Business Gymnasium",
@@ -103,14 +103,12 @@ export default function AboutPage() {
                     and the design foundation to think about interfaces before writing a line of code.
                   </p>
                   <p>
-                    I started out on the business side — two semesters at CBS studying Information Management —
-                    before realising I wanted the hands-on satisfaction of actually building the things I was
-                    analysing. That shift is probably what sets me apart from most developers: I understand the
-                    business case, I understand the design, and I can implement it myself.
-                  </p>
-                  <p>
-                    Beyond formal education, most of what I know came from building real things, breaking them, and
-                    learning from the gap between what I thought I knew and what the code actually needed.
+                    I started at CBS studying Markets and Cultural Analysis, but after a year I realised I wanted
+                    something more practical and creative. I&apos;d always been the IT person in the room and had a
+                    genuine interest in design, so Multimedia Design felt like a natural fit — a mix of both
+                    worlds. Once I got into it, I found myself drawn more and more to the coding side, especially
+                    frontend, and the range of possibilities it opened up. That pull eventually led me into Web
+                    Development, and here I am.
                   </p>
                 </div>
                 <div className="about-page-edu-list">
