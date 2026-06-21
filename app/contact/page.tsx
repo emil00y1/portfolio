@@ -31,7 +31,7 @@ export default function ContactPage() {
           <div className="mb-14">
             <Button
               asChild
-              className="btn btn-brand h-auto gap-2 rounded-lg text-[15px]"
+              className="h-auto gap-2 rounded-lg text-[15px]"
               style={{ padding: "14px 28px" }}
             >
               <a href="mailto:emilck@live.dk">
