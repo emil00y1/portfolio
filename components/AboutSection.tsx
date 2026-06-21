@@ -40,7 +40,7 @@ export default function AboutSection() {
               <span>Available for new projects</span>
             </div>
             <div style={{ marginTop: 28 }}>
-              <Link href="/about" className="btn-ghost-link">
+              <Link href="/about" className="text-link-arrow">
                 Read more →
               </Link>
             </div>

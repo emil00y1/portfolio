@@ -38,7 +38,6 @@ export default function WorkSection() {
         viewport={{ once: true, margin: "-50px" }}
       >
         <h2 style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>Selected Work</h2>
-        <span className="section-label">2024 - 2026</span>
       </motion.div>
 
       {/* Full-width row-list view (all viewports) */}

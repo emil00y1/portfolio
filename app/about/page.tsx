@@ -12,19 +12,25 @@ const education = [
     school: "Erhvervsakademi København (KEA)",
     degree: "Bachelor in Web Development",
     years: "2024 – 2026",
-    detail: "Grade average: 9.7 · Bachelor project: estatenews.dk",
+    detail: "Bachelor project: estatenews.dk",
   },
   {
-    school: "Københavns Erhvervsakademi (KEA)",
+    school: "Erhvervsakademi København (KEA)",
     degree: "AP Graduate · Multimedia Design",
     years: "2022 – 2024",
-    detail: "Grade average: 11.5 · JavaScript, UX & UI Design, Frontend Development",
+    detail: "JavaScript, UX & UI Design, Frontend Development",
+  },
+  {
+    school: "Copenhagen Business School (CBS)",
+    degree: "BSc Business Administration and Information Management",
+    years: "2019 – 2021",
+    detail: "Two semesters completed before pivoting to hands-on technical education",
   },
   {
     school: "Baltorp Business Gymnasium",
     degree: "HHX",
     years: "2016 – 2019",
-    detail: "Grade average: 11.4 · English A, Danish A, International Economics A",
+    detail: "English A, Danish A, International Economics A",
   },
 ];
 
@@ -92,10 +98,15 @@ export default function AboutPage() {
               <div className="about-page-content">
                 <div className="about-page-prose">
                   <p>
-                    I hold a <strong>Bachelor in Web Development</strong> from KEA and an AP degree in{" "}
-                    <strong>Multimedia Design</strong> from the same institution. The combination gave me both the
-                    technical depth to build production systems and the design foundation to think about interfaces
-                    before writing a line of code.
+                    I hold a Bachelor in Web Development from KEA and an AP degree in Multimedia Design from the
+                    same institution. The combination gave me both the technical depth to build production systems
+                    and the design foundation to think about interfaces before writing a line of code.
+                  </p>
+                  <p>
+                    I started out on the business side — two semesters at CBS studying Information Management —
+                    before realising I wanted the hands-on satisfaction of actually building the things I was
+                    analysing. That shift is probably what sets me apart from most developers: I understand the
+                    business case, I understand the design, and I can implement it myself.
                   </p>
                   <p>
                     Beyond formal education, most of what I know came from building real things, breaking them, and
@@ -104,7 +115,7 @@ export default function AboutPage() {
                 </div>
                 <div className="about-page-edu-list">
                   {education.map((e) => (
-                    <div key={e.school} className="about-page-edu-card">
+                    <div key={e.school + e.years} className="about-page-edu-card">
                       <div className="about-page-edu-card-left">
                         <span className="about-page-edu-school">{e.school}</span>
                         <span className="about-page-edu-degree">{e.degree}</span>
