@@ -114,7 +114,7 @@ export default function Nav() {
 
         <SheetTrigger asChild>
           <button
-            className={`burger flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[200] items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm${menuOpen ? " open" : ""}`}
+            className={`burger flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[200] items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm${menuOpen ? " open invisible" : ""}`}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-menu"
