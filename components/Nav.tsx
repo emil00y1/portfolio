@@ -114,7 +114,7 @@ export default function Nav() {
 
         <SheetTrigger asChild>
           <button
-            className={`burger flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[200] items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm${menuOpen ? " open" : ""}`}
+            className={`burger flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[200] items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm${menuOpen ? " open invisible" : ""}`}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-menu"
@@ -132,6 +132,16 @@ export default function Nav() {
         className="menu-overlay open !inset-0 !w-full !max-w-none border-none flex flex-col justify-center items-start p-[clamp(40px,10vw,80px)] bg-[var(--bg)] dark:bg-[#111111] z-[190] opacity-100 pointer-events-auto gap-0 transition-opacity duration-[400ms]"
       >
         <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+
+        <SheetClose asChild>
+          <button
+            className="burger open fixed top-6 right-[clamp(20px,5vw,60px)] flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[210] items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm"
+            aria-label="Close menu"
+          >
+            <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
+            <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
+          </button>
+        </SheetClose>
 
         <SheetClose asChild>
           <Link
