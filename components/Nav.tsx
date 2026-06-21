@@ -134,6 +134,16 @@ export default function Nav() {
         <SheetTitle className="sr-only">Navigation menu</SheetTitle>
 
         <SheetClose asChild>
+          <button
+            className="burger open fixed top-6 right-[clamp(20px,5vw,60px)] flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[210] items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm"
+            aria-label="Close menu"
+          >
+            <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
+            <span className="block h-0.5 bg-[var(--fg)] rounded-sm w-[22px]" />
+          </button>
+        </SheetClose>
+
+        <SheetClose asChild>
           <Link
             href="/"
             className={cn(
