@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Make dark: utilities respond to the .dark class (class-based theme toggle) */
+@variant dark (&:where(.dark, .dark *));
+
 /* ── Design Tokens ─────────────────────────── */
 :root {
   --bg:        #FAFAFA;

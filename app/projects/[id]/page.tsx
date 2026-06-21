@@ -157,13 +157,13 @@ export default async function ProjectPage({
               </div>
               <div className="pt-1 flex items-center gap-4">
                 {project.link ? (
-                  <Button asChild className="h-auto rounded-lg">
+                  <Button asChild className="h-auto px-[18px] py-2.5 rounded-lg">
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                       {project.linkLabel}
                     </a>
                   </Button>
                 ) : project.linkHref ? (
-                  <Button asChild variant="outline" className="h-auto rounded-lg">
+                  <Button asChild variant="outline" className="h-auto px-[18px] py-2.5 rounded-lg">
                     <Link href={project.linkHref}>{project.linkLabel}</Link>
                   </Button>
                 ) : (

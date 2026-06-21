@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { projects } from "@/lib/projects";
 import {
   Sheet,
@@ -21,9 +22,16 @@ import { cn } from "@/lib/utils";
 const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 
 export default function Nav() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href === "/projects") return pathname.startsWith("/projects");
+    return pathname === href;
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -46,7 +54,12 @@ export default function Nav() {
           <li className="group relative">
             <Link
               href="/#work"
-              className="flex items-center gap-[5px] text-sm text-[var(--fg-2)] no-underline transition-colors hover:text-[var(--fg)] relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:h-px after:w-0 after:bg-[var(--brand)] after:transition-[width] after:duration-[250ms] hover:after:w-full"
+              className={cn(
+                "flex items-center gap-[5px] text-sm no-underline transition-colors relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:h-px after:bg-[var(--brand)] after:transition-[width] after:duration-[250ms]",
+                isActive("/") || isActive("/projects")
+                  ? "text-[var(--fg)] after:w-full"
+                  : "text-[var(--fg-2)] after:w-0 hover:text-[var(--fg)] hover:after:w-full"
+              )}
             >
               Work
               <svg
@@ -78,7 +91,12 @@ export default function Nav() {
           <li>
             <Link
               href="/about"
-              className="text-sm text-[var(--fg-2)] no-underline transition-colors hover:text-[var(--fg)] relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:h-px after:w-0 after:bg-[var(--brand)] after:transition-[width] after:duration-[250ms] hover:after:w-full"
+              className={cn(
+                "text-sm no-underline transition-colors relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:h-px after:bg-[var(--brand)] after:transition-[width] after:duration-[250ms]",
+                isActive("/about")
+                  ? "text-[var(--fg)] after:w-full"
+                  : "text-[var(--fg-2)] after:w-0 hover:text-[var(--fg)] hover:after:w-full"
+              )}
             >
               About
             </Link>
@@ -122,14 +140,27 @@ export default function Nav() {
         </SheetClose>
 
         <SheetClose asChild>
-          <Link href="/" className="nav-item font-bold text-[clamp(32px,8vw,56px)] text-[var(--fg-3)] leading-[1.3] tracking-[-0.03em] no-underline cursor-pointer block w-full hover:!text-[var(--brand)]" style={jakarta}>
+          <Link
+            href="/"
+            className={cn(
+              "nav-item font-bold text-[clamp(32px,8vw,56px)] leading-[1.3] tracking-[-0.03em] no-underline cursor-pointer block w-full hover:!text-[var(--brand)] transition-colors",
+              isActive("/") ? "text-[var(--fg)]" : "text-[var(--fg-2)]"
+            )}
+            style={jakarta}
+          >
             Home
           </Link>
         </SheetClose>
 
         <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
           <Collapsible open={projectsOpen} onOpenChange={setProjectsOpen}>
-            <CollapsibleTrigger className="nav-item font-bold text-[clamp(32px,8vw,56px)] text-[var(--fg-3)] leading-[1.3] tracking-[-0.03em] no-underline cursor-pointer block w-full text-left hover:!text-[var(--brand)]" style={jakarta}>
+            <CollapsibleTrigger
+              className={cn(
+                "nav-item font-bold text-[clamp(32px,8vw,56px)] leading-[1.3] tracking-[-0.03em] no-underline cursor-pointer block w-full text-left hover:!text-[var(--brand)] transition-colors",
+                isActive("/projects") ? "text-[var(--fg)]" : "text-[var(--fg-2)]"
+              )}
+              style={jakarta}
+            >
               Projects
             </CollapsibleTrigger>
             <CollapsibleContent
@@ -152,12 +183,26 @@ export default function Nav() {
         </div>
 
         <SheetClose asChild>
-          <Link href="/about" className="nav-item font-bold text-[clamp(32px,8vw,56px)] text-[var(--fg-3)] leading-[1.3] tracking-[-0.03em] no-underline cursor-pointer block w-full hover:!text-[var(--brand)]" style={jakarta}>
+          <Link
+            href="/about"
+            className={cn(
+              "nav-item font-bold text-[clamp(32px,8vw,56px)] leading-[1.3] tracking-[-0.03em] no-underline cursor-pointer block w-full hover:!text-[var(--brand)] transition-colors",
+              isActive("/about") ? "text-[var(--fg)]" : "text-[var(--fg-2)]"
+            )}
+            style={jakarta}
+          >
             About
           </Link>
         </SheetClose>
         <SheetClose asChild>
-          <Link href="/contact" className="nav-item font-bold text-[clamp(32px,8vw,56px)] text-[var(--fg-3)] leading-[1.3] tracking-[-0.03em] no-underline cursor-pointer block w-full hover:!text-[var(--brand)]" style={jakarta}>
+          <Link
+            href="/contact"
+            className={cn(
+              "nav-item font-bold text-[clamp(32px,8vw,56px)] leading-[1.3] tracking-[-0.03em] no-underline cursor-pointer block w-full hover:!text-[var(--brand)] transition-colors",
+              isActive("/contact") ? "text-[var(--fg)]" : "text-[var(--fg-2)]"
+            )}
+            style={jakarta}
+          >
             Contact
           </Link>
         </SheetClose>
