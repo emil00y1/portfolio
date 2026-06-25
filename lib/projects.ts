@@ -142,7 +142,7 @@ export const projects: Project[] = [
     role: "Sole developer. Working directly with the client to identify bottlenecks, design solutions, and build and iterate in production.",
     highlights:
       "Automated web crawler creation flow: what was a manual, field-by-field process is now handled by AI from a single input. Invoice automation: new and recurring invoices generated and dispatched without human involvement. Ongoing engagement, 2025–2026.",
-    tags: ["AI / LLM", "OpenAI API", "Automation", "Node.js", "React", "REST APIs"],
+    tags: ["AI / LLM", "Automation", "n8n", "Node.js", "Next.js", "React", "Vercel", "Railway", "REST APIs"],
     link: null,
     linkLabel: "Get in touch to learn more →",
     linkHref: "/contact",
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     id: "catacrawl",
     eyebrow: "04 - Hobby Project",
     year: "2026",
-    title: "CATACRAWL",
+    title: "Catacrawl",
     cat: "Roguelite Auto-Shooter",
     status: "Hobby · In progress",
     desc: "A browser-based roguelite auto-shooter I'm building solo, for fun. Its hook: \"weapons are themselves — you choose where to stand, and what to become.\" Combat is about positioning and build choices rather than aim, wrapped in pixel-art and account-based progression — talents, a compendium, a codex and achievements. Still in active development, with a native mobile version planned.",
@@ -193,7 +193,7 @@ export const projects: Project[] = [
       "Auto-shooter combat where positioning, not aim, is the core skill. Persistent accounts with a talent tree, compendium, codex and achievements. Live in the browser today; a native mobile build is on the roadmap.",
     tags: ["TypeScript", "React", "Canvas", "Vercel"],
     link: "https://catacrawl.vercel.app",
-    linkLabel: "Play CATACRAWL ↗",
+    linkLabel: "Play Catacrawl ↗",
     imgClass: "ph-catacrawl",
     caseStudyLabels: ["The idea", "What I'm building", "What's next"],
     caseStudy: {

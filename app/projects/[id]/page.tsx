@@ -171,10 +171,27 @@ export default async function ProjectPage({
 
           {project.id !== "internal" && (
             <figure className="mt-[clamp(40px,6vw,72px)] max-w-[840px] mx-auto">
-              <ProjectHeroImage id={project.id} title={project.title} />
-              <figcaption className="mt-3 text-center text-[12px] text-[var(--fg-3)] tracking-[0.02em]">
-                {project.link ? "Live in production" : "Preview"}
-              </figcaption>
+              {project.link ? (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block no-underline"
+                  aria-label={`Visit ${project.title} (opens in new tab)`}
+                >
+                  <ProjectHeroImage id={project.id} title={project.title} />
+                  <figcaption className="mt-3 text-center text-[12px] text-[var(--fg-3)] tracking-[0.02em] group-hover:text-[var(--brand)] transition-colors">
+                    Visit the live site ↗
+                  </figcaption>
+                </a>
+              ) : (
+                <>
+                  <ProjectHeroImage id={project.id} title={project.title} />
+                  <figcaption className="mt-3 text-center text-[12px] text-[var(--fg-3)] tracking-[0.02em]">
+                    Preview
+                  </figcaption>
+                </>
+              )}
             </figure>
           )}
 

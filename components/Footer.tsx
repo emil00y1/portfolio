@@ -3,6 +3,7 @@
 import { ArrowUpRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import { LINKEDIN_URL } from "@/lib/site";
 
 const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 
@@ -35,7 +36,7 @@ export default function Footer() {
             emilck@live.dk
           </a>
           <a
-            href="https://linkedin.com/in/emilkristensen"
+            href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn (opens in new tab)"

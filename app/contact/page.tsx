@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import { Mail, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LINKEDIN_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact | Emil Kristensen",
@@ -24,7 +25,6 @@ export default function ContactPage() {
             Let&apos;s build<br />something.
           </h1>
           <p className="text-[clamp(15px,1.8vw,17px)] leading-[1.75] text-[var(--fg-2)] font-light mb-10">
-            I&apos;m currently available for freelance projects, full-time roles, and interesting collaborations.
             Whether you have a specific brief or just want to explore an idea — I&apos;d love to hear from you.
           </p>
 
@@ -47,7 +47,7 @@ export default function ContactPage() {
               <span>emilck@live.dk</span>
             </a>
             <a
-              href="https://linkedin.com/in/emilkristensen"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn (opens in new tab)"
