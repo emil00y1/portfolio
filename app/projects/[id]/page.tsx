@@ -13,6 +13,7 @@ const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 const SCREENSHOTS: Record<string, { src: string; ogSrc: string; url: string }> = {
   estatenews: { src: "/estatenews-live.webp", ogSrc: "/estatenews-live.png", url: "estatenews.dk" },
   allegade: { src: "/allegade10-live.webp", ogSrc: "/allegade10-live.png", url: "allegade10.dk" },
+  catacrawl: { src: "/catacrawl-live.webp", ogSrc: "/catacrawl-live.png", url: "catacrawl.vercel.app" },
 };
 
 export function generateStaticParams() {
@@ -174,9 +175,17 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          <CaseStudySection label="The challenge" items={project.caseStudy.challenges} />
-          <CaseStudySection label="What I built" items={project.caseStudy.whatIBuilt} />
-          <CaseStudySection label="The value created" items={project.caseStudy.value} />
+          {(() => {
+            const [challengeLabel, builtLabel, valueLabel] =
+              project.caseStudyLabels ?? ["The challenge", "What I built", "The value created"];
+            return (
+              <>
+                <CaseStudySection label={challengeLabel} items={project.caseStudy.challenges} />
+                <CaseStudySection label={builtLabel} items={project.caseStudy.whatIBuilt} />
+                <CaseStudySection label={valueLabel} items={project.caseStudy.value} />
+              </>
+            );
+          })()}
         </div>
       </main>
     </>

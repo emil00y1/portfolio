@@ -10,6 +10,13 @@ import { cn } from "@/lib/utils";
 
 const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 
+/** Screenshot used by the mouse-following hover preview, keyed by project id. */
+const PREVIEWS: Record<string, { src: string; url: string; alt: string }> = {
+  estatenews: { src: "/estatenews-live.webp", url: "estatenews.dk", alt: "EstateNews preview" },
+  allegade: { src: "/allegade10-live.webp", url: "allegade10.dk", alt: "Allégade 10 preview" },
+  catacrawl: { src: "/catacrawl-live.webp", url: "catacrawl.vercel.app", alt: "CATACRAWL preview" },
+};
+
 export default function WorkSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const reducedMotion = useRef(false);
@@ -71,9 +78,14 @@ export default function WorkSection() {
                 >
                   {project.title}
                 </h3>
-                <span className="text-[13px] text-[var(--fg-2)] group-hover:translate-x-1.5 transition duration-300 ease-[var(--ease)] motion-reduce:group-hover:translate-x-0">
-                  {project.cat}
-                </span>
+                <div className="flex items-center gap-2 flex-wrap group-hover:translate-x-1.5 transition duration-300 ease-[var(--ease)] motion-reduce:group-hover:translate-x-0">
+                  <span className="text-[13px] text-[var(--fg-2)]">{project.cat}</span>
+                  {project.status && (
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.08em] px-2 py-0.5 rounded-full border border-[var(--brand)] text-[var(--brand)] bg-[var(--brand-lt)] whitespace-nowrap">
+                      {project.status}
+                    </span>
+                  )}
+                </div>
               </div>
               <div className="hidden md:block text-[13px] text-[var(--fg-3)] pr-6">
                 {project.tags.join(" · ")}
@@ -112,7 +124,7 @@ export default function WorkSection() {
           }}
           transition={{ duration: 0.15, ease: "easeOut" }}
         >
-          {(hoveredId === "estatenews" || hoveredId === "allegade") && (
+          {hoveredId && PREVIEWS[hoveredId] && (
             <div className="browser-frame preview-frame rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-off)]">
               <div className="flex items-center gap-[14px] px-4 py-[11px] bg-[var(--bg-off)] border-b border-[var(--border)]">
                 <span className="flex gap-[7px] shrink-0" aria-hidden="true">
@@ -121,13 +133,13 @@ export default function WorkSection() {
                   <i className="w-[11px] h-[11px] rounded-full bg-[var(--border)] not-italic" />
                 </span>
                 <span className="flex-1 text-[12px] text-[var(--fg-3)] bg-[var(--bg)] rounded-md px-3 py-[5px] text-center tracking-[0.01em] overflow-hidden text-ellipsis whitespace-nowrap">
-                  {hoveredId === "estatenews" ? "estatenews.dk" : "allegade10.dk"}
+                  {PREVIEWS[hoveredId].url}
                 </span>
               </div>
               <div className="bg-[var(--bg)] leading-[0] relative" style={{ position: "relative", height: 220, overflow: "hidden" }}>
                 <Image
-                  src={hoveredId === "estatenews" ? "/estatenews-live.webp" : "/allegade10-live.webp"}
-                  alt={hoveredId === "estatenews" ? "EstateNews preview" : "Allegade 10 preview"}
+                  src={PREVIEWS[hoveredId].src}
+                  alt={PREVIEWS[hoveredId].alt}
                   fill
                   sizes="420px"
                   style={{ objectFit: "cover", objectPosition: "top" }}
