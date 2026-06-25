@@ -29,12 +29,17 @@ export default function AboutSection() {
             <div className="text-[clamp(15px,1.8vw,17px)] leading-[1.75] text-[var(--fg-2)] font-light space-y-4">
               <p>
                 I&apos;m a full-stack developer specialising in AI integration and automation, based in Copenhagen.
-                I build LLM-powered products, multi-step agents, and n8n-based automation pipelines — and bring a
+                I build LLM-powered products, multi-step agents, and n8n-based automation pipelines and bring a
                 strong eye for UX from a background in Multimedia Design and Web Development.
               </p>
               <p>
+                I&apos;ve built full-stack applications like an automated news platform, AI agents that take over
+                repetitive tasks, websites for restaurants, and custom CMS solutions.
+              </p>
+              <p>
                 I take ownership from architecture to delivery and communicate clearly across technical and
-                non-technical teams. I thrive in environments where quality and continuous improvement matter.
+                non-technical teams. Outside of the code I&apos;m pretty down to earth — I like keeping things
+                simple, building things I&apos;d actually use, and learning something new with every project.
               </p>
             </div>
             <div className="flex items-center gap-2.5 mt-7 text-sm text-[var(--fg-2)]">

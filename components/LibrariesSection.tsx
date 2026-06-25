@@ -20,13 +20,9 @@ export default function LibrariesSection() {
             Modern libraries &amp; tools
           </div>
           <h2 className="text-[clamp(24px,3.5vw,36px)] font-bold tracking-[-0.03em]" style={jakarta}>
-            Built on the shoulders<br />of great open source.
+            Tools and libraries I often use
           </h2>
         </div>
-        <p className="text-sm text-[var(--fg-3)] max-w-[360px] leading-[1.6]">
-          Good software is built on good foundations. I pick tools I trust for each
-          layer — so I can move fast without cutting corners.
-        </p>
       </div>
 
       <div className="flex gap-[clamp(24px,4vw,48px)] flex-wrap px-[clamp(20px,5vw,60px)] pt-2">

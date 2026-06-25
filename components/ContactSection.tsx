@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LINKEDIN_URL } from "@/lib/site";
 
 export default function ContactSection() {
   return (
@@ -37,7 +38,7 @@ export default function ContactSection() {
           emilck@live.dk
         </a>
         <a
-          href="https://linkedin.com/in/emilkristensen"
+          href={LINKEDIN_URL}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn (opens in new tab)"

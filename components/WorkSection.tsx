@@ -14,7 +14,7 @@ const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 const PREVIEWS: Record<string, { src: string; url: string; alt: string }> = {
   estatenews: { src: "/estatenews-live.webp", url: "estatenews.dk", alt: "EstateNews preview" },
   allegade: { src: "/allegade10-live.webp", url: "allegade10.dk", alt: "Allégade 10 preview" },
-  catacrawl: { src: "/catacrawl-live.webp", url: "catacrawl.vercel.app", alt: "CATACRAWL preview" },
+  catacrawl: { src: "/catacrawl-live.webp", url: "catacrawl.vercel.app", alt: "Catacrawl preview" },
 };
 
 export default function WorkSection() {
@@ -81,7 +81,7 @@ export default function WorkSection() {
                 <div className="flex items-center gap-2 flex-wrap group-hover:translate-x-1.5 transition duration-300 ease-[var(--ease)] motion-reduce:group-hover:translate-x-0">
                   <span className="text-[13px] text-[var(--fg-2)]">{project.cat}</span>
                   {project.status && (
-                    <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--fg-3)] whitespace-nowrap">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--brand)] opacity-80 whitespace-nowrap">
                       {project.status}
                     </span>
                   )}
