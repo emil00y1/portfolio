@@ -13,6 +13,7 @@ const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 const SCREENSHOTS: Record<string, { src: string; ogSrc: string; url: string }> = {
   estatenews: { src: "/estatenews-live.webp", ogSrc: "/estatenews-live.png", url: "estatenews.dk" },
   allegade: { src: "/allegade10-live.webp", ogSrc: "/allegade10-live.png", url: "allegade10.dk" },
+  catacrawl: { src: "/catacrawl-live.webp", ogSrc: "/catacrawl-live.png", url: "catacrawl.vercel.app" },
 };
 
 export function generateStaticParams() {
@@ -121,61 +122,71 @@ export default async function ProjectPage({
         )}
 
         <div className="px-[clamp(20px,5vw,60px)] py-[clamp(48px,7vh,80px)] max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 min-[860px]:grid-cols-[1fr_320px] min-[1100px]:grid-cols-[1fr_360px] gap-[clamp(40px,6vw,80px)] mb-[clamp(48px,7vw,80px)] items-start">
-            <div>
-              <p className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg-2)] font-semibold mb-4">
-                {project.eyebrow}
-              </p>
-              <h1
-                className="text-[clamp(36px,6vw,72px)] font-extrabold tracking-[-0.04em] leading-none mb-6"
-                style={jakarta}
-              >
-                {project.title}
-              </h1>
-              <p className="text-[clamp(16px,2vw,18px)] leading-[1.75] text-[var(--fg-2)] font-light max-w-[580px]">
-                {project.desc}
-              </p>
+          {/* Title block — full width, no sidebar */}
+          <header className="mb-[clamp(40px,6vw,64px)]">
+            <p className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg-2)] font-semibold mb-4">
+              {project.eyebrow}
+            </p>
+            <h1
+              className="text-[clamp(36px,6vw,72px)] font-extrabold tracking-[-0.04em] leading-none mb-6"
+              style={jakarta}
+            >
+              {project.title}
+            </h1>
+            <p className="text-[clamp(16px,2vw,18px)] leading-[1.75] text-[var(--fg-2)] font-light max-w-[640px]">
+              {project.desc}
+            </p>
+            <div className="pt-7 flex items-center gap-4">
+              {project.link ? (
+                <Button asChild className="h-auto px-[18px] py-2.5 rounded-lg">
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    {project.linkLabel}
+                  </a>
+                </Button>
+              ) : project.linkHref ? (
+                <Button asChild variant="outline" className="h-auto px-[18px] py-2.5 rounded-lg">
+                  <Link href={project.linkHref}>{project.linkLabel}</Link>
+                </Button>
+              ) : (
+                <span className="text-[13px] text-[var(--fg-3)]">{project.linkLabel}</span>
+              )}
             </div>
-            <div className="flex flex-col gap-[clamp(28px,4vw,40px)] pt-1">
-              <div>
-                <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">My role</h2>
-                <p className="text-[15px] text-[var(--fg-2)] leading-[1.75]">{project.role}</p>
-              </div>
-              <div>
-                <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">Highlights</h2>
-                <p className="text-[15px] text-[var(--fg-2)] leading-[1.75]">{project.highlights}</p>
-              </div>
-              <div>
-                <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">Technologies</h2>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag} variant="outline">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-1 flex items-center gap-4">
-                {project.link ? (
-                  <Button asChild className="h-auto px-[18px] py-2.5 rounded-lg">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      {project.linkLabel}
-                    </a>
-                  </Button>
-                ) : project.linkHref ? (
-                  <Button asChild variant="outline" className="h-auto px-[18px] py-2.5 rounded-lg">
-                    <Link href={project.linkHref}>{project.linkLabel}</Link>
-                  </Button>
-                ) : (
-                  <span className="text-[13px] text-[var(--fg-3)]">{project.linkLabel}</span>
-                )}
+          </header>
+
+          {/* Meta band — role / highlights / technologies pulled into the main column */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[clamp(24px,4vw,48px)] gap-y-9 border-t border-[var(--border)] pt-9 mb-[clamp(16px,3vw,32px)]">
+            <div>
+              <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">My role</h2>
+              <p className="text-[15px] text-[var(--fg-2)] leading-[1.75]">{project.role}</p>
+            </div>
+            <div>
+              <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">Highlights</h2>
+              <p className="text-[15px] text-[var(--fg-2)] leading-[1.75]">{project.highlights}</p>
+            </div>
+            <div>
+              <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">Technologies</h2>
+              <div className="flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <Badge key={tag} variant="outline">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
             </div>
           </div>
 
-          <CaseStudySection label="The challenge" items={project.caseStudy.challenges} />
-          <CaseStudySection label="What I built" items={project.caseStudy.whatIBuilt} />
-          <CaseStudySection label="The value created" items={project.caseStudy.value} />
+          <CaseStudySection
+            label={project.caseStudyLabels?.[0] ?? "The challenge"}
+            items={project.caseStudy.challenges}
+          />
+          <CaseStudySection
+            label={project.caseStudyLabels?.[1] ?? "What I built"}
+            items={project.caseStudy.whatIBuilt}
+          />
+          <CaseStudySection
+            label={project.caseStudyLabels?.[2] ?? "The value created"}
+            items={project.caseStudy.value}
+          />
         </div>
       </main>
     </>

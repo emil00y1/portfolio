@@ -4,20 +4,6 @@ import { motion } from "framer-motion";
 
 const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 
-const chips = [
-  "Next.js", "React.js", "TypeScript", "Tailwind CSS", "shadcn/ui",
-  "Supabase", "PostgreSQL", "Drizzle ORM", "Zod", "React Hook Form",
-  "Framer Motion", "Node.js", "Vercel", "Docker", "n8n",
-  "LLM APIs", "Claude Code", "Playwright", "Vitest", "BetterAuth",
-  "Sanity CMS", "Trigger.dev", "Mailgun", "Radix UI", "Vue.js",
-  // duplicate for seamless loop
-  "Next.js", "React.js", "TypeScript", "Tailwind CSS", "shadcn/ui",
-  "Supabase", "PostgreSQL", "Drizzle ORM", "Zod", "React Hook Form",
-  "Framer Motion", "Node.js", "Vercel", "Docker", "n8n",
-  "LLM APIs", "Claude Code", "Playwright", "Vitest", "BetterAuth",
-  "Sanity CMS", "Trigger.dev", "Mailgun", "Radix UI", "Vue.js",
-];
-
 export default function LibrariesSection() {
   return (
     <motion.section
@@ -43,21 +29,7 @@ export default function LibrariesSection() {
         </p>
       </div>
 
-      <div className="marquee-wrap" aria-hidden="true">
-        <div className="marquee-track flex gap-[10px] w-max">
-          {chips.map((chip, i) => (
-            <div
-              key={`${chip}-${i}`}
-              className="inline-flex items-center gap-2 px-[18px] py-2.5 border border-[var(--border)] rounded-[40px] bg-[var(--bg-off)] whitespace-nowrap text-[13px] font-medium text-[var(--fg-2)] hover:border-[var(--brand)] hover:text-[var(--brand)] transition-[border-color,color] cursor-default"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] opacity-50 shrink-0" />
-              {chip}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex gap-[clamp(24px,4vw,48px)] flex-wrap px-[clamp(20px,5vw,60px)] pt-7">
+      <div className="flex gap-[clamp(24px,4vw,48px)] flex-wrap px-[clamp(20px,5vw,60px)] pt-2">
         {[
           { label: "Languages",    items: ["HTML", "CSS", "JavaScript", "TypeScript"] },
           { label: "Frameworks",   items: ["Next.js", "React.js", "Vue.js", "Node.js"] },

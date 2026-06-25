@@ -26,8 +26,15 @@ export interface Project {
   linkLabel: string;
   linkHref?: string;
   imgClass: string;
+  /** Optional badge shown on the card, e.g. "Hobby · In progress". */
+  status?: string;
   /** Long-form case study content for the detail page. */
   caseStudy: CaseStudy;
+  /**
+   * Optional override for the three case-study section headings.
+   * Defaults to ["The challenge", "What I built", "The value created"].
+   */
+  caseStudyLabels?: [string, string, string];
 }
 
 export const projects: Project[] = [
@@ -169,6 +176,55 @@ export const projects: Project[] = [
         {
           title: "Built to last, not just to ship",
           body: "Both systems are in active production use. The engagement is ongoing — solutions are iterated based on real usage rather than treated as one-time deliveries.",
+        },
+      ],
+    },
+  },
+  {
+    id: "catacrawl",
+    eyebrow: "04 - Hobby Project",
+    year: "2026",
+    title: "CATACRAWL",
+    cat: "Roguelite Auto-Shooter",
+    status: "Hobby · In progress",
+    desc: "A browser-based roguelite auto-shooter I'm building solo, for fun. Its hook: \"weapons are themselves — you choose where to stand, and what to become.\" Combat is about positioning and build choices rather than aim, wrapped in pixel-art and account-based progression — talents, a compendium, a codex and achievements. Still in active development, with a native mobile version planned.",
+    role: "Solo passion project. Game design, gameplay programming, the meta-progression systems, and the pixel-art direction — all built in my own time.",
+    highlights:
+      "Auto-shooter combat where positioning, not aim, is the core skill. Persistent accounts with a talent tree, compendium, codex and achievements. Live in the browser today; a native mobile build is on the roadmap.",
+    tags: ["TypeScript", "React", "Canvas", "Vercel"],
+    link: "https://catacrawl.vercel.app",
+    linkLabel: "Play CATACRAWL ↗",
+    imgClass: "ph-catacrawl",
+    caseStudyLabels: ["The idea", "What I'm building", "What's next"],
+    caseStudy: {
+      challenges: [
+        {
+          title: "A roguelite where positioning is the whole game",
+          body: "Most action roguelites are about aiming. I wanted to flip that: weapons fire on their own, so the only things you control are where you stand and what build you grow into. The constraint makes every encounter about movement and risk rather than twitch aim.",
+        },
+        {
+          title: "Making \"just one more run\" feel earned",
+          body: "A roguelite lives or dies on its meta-progression. The goal is to give players a reason to come back between runs — talents, a compendium, a codex and achievements that feed long-term growth without trivialising the moment-to-moment combat.",
+        },
+      ],
+      whatIBuilt: [
+        {
+          title: "Auto-shooter combat and run structure",
+          body: "The core loop: runs built around auto-firing weapons and mid-run upgrades that reshape how your build plays. Rendered as pixel-art in the browser and tuned for fast, readable action with WASD movement.",
+        },
+        {
+          title: "Account-based meta-progression",
+          body: "Players log in and keep their progress: a talent tree, an unlockable compendium and codex, and achievements that persist across runs — long-term goals layered on top of individual sessions.",
+        },
+      ],
+      value: [
+        {
+          title: "A native mobile build",
+          body: "Positioning-first, auto-firing combat is a natural fit for touch. A mobile version is the next major milestone — reworking controls and UI for small screens while keeping the same core loop.",
+        },
+        {
+          title: "What it's teaching me",
+          body: "Game development stretches different muscles than client work — real-time rendering, game-feel tuning, and balancing systems for long-term engagement. It's where I experiment with ideas that feed back into how I build everything else.",
         },
       ],
     },
