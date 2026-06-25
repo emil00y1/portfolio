@@ -66,12 +66,12 @@ export default function WorkSection() {
               <span className="text-[13px] text-[var(--fg-3)] font-mono">{project.eyebrow.split(" - ")[0]}</span>
               <div className="flex flex-col gap-1">
                 <h3
-                  className="text-[clamp(20px,2.2vw,26px)] font-bold tracking-[-0.02em] text-[var(--fg)] group-hover:text-[var(--brand)] group-hover:translate-x-1.5 transition-[color,transform] duration-300 motion-reduce:group-hover:translate-x-0"
+                  className="text-[clamp(20px,2.2vw,26px)] font-bold tracking-[-0.02em] text-[var(--fg)] group-hover:text-[var(--brand)] group-hover:translate-x-1.5 transition duration-300 ease-[var(--ease)] motion-reduce:group-hover:translate-x-0"
                   style={jakarta}
                 >
                   {project.title}
                 </h3>
-                <span className="text-[13px] text-[var(--fg-2)] group-hover:translate-x-1.5 transition-transform duration-300 motion-reduce:group-hover:translate-x-0">
+                <span className="text-[13px] text-[var(--fg-2)] group-hover:translate-x-1.5 transition duration-300 ease-[var(--ease)] motion-reduce:group-hover:translate-x-0">
                   {project.cat}
                 </span>
               </div>
@@ -80,7 +80,7 @@ export default function WorkSection() {
               </div>
               <div className="flex items-center justify-end gap-3 text-sm text-[var(--fg-3)] text-right">
                 <span className={cn(
-                  "text-[18px] transition-[transform,color] duration-300",
+                  "text-[18px] transition duration-300 ease-[var(--ease)]",
                   isInternal
                     ? "group-hover:translate-x-[3px]"
                     : "group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:text-[var(--brand)]"

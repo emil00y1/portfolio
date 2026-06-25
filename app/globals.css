@@ -79,16 +79,6 @@ body {
 .dark .menu-overlay { background: #111111; }
 .dark .hero-bg-graphic { opacity: 0.18; }
 
-/* ── Marquee (webkit prefix + animation-play-state not in Tailwind) ── */
-.marquee-wrap {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-}
-.marquee-track { animation: marquee 28s linear infinite; }
-.marquee-track:hover { animation-play-state: paused; }
-.marquee-track-reverse { animation: marquee 28s linear infinite reverse; margin-top: 10px; }
-.marquee-track-reverse:hover { animation-play-state: paused; }
-
 /* ── Preview frame overrides ── */
 .preview-frame { animation: none !important; box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.22) !important; }
 .preview-frame:hover { transform: none !important; box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.22) !important; }
@@ -113,10 +103,6 @@ nav {
 @keyframes pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(100,100,100,0.4); }
   50%       { box-shadow: 0 0 0 6px rgba(100,100,100,0); }
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
 }
 @keyframes bounce-down {
   0%, 100% { transform: translateY(0); }
@@ -180,10 +166,6 @@ html[data-vt="back"]::view-transition-new(root) {
     animation-duration: 0s !important;
     animation-delay: 0s !important;
   }
-
-  /* Scrolling marquee */
-  .marquee-track,
-  .marquee-track-reverse { animation: none; }
 }
 
 @theme inline {
