@@ -175,17 +175,18 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {(() => {
-            const [challengeLabel, builtLabel, valueLabel] =
-              project.caseStudyLabels ?? ["The challenge", "What I built", "The value created"];
-            return (
-              <>
-                <CaseStudySection label={challengeLabel} items={project.caseStudy.challenges} />
-                <CaseStudySection label={builtLabel} items={project.caseStudy.whatIBuilt} />
-                <CaseStudySection label={valueLabel} items={project.caseStudy.value} />
-              </>
-            );
-          })()}
+          <CaseStudySection
+            label={project.caseStudyLabels?.[0] ?? "The challenge"}
+            items={project.caseStudy.challenges}
+          />
+          <CaseStudySection
+            label={project.caseStudyLabels?.[1] ?? "What I built"}
+            items={project.caseStudy.whatIBuilt}
+          />
+          <CaseStudySection
+            label={project.caseStudyLabels?.[2] ?? "The value created"}
+            items={project.caseStudy.value}
+          />
         </div>
       </main>
     </>
