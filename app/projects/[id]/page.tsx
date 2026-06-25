@@ -51,7 +51,7 @@ function ProjectHeroImage({ id, title }: { id: string; title: string }) {
 
   if (shot) {
     return (
-      <BrowserFrame src={shot.src} alt={`${title} website preview`} url={shot.url} priority />
+      <BrowserFrame src={shot.src} alt={`${title} website preview`} url={shot.url} />
     );
   }
 
