@@ -115,12 +115,6 @@ export default async function ProjectPage({
           </Link>
         </div>
 
-        {project.id !== "internal" && (
-          <div className="px-[clamp(20px,5vw,60px)] pt-[clamp(32px,6vw,64px)] max-w-[1200px] mx-auto">
-            <ProjectHeroImage id={project.id} title={project.title} />
-          </div>
-        )}
-
         <div className="px-[clamp(20px,5vw,60px)] py-[clamp(48px,7vh,80px)] max-w-[1200px] mx-auto">
           {/* Title block — full width, no sidebar */}
           <header className="mb-[clamp(40px,6vw,64px)]">
@@ -175,15 +169,27 @@ export default async function ProjectPage({
             </div>
           </div>
 
+          {project.id !== "internal" && (
+            <figure className="mt-[clamp(40px,6vw,72px)] max-w-[840px] mx-auto">
+              <ProjectHeroImage id={project.id} title={project.title} />
+              <figcaption className="mt-3 text-center text-[12px] text-[var(--fg-3)] tracking-[0.02em]">
+                {project.link ? "Live in production" : "Preview"}
+              </figcaption>
+            </figure>
+          )}
+
           <CaseStudySection
+            icon="challenge"
             label={project.caseStudyLabels?.[0] ?? "The challenge"}
             items={project.caseStudy.challenges}
           />
           <CaseStudySection
+            icon="built"
             label={project.caseStudyLabels?.[1] ?? "What I built"}
             items={project.caseStudy.whatIBuilt}
           />
           <CaseStudySection
+            icon="value"
             label={project.caseStudyLabels?.[2] ?? "The value created"}
             items={project.caseStudy.value}
           />

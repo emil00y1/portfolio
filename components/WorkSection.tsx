@@ -81,7 +81,7 @@ export default function WorkSection() {
                 <div className="flex items-center gap-2 flex-wrap group-hover:translate-x-1.5 transition duration-300 ease-[var(--ease)] motion-reduce:group-hover:translate-x-0">
                   <span className="text-[13px] text-[var(--fg-2)]">{project.cat}</span>
                   {project.status && (
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.08em] px-2 py-0.5 rounded-full border border-[var(--brand)] text-[var(--brand)] bg-[var(--brand-lt)] whitespace-nowrap">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--fg-3)] whitespace-nowrap">
                       {project.status}
                     </span>
                   )}
