@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 /**
- * A faux browser-chrome frame around a product screenshot — traffic-light dots
- * and an address bar — so screenshots read as a live product rather than a
+ * A faux browser-chrome frame around a product screenshot - traffic-light dots
+ * and an address bar - so screenshots read as a live product rather than a
  * cropped image. The image keeps its natural aspect ratio (no hard crop).
  */
 export default function BrowserFrame({

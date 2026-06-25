@@ -55,7 +55,7 @@ function ProjectHeroImage({ id, title }: { id: string; title: string }) {
     );
   }
 
-  // NDA / internal work — no public screenshot, show a framed placeholder.
+  // NDA / internal work - no public screenshot, show a framed placeholder.
   return (
     <div className="browser-frame rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--bg-off)] shadow-[0_24px_60px_-24px_rgba(0,0,0,0.28)] animate-[frame-in_0.7s_var(--ease)_both] motion-reduce:animate-none">
       <div className="flex items-center gap-[14px] px-4 py-[11px] bg-[var(--bg-off)] border-b border-[var(--border)]">
@@ -116,7 +116,7 @@ export default async function ProjectPage({
         </div>
 
         <div className="px-[clamp(20px,5vw,60px)] py-[clamp(48px,7vh,80px)] max-w-[1200px] mx-auto">
-          {/* Title block — full width, no sidebar */}
+          {/* Title block - full width, no sidebar */}
           <header className="mb-[clamp(40px,6vw,64px)]">
             <p className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg-2)] font-semibold mb-4">
               {project.eyebrow}
@@ -147,7 +147,7 @@ export default async function ProjectPage({
             </div>
           </header>
 
-          {/* Meta band — role / highlights / technologies pulled into the main column */}
+          {/* Meta band - role / highlights / technologies pulled into the main column */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[clamp(24px,4vw,48px)] gap-y-9 border-t border-[var(--border)] pt-9 mb-[clamp(16px,3vw,32px)]">
             <div>
               <h2 className="text-[11px] tracking-[0.12em] uppercase text-[var(--fg)] font-bold mb-3">My role</h2>

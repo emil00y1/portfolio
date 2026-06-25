@@ -6,7 +6,7 @@ import { LINKEDIN_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact | Emil Kristensen",
-  description: "Get in touch with Emil Kristensen — available for freelance, full-time, and collaboration.",
+  description: "Get in touch with Emil Kristensen - available for freelance, full-time, and collaboration.",
 };
 
 const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
@@ -25,7 +25,7 @@ export default function ContactPage() {
             Let&apos;s build<br />something.
           </h1>
           <p className="text-[clamp(15px,1.8vw,17px)] leading-[1.75] text-[var(--fg-2)] font-light mb-10">
-            Whether you have a specific brief or just want to explore an idea — I&apos;d love to hear from you.
+            Whether you have a specific brief or just want to explore an idea - I&apos;d love to hear from you.
           </p>
 
           <div className="mb-14">
