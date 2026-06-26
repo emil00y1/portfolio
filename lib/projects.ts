@@ -44,43 +44,43 @@ export const projects: Project[] = [
     year: "2025",
     title: "EstateNews",
     cat: "Automated News Platform",
-    desc: "An AI-powered real estate news platform built entirely solo. A pipeline of agents scrapes curated Danish sources, filters for relevance, rewrites content through an LLM, generates images, and publishes - all without a human in the loop. Built as both a commercial product and my bachelor project.",
-    role: "Sole developer. Designed and built the entire platform - data ingestion, AI pipeline, editorial workflow, and the public-facing site.",
+    desc: "An AI-powered real estate news platform built entirely solo. A pipeline of agents scrapes curated Danish sources, filters for relevance, rewrites the content with an LLM, and generates a matching image - then adds it as a draft for a quick human review before it goes live. Built as both a commercial product and my bachelor project.",
+    role: "Sole developer. Designed and built the entire platform - architecture, data ingestion, AI pipeline, editorial workflow, the public-facing site, and ongoing maintenance.",
     highlights:
-      "Multi-model pipeline using GPT-4o, Gemini, and Claude depending on the task. Background jobs via Trigger.dev. Free sign-up required to read full articles. Around 200 users and several hundred articles published to date.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "OpenAI", "Gemini", "Claude", "Trigger.dev", "Mailgun"],
+      "Multi-model pipeline using Gemini and Claude depending on the task. Custom CMS for managing and reviewing articles. Background jobs via Trigger.dev. Free sign-up required to read full articles. Around 200 users and several hundred articles published to date.",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Gemini", "Claude", "Trigger.dev", "Mailgun"],
     link: "https://estatenews.dk",
     linkLabel: "Visit estatenews.dk ↗",
     imgClass: "ph-estatenews",
     caseStudy: {
       challenges: [
         {
-          title: "Publishing at a pace no single person can match",
-          body: "Real estate news moves daily. A one-person team can't keep up with the volume the market expects - but the output still needs to be accurate, relevant, and well-written enough to build reader trust.",
+          title: "A news platform, and how far AI could take it",
+          body: "The brief was a real estate news platform - and an open question of how far AI could be pushed to fill that need. Real estate news moves daily and a one-person team can't match the volume the market expects, so the real challenge was handing as much of the work as possible to AI while keeping the output accurate, relevant, and trustworthy.",
         },
         {
-          title: "Filtering signal from noise",
-          body: "Scraping a curated list of Danish real estate sources produces a lot of raw material. The system had to identify new content, determine whether it was relevant to the platform's audience, and discard anything that didn't meet the bar - before spending tokens on writing.",
+          title: "Scraping wildly inconsistent sources",
+          body: "The source pages are all very different, so the scraper had to handle a lot of different situations. Dates were a particular headache - formats and placement varied from site to site - and some pages were static while others were JavaScript-rendered, so the scraper had to reliably handle both.",
         },
       ],
       whatIBuilt: [
         {
           title: "A multi-stage autonomous pipeline",
-          body: "Trigger.dev background jobs scrape a curated list of Danish sources on a schedule. Each piece of content is analysed for freshness and relevance, then structured and passed to an LLM - drawing on GPT-4o, Gemini, and Claude depending on the task - to write the article. A separate model generates a matching image. The finished article is published automatically.",
+          body: "Trigger.dev background jobs scrape a curated list of Danish sources on a schedule. Each piece of content is analysed for freshness and relevance, then handed to the models: Gemini analyses the content and generates a matching image, and Claude writes the article. Rather than going straight live, each finished piece is added as a draft for a quick review before publishing.",
         },
         {
           title: "A reader-facing product with sign-up and email",
-          body: "Free registration gates full article access. Mailgun handles transactional and retention emails. The whole product - from pipeline to public site - was designed and built solo.",
+          body: "Free registration gates full article access. Mailgun handles transactional and retention emails. The whole product, from pipeline to public site, was designed and built solo.",
         },
       ],
       value: [
         {
-          title: "Hundreds of articles published, fully automatically",
-          body: "The platform has published several hundred articles without a single manual editorial step. Every article from ingestion to publication is handled by the pipeline.",
+          title: "Hundreds of articles, drafted end to end",
+          body: "The pipeline has produced several hundred articles, handling sourcing, writing, and imagery on its own. Each one lands as a draft rather than publishing blind, so the only human step left is a quick review before it goes live.",
         },
         {
-          title: "A product idea that became a bachelor project",
-          body: "EstateNews started as a real product concept and was later adopted as my bachelor project at KEA - the idea came first, the academic framing second.",
+          title: "A bachelor project - and a marketing channel",
+          body: "EstateNews started as a real product concept and was later adopted as my bachelor project at KEA, the idea coming first and the academic framing second. It also doubles as a marketing channel, putting the company's other products in front of a relevant real estate audience.",
         },
       ],
     },
