@@ -45,7 +45,7 @@ export default function CaseStudySection({
       variants={container}
     >
       <div className="grid grid-cols-1 min-[980px]:grid-cols-3 gap-x-[clamp(32px,5vw,72px)] gap-y-[clamp(28px,4vw,44px)]">
-        {/* Section label column — a heading + accent icon, no box */}
+        {/* Section label column - a heading + accent icon, no box */}
         <motion.div className="min-[980px]:pr-6" variants={item}>
           <span
             className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-[var(--brand-lt)] text-[var(--brand)] mb-5"

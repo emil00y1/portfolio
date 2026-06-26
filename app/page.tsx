@@ -11,8 +11,8 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <WorkSection />
-        <HowIWorkSection />
         <AboutSection />
+        <HowIWorkSection />
         <LibrariesSection />
       </main>
     </>
