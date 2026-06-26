@@ -14,7 +14,7 @@ const education = [
     school: "Erhvervsakademi København (KEA)",
     degree: "Bachelor in Web Development",
     years: "2024 - 2026",
-    detail: "Bachelor project: estatenews.dk",
+    detail: "Databases, Web Development, UX, Web Security, Full Stack, Dev Environments. Bachelor project: estatenews.dk",
   },
   {
     school: "Erhvervsakademi København (KEA)",
@@ -32,7 +32,7 @@ const education = [
     school: "Baltorp Business Gymnasium",
     degree: "HHX",
     years: "2016 - 2019",
-    detail: "English A, Danish A, International Economics A",
+    detail: "Danish A, English A, Marketing A, Business Economics A, International Economics A",
   },
 ];
 
@@ -109,9 +109,10 @@ export default function AboutPage() {
               <div className="flex flex-col gap-6">
                 <div className="text-[clamp(15px,1.8vw,17px)] leading-[1.8] text-[var(--fg-2)] font-light space-y-4">
                   <p>
-                    I hold a Bachelor in Web Development from KEA and an AP degree in Multimedia Design from the
-                    same institution. The combination gave me both the technical depth to build production systems
-                    and the design foundation to think about interfaces before writing a line of code.
+                    I hold a bachelor in web development and an AP degree in multimedia design, both from
+                    Copenhagen School of Design and Technology. The combination gave me both the technical depth
+                    to build production systems and the design foundation to think about interfaces before writing
+                    a line of code.
                   </p>
                   <p>
                     I started at CBS studying Markets and Cultural Analysis, but after a year I realised I wanted
