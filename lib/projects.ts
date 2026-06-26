@@ -91,10 +91,10 @@ export const projects: Project[] = [
     year: "2025",
     title: "Allégade 10",
     cat: "Restaurant & Hotel Website",
-    desc: "A ground-up rebuild of the website for Allégade 10, a restaurant and hotel in Frederiksberg, Copenhagen. Replaced a slow, broken WordPress site with a custom Next.js and Sanity CMS build. 3,400+ visitors and 10,000+ page views in its first three weeks live.",
+    desc: "A ground-up rebuild of the website for Allégade 10, a restaurant and hotel in Frederiksberg, Copenhagen. Replaced a slow, broken WordPress site with a custom Next.js and Sanity CMS build. 4,300+ visitors and 12,500+ page views in the last 30 days.",
     role: "Sole developer on a paid client engagement. Responsible for architecture, CMS setup, all frontend work, and ongoing iteration based on client feedback.",
     highlights:
-      "64% of visitors on mobile - the old site was effectively unusable on phones. Sanity CMS built with only the fields the team actually needs, no plugin debt. Links to third-party booking; full booking integration planned.",
+      "64% of visitors on mobile - the old site was effectively unusable on phones. Sanity CMS built with only the fields the team actually needs, no plugin debt. Links to third-party booking.",
     tags: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind CSS", "Framer Motion"],
     link: "https://allegade10.dk",
     linkLabel: "Visit allegade10.dk ↗",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
       whatIBuilt: [
         {
           title: "A clean rebuild on Next.js and Sanity",
-          body: "Replaced the WordPress template entirely. Sanity CMS was configured with only the content types and fields the team actually uses - menus, events, availability info - so editing is straightforward and there's nothing superfluous to get lost in. No plugin debt, no stale dependencies.",
+          body: "Replaced the WordPress template entirely. Sanity CMS was configured with only the content types and fields the team actually uses, menus, events, availability info, so editing is straightforward. No plugin debt, no stale dependencies.",
         },
         {
           title: "A mobile-first experience built around real visitor data",
@@ -122,8 +122,8 @@ export const projects: Project[] = [
       ],
       value: [
         {
-          title: "3,400+ visitors and 10,000+ page views in the first three weeks",
-          body: "Early traffic data shows strong engagement. The site has gone through multiple iterations since launch based on client and user feedback - ongoing rather than handed off.",
+          title: "4,300+ visitors and 12,500+ page views in the last 30 days",
+          body: "Early traffic data shows strong engagement. The site has gone through multiple smaller iterations since launch based on client and user feedback.",
         },
         {
           title: "A team that can own their own content",
