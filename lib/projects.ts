@@ -141,7 +141,7 @@ export const projects: Project[] = [
     desc: "A set of automation and AI integration projects for a single client in the commercial real estate space, built under NDA. The work centres on eliminating manual, repetitive workflows using a combination of LLMs, third-party APIs, and internal systems.",
     role: "Sole developer. Working directly with the client to identify bottlenecks, design solutions, and build and iterate in production.",
     highlights:
-      "Automated web crawler creation flow: what was a manual, field-by-field process is now handled by AI from a single input. Invoice automation: new and recurring invoices generated and dispatched without human involvement. Ongoing engagement, 2025-2026.",
+      "Automated web crawler creation flow: what was a manual, field-by-field process is now handled by AI from a single input. Building new features with built-in LLM and AI capabilities into the client's existing product. Invoice automation: new and recurring invoices can be generated and dispatched without human involvement. Ongoing engagement, 2025-2026.",
     tags: ["AI / LLM", "Automation", "n8n", "Node.js", "Next.js", "React", "Vercel", "Railway", "REST APIs"],
     link: null,
     linkLabel: "Get in touch to learn more →",
@@ -151,7 +151,7 @@ export const projects: Project[] = [
       challenges: [
         {
           title: "Manual processes slowing down a lean team",
-          body: "The client operates with a small team in a data-heavy industry. Several of their core workflows - creating web crawler configurations, generating invoices - required significant manual effort per task, with no room to scale without adding headcount.",
+          body: "The client operates with a small team in a data-heavy industry. Several of their core workflows, creating web crawler configurations, generating invoices, required significant manual effort per task, with no room to scale without adding headcount.",
         },
         {
           title: "Integrating with systems that already exist",
@@ -165,7 +165,7 @@ export const projects: Project[] = [
         },
         {
           title: "Invoice generation and dispatch",
-          body: "New and recurring invoices are now created and sent automatically, using a combination of LLM generation, third-party billing APIs, and internal data. The client's team no longer touches the invoicing flow for standard cases.",
+          body: "New and recurring invoices can now be created and sent automatically, using a combination of LLM generation, third-party billing APIs, and internal data, so the client's team won't need to touch the invoicing flow for standard cases.",
         },
       ],
       value: [
