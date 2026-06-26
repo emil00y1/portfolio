@@ -38,7 +38,7 @@ export default function AboutSection() {
               </p>
               <p>
                 I take ownership from architecture to delivery and communicate clearly across technical and
-                non-technical teams. Outside of the code I&apos;m pretty down to earth - I like keeping things
+                non-technical teams. Outside of the code I&apos;m down to earth - I like keeping things
                 simple, building things I&apos;d actually use, and learning something new with every project.
               </p>
             </div>
