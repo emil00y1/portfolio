@@ -112,7 +112,8 @@ export default function Nav() {
         </ul>
 
         <button
-          className={`burger flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[200] items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm${menuOpen ? " open" : ""}`}
+          data-menu-toggle
+          className={`burger flex md:hidden flex-col gap-[5px] cursor-pointer bg-transparent border-none p-1 z-[200] pointer-events-auto items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)] focus-visible:rounded-sm${menuOpen ? " open" : ""}`}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           aria-controls="mobile-nav-menu"
@@ -128,6 +129,17 @@ export default function Nav() {
         showCloseButton={false}
         id="mobile-nav-menu"
         className="menu-overlay open !inset-0 !w-full !max-w-none border-none flex flex-col justify-center items-start p-[clamp(40px,10vw,80px)] bg-[var(--bg)] dark:bg-[#111111] z-[190] opacity-100 pointer-events-auto gap-0 transition-opacity duration-[400ms]"
+        onPointerDownOutside={(e) => {
+          // The burger sits outside the dialog and toggles the menu itself —
+          // don't let Radix also treat clicking it as an outside-dismiss (which
+          // would close then immediately reopen).
+          const target = e.detail.originalEvent.target as HTMLElement | null;
+          if (target?.closest("[data-menu-toggle]")) e.preventDefault();
+        }}
+        onInteractOutside={(e) => {
+          const target = e.detail.originalEvent.target as HTMLElement | null;
+          if (target?.closest("[data-menu-toggle]")) e.preventDefault();
+        }}
       >
         <SheetTitle className="sr-only">Navigation menu</SheetTitle>
 
