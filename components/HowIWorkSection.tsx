@@ -18,7 +18,7 @@ const steps = [
   {
     num: "03",
     title: "Own the full stack",
-    body: "I handle both database schemas, API design and the interface. Fewer handoff gaps, faster decisions, and a product that holds together end to end.",
+    body: "I handle database schemas, API design and the interface. Fewer handoff gaps, faster decisions, and a product that holds together end to end.",
   },
   {
     num: "04",
