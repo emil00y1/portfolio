@@ -14,7 +14,7 @@ const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 const PREVIEWS: Record<string, { src: string; url: string; alt: string }> = {
   estatenews: { src: "/estatenews-live.webp", url: "estatenews.dk", alt: "EstateNews preview" },
   allegade: { src: "/allegade10-live.webp", url: "allegade10.dk", alt: "Allégade 10 preview" },
-  catacrawl: { src: "/catacrawl-live.webp", url: "catacrawl.vercel.app", alt: "Catacrawl preview" },
+  catacrawl: { src: "/catacrawl-live.png", url: "catacrawl.vercel.app", alt: "Catacrawl preview" },
 };
 
 export default function WorkSection() {

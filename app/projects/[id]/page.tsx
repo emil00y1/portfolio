@@ -13,7 +13,7 @@ const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 const SCREENSHOTS: Record<string, { src: string; ogSrc: string; url: string }> = {
   estatenews: { src: "/estatenews-live.webp", ogSrc: "/estatenews-live.png", url: "estatenews.dk" },
   allegade: { src: "/allegade10-live.webp", ogSrc: "/allegade10-live.png", url: "allegade10.dk" },
-  catacrawl: { src: "/catacrawl-live.webp", ogSrc: "/catacrawl-live.png", url: "catacrawl.vercel.app" },
+  catacrawl: { src: "/catacrawl-live.png", ogSrc: "/catacrawl-live.png", url: "catacrawl.vercel.app" },
 };
 
 export function generateStaticParams() {
