@@ -7,7 +7,7 @@ const jakarta = { fontFamily: "var(--font-jakarta), sans-serif" };
 export default function LibrariesSection() {
   return (
     <motion.section
-      className="py-[clamp(48px,8vh,80px)] overflow-hidden"
+      className="pt-[clamp(48px,8vh,80px)] pb-[clamp(100px,16vh,160px)] overflow-hidden"
       id="libraries"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
